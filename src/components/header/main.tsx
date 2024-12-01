@@ -1,20 +1,43 @@
+import { Atendimento, Institucional, Produtos } from "./menu-sections";
+
 const Header = () => {
   return (
-    <div className="navbar bg-base-300 rounded-box">
-      <div className="flex-1 px-2 lg:flex-none">
-        <a className="text-lg font-bold">Hackaton de corno</a>
-      </div> 
-      <div className="flex justify-end flex-1 px-2">
-        <div className="flex items-stretch">
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost rounded-btn">Documentações</div>
-            <ul className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-              <li><a target="_blank" href="https://tanstack.com/query/v3/docs/react/overview">React Query</a></li> 
-              <li><a target="_blank" href="https://clerk.com/docs">{"Clerk (Para Login)"}</a></li>
-              <li><a target="_blank" href="https://daisyui.com/components/">DaisyUI</a></li>
-            </ul>
+    <div className="navbar bg-base-100">
+      {/* Mobile Menu */}
+      <div className="navbar max-w-max">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
           </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            <Produtos />
+            <Atendimento />
+            <Institucional />
+          </ul>
         </div>
+        <a className="btn btn-ghost text-xl">daisyUI</a>
+      </div>
+      {/* Desktop Menu */}
+      <div className="navbar hidden lg:flex">
+        <Produtos />
+        <Atendimento />
+        <Institucional />
+      </div>
+      <div className="navbar-end">
+        <a className="btn">Button</a>
       </div>
     </div>
   )
