@@ -86,8 +86,32 @@ const Header = ({ children }: ChildNodes) => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
-        <ul className="menu bg-base-200 min-h-full w-80 p-4">
+        <ul className="menu bg-base-200 min-h-full w-80">
           {/* Sidebar content here */}
+          <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay">Lorem Ipsum</label>
+          <div className="join join-vertical w-full">
+            <div className="collapse collapse-arrow join-item border-base-300 border">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title font-medium">Click to open this one and close others</div>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border-base-300 border">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title font-medium">Click to open this one and close others</div>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+            <div className="collapse collapse-arrow join-item border-base-300 border">
+              <input type="radio" name="my-accordion-4" />
+              <div className="collapse-title font-medium">Click to open this one and close others</div>
+              <div className="collapse-content">
+                <p>hello</p>
+              </div>
+            </div>
+          </div>
         </ul>
       </div>
     </div>
