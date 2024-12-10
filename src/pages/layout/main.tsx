@@ -13,8 +13,7 @@ const Layout = ({children}: ChildNodes) => {
   return (
     <>
       <QueryClientProvider client={apiClient}>
-        <Header />
-        {children}
+        <Header children={children}/>
       </QueryClientProvider>
     </>
   )

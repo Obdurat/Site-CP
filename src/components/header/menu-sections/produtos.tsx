@@ -1,56 +1,63 @@
+import { BeakerIcon } from '@heroicons/react/24/solid'
+
 export const Produtos = () => {
   return (
     <ul className="menu menu-horizontal px-1">
-          <li>
-            <details>
-              <summary>Produtos</summary>
-              <ul className="menu xl:menu-horizontal bg-base-200 rounded-box lg:min-w-max">
-                <li>
-                  <a>Solutions</a>
-                  <ul>
-                    <li><a>Design</a></li>
-                    <li><a>Development</a></li>
-                    <li><a>Hosting</a></li>
-                    <li><a>Domain register</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a>Enterprise</a>
-                  <ul>
-                    <li><a>CRM software</a></li>
-                    <li><a>Marketing management</a></li>
-                    <li><a>Security</a></li>
-                    <li><a>Consulting</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a>Products</a>
-                  <ul>
-                    <li><a>UI Kit</a></li>
-                    <li><a>Wordpress themes</a></li>
-                    <li><a>Wordpress plugins</a></li>
-                    <li>
-                      <a>Open source</a>
-                      <ul>
-                        <li><a>Auth management system</a></li>
-                        <li><a>VScode theme</a></li>
-                        <li><a>Color picker app</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a>Company</a>
-                  <ul>
-                    <li><a>About us</a></li>
-                    <li><a>Contact us</a></li>
-                    <li><a>Privacy policy</a></li>
-                    <li><a>Press kit</a></li>
-                  </ul>
-                </li>
+      <li>
+        <details>
+          <summary>Produtos</summary>
+          <ul className="menu xl:menu-horizontal bg-base-200 rounded-box lg:min-w-max">
+            <li>
+              <div>
+                <BeakerIcon className="w-6 text-blue-500"/>
+                <a>Lorem Title</a>
+              </div>
+              <ul>
+                <li><a>P #1</a></li>
+                <li><a>P #2</a></li>
+                <li><a>P #3</a></li>
+                <li><a>P #4</a></li>
               </ul>
-            </details>
-          </li>
-        </ul>
+            </li>
+            <li>
+            <div>
+                <BeakerIcon className="w-6 text-blue-500"/>
+                <a>Lorem Title</a>
+              </div>
+              <ul>
+                <li><a>P #1</a></li>
+                <li><a>P #2</a></li>
+                <li><a>P #3</a></li>
+                <li><a>P #4</a></li>
+              </ul>
+            </li>
+            <li>
+            <div>
+                <BeakerIcon className="w-6 text-blue-500"/>
+                <a>Lorem Title</a>
+              </div>
+              <ul>
+                <li><a>P #1</a></li>
+                <li><a>P #2</a></li>
+                <li><a>P #3</a></li>
+                <li><a>P #4</a></li>
+              </ul>
+            </li>
+            <li>
+            <div>
+                <BeakerIcon className="w-6 text-blue-500"/>
+                <a>Lorem Title</a>
+              </div>
+              <ul>
+                <li><a>P #1</a></li>
+                <li><a>P #2</a></li>
+                <li><a>P #3</a></li>
+                <li><a>P #4</a></li>
+              </ul>
+            </li>
+          </ul>
+        </details>
+      </li>
+    </ul>
   )
 }
