@@ -3,7 +3,7 @@ import { MoveRight } from 'lucide-react';
 import { useRef } from 'react';
 import { Link } from 'react-router';
 
-const OurBusinessSectionContent = {
+const OurOfficesSectionContent = {
   icon: (
     <svg
       width="48"
@@ -34,12 +34,12 @@ const OurBusinessSectionContent = {
   ),
   title: {
     text: {
-      'pt-br': 'Entenda nosso negócio',
+      'pt-br': 'Nossos escritórios',
     },
   },
   subtitle: {
     text: {
-      'pt-br': 'Conheça as soluções que a nossa empresa oferece',
+      'pt-br': 'Conheça nossos escritórios e saiba onde estamos localizados.',
     },
   },
 
@@ -67,7 +67,7 @@ const OurBusinessSectionContent = {
   },
 };
 
-export function OurBusinessSection() {
+export function OurOfficesSection() {
   const componentRef = useRef(null);
 
   useAnimationToRef(componentRef);
@@ -75,39 +75,40 @@ export function OurBusinessSection() {
     <section
       ref={componentRef}
       className="flex flex-col gap-8 items-center bg-gray-100 py-20"
+      id="nossos-escritorios"
     >
       <div className="flex flex-col gap-4 items-start px-8 container">
         <div className="flex gap-4 items-center self-start">
           <div className="bg-white rounded-lg p-2">
-            {OurBusinessSectionContent.icon}
+            {OurOfficesSectionContent.icon}
           </div>
           <h2 className="text-3xl font-bold text-gray-900">
-            {OurBusinessSectionContent.title.text['pt-br']}
+            {OurOfficesSectionContent.title.text['pt-br']}
           </h2>
         </div>
         <p className="text-gray-600">
-          {OurBusinessSectionContent.subtitle.text['pt-br']}
+          {OurOfficesSectionContent.subtitle.text['pt-br']}
         </p>
       </div>
 
       <div className="flex gap-4 px-8 container bg-white py-16 rounded-[2rem] shadow-lg w-full lg:flex-row max-sm:flex-col sm:flex-col">
         <img
-          src={OurBusinessSectionContent.subContainer.image.src}
-          alt={OurBusinessSectionContent.subContainer.image.alt}
+          src={OurOfficesSectionContent.subContainer.image.src}
+          alt={OurOfficesSectionContent.subContainer.image.alt}
           className="w-full h-full object-cover"
         />
         <div className="flex flex-col gap-4 items-start justify-center">
           <h3 className="text-3xl font-bold text-gray-900 max-sm:text-2xl max-sm:text-wrap">
-            {OurBusinessSectionContent.subContainer.title.text['pt-br']}
+            {OurOfficesSectionContent.subContainer.title.text['pt-br']}
           </h3>
           <p className="text-gray-600">
-            {OurBusinessSectionContent.subContainer.subtitle.text['pt-br']}
+            {OurOfficesSectionContent.subContainer.subtitle.text['pt-br']}
           </p>
           <Link
             to="/blog"
             className="text-cyan-500 p-0 text-xl w-fit flex items-center gap-2"
           >
-            {OurBusinessSectionContent.subContainer.cta.text['pt-br']}
+            {OurOfficesSectionContent.subContainer.cta.text['pt-br']}
             <MoveRight className="size-4" />
           </Link>
         </div>

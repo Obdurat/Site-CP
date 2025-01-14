@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router';
 import { useRef } from 'react';
 import { useAnimationToRef } from '@/hooks/use-animation-to-ref';
+import { CreditSlider } from '../creditSlider';
 
 const mainContent = {
   hero: {
@@ -87,39 +88,36 @@ export function Main() {
   useAnimationToRef(componentRef);
   return (
     <section>
-      <section className="bg-blue-950 h-[660px] flex items-center justify-center">
-        <div
-          ref={componentRef}
-          className="container mx-auto flex items-center flex-col lg:flex-row justify-between gap-8"
-        >
-          <div className="mx-w-[448px] flex flex-col gap-4">
-            <p className="text-muted-foreground lg:text-xl text-xs">
-              {mainContent.hero.sub}
-            </p>
-            <h1 className="text-secondary lg:text-7xl text-3xl font-bold">
-              {mainContent.hero.title}
-            </h1>
-            <p className="text-white lg:text-xl text-xs">
-              {mainContent.hero.description}
-            </p>
-            <Button
-              className="bg-cyan-400 text-primary text-md w-fit hover:bg-cyan-500"
-              size="lg"
-            >
-              {mainContent.hero.cta}
-            </Button>
-          </div>
-          <div className="w-[50%] max-w-[448px] mr-8">
-            <img
-              src="/assets/images/hero.jpeg"
-              alt="Hero"
-              className="w-full h-full"
-            />
+      <section className="bg-blue-950 h-full flex items-center justify-center py-16">
+        <div>
+          <div
+            ref={componentRef}
+            className="container mx-auto flex items-center flex-col lg:flex-row justify-between gap-8"
+          >
+            <div className="md:w-[50%] w-[70%] max-w-[448px] mr-8">
+              <img
+                src="/assets/images/hero.jpeg"
+                alt="Hero"
+                className="w-full h-full"
+              />
+            </div>
+            <div className="mx-w-[448px] flex flex-col gap-4">
+              <p className="text-muted-foreground lg:text-xl text-xs">
+                {mainContent.hero.sub}
+              </p>
+              <h1 className="text-secondary lg:text-5xl text-3xl font-bold">
+                {mainContent.hero.title}
+              </h1>
+              <p className="text-white lg:text-xl text-xs">
+                {mainContent.hero.description}
+              </p>
+              <CreditSlider />
+            </div>
           </div>
         </div>
       </section>
       <section className="container mx-auto -mt-16 rounded-3xl relative z-10 bg-background shadow-md">
-        <div className="lg:p-16 p-8 flex flex-col gap-6">
+        <div className="lg:p-16 p-0 pt-6 flex flex-col gap-6">
           <h2 className="text-2xl font-bold">{mainContent.help.title}</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {mainContent.help.sections.map((section) => (
