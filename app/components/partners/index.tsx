@@ -93,7 +93,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
   return (
     <div
       className={cn(
-        'p-2 border-2 hover:border-2 group cursor-pointer hover:shadow-lg min-w-48 transition-all shadow-sm rounded-xl relative aspect-video duration-300 flex items-center justify-center',
+        'p-2 border-2 hover:border-2 flex-1 group cursor-pointer hover:shadow-lg min-w-48 transition-all shadow-sm rounded-xl relative aspect-video duration-300 flex items-center justify-center',
         showInfo && 'z-50 border-0 hover:border-0'
       )}
     >
@@ -119,20 +119,30 @@ function PartnerCard({ partner }: { partner: Partner }) {
   );
 }
 
-export function Partners() {
+type PartnersProps = {
+  title: string;
+  description?: string;
+};
+
+export function Partners({ title, description }: PartnersProps) {
   const componentRef = useRef(null);
 
   useAnimationToRef(componentRef);
   return (
-    <section ref={componentRef} className="container mx-auto lg:gap-44 gap-16">
+    <section
+      ref={componentRef}
+      className="container mx-auto lg:gap-44 gap-16"
+      id="parceiros"
+    >
       <div className="gap-16 flex flex-col">
         <div className="text-xl px-8 border-cyan-400 border-l-4 flex items-center w-full">
           <div className="flex flex-col gap-4 flex-1">
             <div className="flex justify-between sm:items-center flex-col sm:flex-row gap-4">
-              <span className="text-2xl font-bold text-gray-950">
-                Conhça nossos parceiros
+              <span className="text-2xl font-bold text-cpblue-400">
+                {title}
               </span>
             </div>
+            <p className="text-gray-500 text-xs">{description}</p>
           </div>
         </div>
         <div className="flex flex-wrap gap-6 items-center justify-center">

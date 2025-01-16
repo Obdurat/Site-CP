@@ -24,7 +24,7 @@ export default function Home() {
         <Main />
         <History />
         <Benefits />
-        <Partners />
+        <Partners title="Conheça nossos parceiros" />
         <Products />
         <ProductCards />
         <OurOfficesSection />
