@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 import { Slider } from '@/components/ui/slider';
 import { useAnimationToRef } from '../../hooks/use-animation-to-ref';
 import { Link } from 'react-router';
+import { SimulationModal } from '../simulationModal';
 
 type SliderProps = React.ComponentProps<typeof Slider>;
 
@@ -36,7 +37,7 @@ export function CreditSlider({ className, ...props }: SliderProps) {
                 </span>
               </div>
               <div className="flex gap-4 items-center">
-                <span className="text-xs font-bold text-gray-500">
+                <span className="text-xs font-bold text-gray-300">
                   {formatCurrency(100)}
                 </span>
                 <Slider
@@ -52,7 +53,7 @@ export function CreditSlider({ className, ...props }: SliderProps) {
                   className={cn('flex-1', className)}
                   {...props}
                 />
-                <span className="text-xs font-bold text-gray-500">
+                <span className="text-xs font-bold text-gray-300">
                   {formatCurrency(50000)}
                 </span>
               </div>
@@ -60,12 +61,7 @@ export function CreditSlider({ className, ...props }: SliderProps) {
           </div>
         </div>
         {showButton && (
-          <Link
-            to="/simulacao"
-            className=" text-primary text-md  hover:bg-cyan-400 bg-accent-foreground text-center py-2 rounded-lg w-fit px-4 bg-cyan-500"
-          >
-            Simule seu crédito AGORA
-          </Link>
+          <SimulationModal variant="cpcyan" cta="Simule seu crédito Agora!" />
         )}
       </div>
     </section>

@@ -1,13 +1,15 @@
-import { Hero } from '@/components/page/hero';
 import type { Route } from '../+types/root';
 import { Header } from '@/components/header';
-import { About } from '@/components/page/about';
-import { Advantage } from '@/components/page/advantage';
+import { InfoModal } from '@/components/infoModal';
+import { About } from '@/components/page/About/About';
+import { Advantage } from '@/components/page/Advantage/Advantage';
+import { BePartOfHistory } from '@/components/page/BePartOfHistory/BePartOfHistory';
+import { pagesData, type Paths } from '@/routes/data';
+import { Hero } from '@/components/page/Hero/Hero';
+import { SeeAlso } from '@/components/page/SeeAlso/SeeAlso';
 import { Partners } from '@/components/partners';
-import { BePartOfHistory } from '@/components/page/history';
-import { Footer } from '@/components/footer';
 import { HomeFooter } from '@/container/footer';
-import { SeeAlso } from '@/components/page/seeAlso';
+import { useLocation } from 'react-router';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -16,22 +18,29 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Page() {
+export default function ProductPage() {
+  const { pathname } = useLocation();
+
+  const path = pathname.split('/').pop() as Paths;
+
+  const data = pagesData[path];
+
   return (
     <div>
       <Header />
       <main className="flex flex-col lg:gap-32 gap-20 pt-20">
-        <Hero />
-        <About />
-        <Advantage />
+        <Hero data={data.hero} />
+        <About data={data.about} />
+        <Advantage data={data.advantages} />
         <Partners
           title="Consignado Público: parcerias estratégicas"
           description="Atenção: somos prestadores de serviços das instituições financeiras:"
         />
         <BePartOfHistory />
-        <SeeAlso />
+        <SeeAlso data={data.seeAlso} />
       </main>
       <HomeFooter />
+      <InfoModal />
     </div>
   );
 }

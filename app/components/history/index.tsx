@@ -20,12 +20,12 @@ export function History() {
   const componentRef = useRef(null);
   useAnimationToRef(componentRef);
   return (
-    <section className="">
+    <section className="mb-20">
       <div
         ref={componentRef}
         className="container mx-auto grid grid-cols-1 lg:grid-cols-2 lg:gap-44 gap-16"
       >
-        <div className="w-auto aspect-square overflow-hidden rounded-tr-[30%] rounded-bl-[30%] rounded-tl-[10%] rounded-br-[10%]">
+        <div className="w-auto aspect-square overflow-hidden rounded-lg">
           <img
             src={historyContent.image}
             alt="Hero"

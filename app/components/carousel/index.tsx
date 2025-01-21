@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
+  Carousel,
+  CarouselContent,
+  CarouselItem,
 } from '@/components/ui/carousel';
 import { cn } from '@/lib/utils';
 import { useAnimationToRef } from '@/hooks/use-animation-to-ref';
@@ -23,7 +23,10 @@ export function CarouselContainer({
         className={cn('w-full h-[500px] flex items-center', className)}
       >
         {components.map((component, index) => (
-          <CarouselItem key={index} className="pl-4 basis-11/12 lg:basis-1/3">
+          <CarouselItem
+            key={Math.random()}
+            className="pl-4 basis-11/12 lg:basis-1/3"
+          >
             {component}
           </CarouselItem>
         ))}

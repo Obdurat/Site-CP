@@ -22,7 +22,11 @@ export function FooterMobileLinks({
           <div className="flex flex-col gap-2">
             {links.map((link: any) => {
               return (
-                <a href={link.link} className="text-border text-lg text-white">
+                <a
+                  key={Math.random()}
+                  href={link.link}
+                  className="text-border text-lg text-white"
+                >
                   {link.label}
                 </a>
               );

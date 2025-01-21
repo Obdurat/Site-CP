@@ -22,6 +22,7 @@ import { cn } from '@/lib/utils';
 
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { gsap } from 'gsap';
+import { SimulationModal } from '../simulationModal';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -50,25 +51,6 @@ type Mock = {
   };
 };
 
-// - *Produtos:*
-//   - Consignado: Consignado Público, Consignado Federal, Consignado Privado, Consignado INSS.
-//   - Imobiliário: Financiamento de Imóvel, Home Equity/Crédito com garantia de Imóvel.
-//   - Crédito: Crédito Pessoal, FGTS, Financiamento/Refinanciamento de Veículos.
-//   - Cartões: Cartão Consignado, Cartão Benefício Consignado, Cartão Credcesta.
-//   - Consórcio/Seguros: Consórcio, Seguros CPCréditos.
-//   - Outros: Painel Solar, Capital de Giro, Operações Estruturadas.
-
-// - *Institucional:*
-//   - Nossa História: Texto explicando missão, visão, valores, números e conquistas.
-//   - Nossa Diretoria: Texto sobre Paulo, Lucas, Alessandro e Wellington.
-//   - Trabalhe Conosco: Encaminhamento para o LinkedIn.
-//   - Seja Parceiro: Encaminhamento para o LinkedIn.
-//   - Privacidade e Compliance: Texto padrão de compliance.
-
-// - *Nossos Escritórios:*
-//   - Nossos Escritórios: Endereços com Maps e GMN.
-//   - Fale Conosco: Contato via WhatsApp e redes sociais.
-
 const mock: Mock = {
   products: {
     sections: [
@@ -78,19 +60,19 @@ const mock: Mock = {
         links: [
           {
             title: 'Consignado Público',
-            href: '/consignado/consignado-publico',
+            href: '/produto/consignado/consignado-publico',
           },
           {
             title: 'Consignado Federal',
-            href: '/consignado/consignado-federal',
+            href: '/produto/consignado/consignado-federal',
           },
           {
             title: 'Consignado Privado',
-            href: '/consignado/consignado-privado',
+            href: '/produto/consignado/consignado-privado',
           },
           {
             title: 'Consignado INSS',
-            href: '/consignado/consignado-inss',
+            href: '/produto/consignado/consignado-inss',
           },
         ],
       },
@@ -100,11 +82,11 @@ const mock: Mock = {
         links: [
           {
             title: 'Financiamento de Imóvel',
-            href: '/credito/financiamento-de-imovel',
+            href: '/produto/imobiliario/financiamento-de-imovel',
           },
           {
             title: 'Home Equity/Crédito com garantia de Imóvel',
-            href: '/credito/home-equity',
+            href: '/produto/imobiliario/home-equity',
           },
         ],
       },
@@ -114,15 +96,15 @@ const mock: Mock = {
         links: [
           {
             title: 'Crédito Pessoal',
-            href: '/credito/credito-pessoal',
+            href: '/produto/credito/credito-pessoal',
           },
           {
             title: 'FGTS',
-            href: '/credito/fgts',
+            href: '/produto/credito/fgts',
           },
           {
             title: 'Financiamento/Refinanciamento de Veículos',
-            href: '/credito/financiamento-veiculos',
+            href: '/produto/credito/financiamento-refinanciamento-veiculos',
           },
         ],
       },
@@ -132,15 +114,15 @@ const mock: Mock = {
         links: [
           {
             title: 'Cartão Consignado',
-            href: '/cartoes/cartao-consignado',
+            href: '/produto/cartoes/cartao-consignado',
           },
           {
             title: 'Cartão Benefício Consignado',
-            href: '/cartoes/cartao-beneficio-consignado',
+            href: '/produto/cartoes/cartao-beneficio-consignado',
           },
           {
             title: 'Cartão Credcesta',
-            href: '/cartoes/cartao-credcesta',
+            href: '/produto/cartoes/cartao-credcesta',
           },
         ],
       },
@@ -150,11 +132,11 @@ const mock: Mock = {
         links: [
           {
             title: 'Consórcio',
-            href: '/consorcio',
+            href: '/produto/consorcio',
           },
           {
             title: 'Seguros CPCréditos',
-            href: '/seguros-cpcreditos',
+            href: '/produto/seguros-cpcreditos',
           },
         ],
       },
@@ -164,15 +146,15 @@ const mock: Mock = {
         links: [
           {
             title: 'Painel Solar',
-            href: '/outros/painel-solar',
+            href: '/produto/outros/painel-solar',
           },
           {
             title: 'Capital de Giro',
-            href: '/outros/capital-de-giro',
+            href: '/produto/outros/capital-de-giro',
           },
           {
             title: 'Operações Estruturadas',
-            href: '/outros/operacoes-estruturadas',
+            href: '/produto/outros/operacoes-estruturadas',
           },
         ],
       },
@@ -194,13 +176,13 @@ const mock: Mock = {
       },
       {
         title: 'Trabalhe Conosco',
-        href: '/trabalhe-conosco',
+        href: 'https://www.linkedin.com/company/cpcreditos/',
         description: 'Venha fazer parte do nosso time',
         icon: <Building2 />,
       },
       {
         title: 'Seja Parceiro',
-        href: '/seja-parceiro',
+        href: 'https://www.linkedin.com/company/cpcreditos/',
         description: 'Seja um parceiro da empresa',
         icon: <Building2 />,
       },
@@ -245,27 +227,29 @@ export function HeaderLink({
   ...props
 }: HeaderLinkProps) {
   const { className, ...rest } = props;
-  console.log('HeaderLinkProps', className);
+
+  const isExternal = href.startsWith('http');
 
   return (
-    <Link to={href} {...rest}>
-      <a
-        className={cn(
-          'flex items-start gap-4 group text-muted-foreground select-none space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-          className
-        )}
-      >
-        {icon && <div className="mt-1">{icon}</div>}
-        <div className="flex-1">
-          <div className="text-sm text-inherit group-hover:text-primary font-medium leading-none flex justify-between items-center">
-            {title}
-            <ArrowRight className="size-4 min-w-4 transition-all opacity-0 group-hover:opacity-100 delay-100 transform group-hover:translate-x-1" />
-          </div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {description}
-          </p>
+    <Link
+      to={href}
+      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      {...rest}
+      className={cn(
+        'flex items-start gap-4 group text-muted-foreground select-none space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+        className
+      )}
+    >
+      {icon && <div className="mt-1">{icon}</div>}
+      <div className="flex-1">
+        <div className="text-sm text-inherit group-hover:text-primary font-medium leading-none flex justify-between items-center">
+          {title}
+          <ArrowRight className="size-4 min-w-4 transition-all opacity-0 group-hover:opacity-100 delay-100 transform group-hover:translate-x-1" />
         </div>
-      </a>
+        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          {description}
+        </p>
+      </div>
     </Link>
   );
 }
@@ -274,7 +258,7 @@ export function HeaderProductsLinks() {
   return (
     <div className="grid grid-cols-3 grid-rows-1 gap-2 p-4 md:w-[800px] ">
       {mock.products.sections.map(({ title, icon, links }) => (
-        <ul>
+        <ul key={Math.random()}>
           <div>
             <div className="flex items-center gap-2 p-2">
               {icon}
@@ -282,7 +266,11 @@ export function HeaderProductsLinks() {
             </div>
           </div>
           {links.map((link) => (
-            <HeaderLink key={link.title} title={link.title} href={link.href} />
+            <HeaderLink
+              key={Math.random()}
+              title={link.title}
+              href={link.href}
+            />
           ))}
         </ul>
       ))}
@@ -294,7 +282,7 @@ export function HeaderInstitutionalLinks() {
   return (
     <div className="grid grid-cols-1 grid-rows-1 gap-3 p-4 md:w-[800px] lg:w-[600px]">
       {mock.institutional.links.map((link) => (
-        <HeaderLink key={link.title} {...link} />
+        <HeaderLink key={Math.random()} {...link} />
       ))}
     </div>
   );
@@ -304,7 +292,7 @@ export function HeaderOfficesLinks() {
   return (
     <div className="grid grid-cols-1 grid-rows-1 gap-3 p-4 md:w-[800px] lg:w-[600px]">
       {mock.offices.links.map((link) => (
-        <HeaderLink key={link.title} {...link} />
+        <HeaderLink key={Math.random()} {...link} />
       ))}
     </div>
   );
@@ -338,7 +326,7 @@ export function MobileNavLinks({
       </CollapsibleTrigger>
       <CollapsibleContent className="space-y-2">
         {links.map((link) => (
-          <HeaderLink key={link.title} {...link} className="ml-4" />
+          <HeaderLink key={Math.random()} {...link} className="ml-4" />
         ))}
       </CollapsibleContent>
     </Collapsible>
@@ -367,6 +355,7 @@ export function MobileNav() {
               <CollapsibleContent className="space-y-2">
                 {mock.products.sections.map(({ title, icon, links }) => (
                   <MobileNavLinks
+                    key={Math.random()}
                     className="pl-4"
                     links={links}
                     label={title}
@@ -428,6 +417,7 @@ export function Header() {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
+        <SimulationModal cta="Simule seu crédito" />
         <MobileNav />
       </div>
     </header>

@@ -42,7 +42,10 @@ const benefitsContent = {
 export function Benefits() {
   const cards = useMemo(() => {
     return benefitsContent.cards.map((card) => (
-      <div className="flex gap-4 shadow-[0_0px_50px_-20px_rgba(0,0,0,0.2)] p-4 sm:p-8 rounded-3xl max-w-[600px] min-h-[460px] sm:min-h-fit h-full flex-col sm:flex-row ">
+      <div
+        key={Math.random()}
+        className="flex gap-4 shadow-[0_0px_50px_-20px_rgba(0,0,0,0.2)] p-4 sm:p-8 rounded-3xl max-w-[600px] min-h-[460px] sm:min-h-fit h-full flex-col sm:flex-row "
+      >
         <div className="mt-1 bg-cyan-100 p-3 size-fit rounded-md">
           {card.icon}
         </div>

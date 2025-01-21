@@ -1,4 +1,16 @@
+import type { FC } from 'react';
 import type React from 'react';
+
+type IconProps = {
+  icon: React.ReactNode;
+  className?: string;
+};
+
+const Icon: FC<IconProps> = ({ icon, className }) => {
+  return <div className={className}>{icon}</div>;
+};
+
+export default Icon;
 
 export function AppStoreIcon(props: React.ComponentProps<'svg'>) {
   return (
@@ -69,8 +81,8 @@ export function PlayStoreIcon(props: React.ComponentProps<'svg'>) {
       {...props}
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M0.167214 2.50318C0.0589753 2.75306 0 3.05958 0 3.41493V24.0518C0 24.4086 0.0596694 24.7144 0.168602 24.9636L11.1749 13.7337L0.167214 2.50318ZM0.803461 25.6339C1.21144 25.8123 1.74361 25.7564 2.32366 25.4202L15.2713 17.9131L11.8209 14.3928L0.803461 25.6339ZM16.097 17.436L20.1587 15.0815C21.4361 14.3397 21.4361 13.1278 20.1587 12.3866L16.0949 10.0308L12.4668 13.733L16.097 17.4353V17.436ZM15.2699 9.55298L2.32366 2.0473C1.74292 1.71035 1.21144 1.65443 0.803461 1.83282L11.8209 13.0733L15.2706 9.55369L15.2699 9.55298Z"
         fill="white"
       />
