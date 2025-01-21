@@ -52,6 +52,115 @@ type Mock = {
 };
 
 const mock: Mock = {
+  // products: {
+  //   sections: [
+  //     {
+  //       title: 'Consignado',
+  //       icon: <HandCoins />,
+  //       links: [
+  //         {
+  //           title: 'Consignado Público',
+  //           href: '/produto/consignado/consignado-publico',
+  //         },
+  //         {
+  //           title: 'Consignado Federal',
+  //           href: '/produto/consignado/consignado-federal',
+  //         },
+  //         {
+  //           title: 'Consignado Privado',
+  //           href: '/produto/consignado/consignado-privado',
+  //         },
+  //         {
+  //           title: 'Consignado INSS',
+  //           href: '/produto/consignado/consignado-inss',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: 'Imobiliário',
+  //       icon: <HandCoins />,
+  //       links: [
+  //         {
+  //           title: 'Financiamento de Imóvel',
+  //           href: '/produto/imobiliario/financiamento-de-imovel',
+  //         },
+  //         {
+  //           title: 'Home Equity/Crédito com garantia de Imóvel',
+  //           href: '/produto/imobiliario/home-equity',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: 'Crédito',
+  //       icon: <HandCoins />,
+  //       links: [
+  //         {
+  //           title: 'Crédito Pessoal',
+  //           href: '/produto/credito/credito-pessoal',
+  //         },
+  //         {
+  //           title: 'FGTS',
+  //           href: '/produto/credito/fgts',
+  //         },
+  //         {
+  //           title: 'Financiamento/Refinanciamento de Veículos',
+  //           href: '/produto/credito/financiamento-refinanciamento-veiculos',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: 'Cartões',
+  //       icon: <HandCoins />,
+  //       links: [
+  //         {
+  //           title: 'Cartão Consignado',
+  //           href: '/produto/cartoes/cartao-consignado',
+  //         },
+  //         {
+  //           title: 'Cartão Benefício Consignado',
+  //           href: '/produto/cartoes/cartao-beneficio-consignado',
+  //         },
+  //         {
+  //           title: 'Cartão Credcesta',
+  //           href: '/produto/cartoes/cartao-credcesta',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: 'Consórcio/Seguros',
+  //       icon: <HandCoins />,
+  //       links: [
+  //         {
+  //           title: 'Consórcio',
+  //           href: '/produto/consorcio',
+  //         },
+  //         {
+  //           title: 'Seguros CPCréditos',
+  //           href: '/produto/seguros-cpcreditos',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: 'Outros',
+  //       icon: <HandCoins />,
+  //       links: [
+  //         {
+  //           title: 'Painel Solar',
+  //           href: '/produto/outros/painel-solar',
+  //         },
+  //         {
+  //           title: 'Capital de Giro',
+  //           href: '/produto/outros/capital-de-giro',
+  //         },
+  //         {
+  //           title: 'Operações Estruturadas',
+  //           href: '/produto/outros/operacoes-estruturadas',
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+
   products: {
     sections: [
       {
@@ -82,7 +191,7 @@ const mock: Mock = {
         links: [
           {
             title: 'Financiamento de Imóvel',
-            href: '/produto/imobiliario/financiamento-de-imovel',
+            href: '/produto/imobiliario/financiamento-imovel',
           },
           {
             title: 'Home Equity/Crédito com garantia de Imóvel',
@@ -114,29 +223,35 @@ const mock: Mock = {
         links: [
           {
             title: 'Cartão Consignado',
-            href: '/produto/cartoes/cartao-consignado',
+            href: '/produto/cartao/cartao-consignado',
           },
           {
             title: 'Cartão Benefício Consignado',
-            href: '/produto/cartoes/cartao-beneficio-consignado',
+            href: '/produto/cartao/cartao-beneficio-consignado',
           },
           {
             title: 'Cartão Credcesta',
-            href: '/produto/cartoes/cartao-credcesta',
+            href: '/produto/cartao/cartao-credcesta',
           },
         ],
       },
       {
-        title: 'Consórcio/Seguros',
+        title: 'Consórcio',
         icon: <HandCoins />,
         links: [
           {
             title: 'Consórcio',
             href: '/produto/consorcio',
           },
+        ],
+      },
+      {
+        title: 'Seguros',
+        icon: <HandCoins />,
+        links: [
           {
             title: 'Seguros CPCréditos',
-            href: '/produto/seguros-cpcreditos',
+            href: '/produto/seguros',
           },
         ],
       },

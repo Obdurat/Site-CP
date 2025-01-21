@@ -23,12 +23,26 @@ export default [
   route('produto/imobiliario/home-equity', 'routes/home-equity.tsx'),
 
   route('produto/credito/credito-pessoal', 'routes/credito-pessoal.tsx'),
-  route(
-    'produto/credito/fgts-saque-aniversario',
-    'routes/fgts-saque-aniversario.tsx'
-  ),
+  route('produto/credito/fgts', 'routes/fgts.tsx'),
   route(
     'produto/credito/financiamento-refinanciamento-veiculos',
-    'routes/credito/financiamento-refinanciamento-veiculos.tsx'
+    'routes/financiamento-refinanciamento-veiculos.tsx'
+  ),
+
+  route('produto/cartao/cartao-consignado', 'routes/cartao-consignado.tsx'),
+  route(
+    'produto/cartao/cartao-beneficio-consignado',
+    'routes/cartao-beneficio-consignado.tsx'
+  ),
+  route('produto/cartao/cartao-credcesta', 'routes/cartao-credcesta.tsx'),
+
+  route('produto/consorcio', 'routes/consorcio.tsx'),
+  route('produto/seguros', 'routes/seguros.tsx'),
+
+  route('produto/outros/painel-solar', 'routes/painel-solar.tsx'),
+  route('produto/outros/capital-de-giro', 'routes/capital-de-giro.tsx'),
+  route(
+    'produto/outros/operacoes-estruturadas',
+    'routes/operacoes-estruturadas.tsx'
   ),
 ] satisfies RouteConfig;

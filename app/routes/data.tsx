@@ -10,8 +10,16 @@ export type Paths =
   | 'financiamento-imovel'
   | 'home-equity'
   | 'credito-pessoal'
-  | 'fgts-saque-aniversario'
-  | 'financiamento-refinanciamento-veiculos';
+  | 'fgts'
+  | 'financiamento-refinanciamento-veiculos'
+  | 'cartao-consignado'
+  | 'cartao-beneficio-consignado'
+  | 'cartao-credcesta'
+  | 'consorcio'
+  | 'seguros'
+  | 'painel-solar'
+  | 'capital-de-giro'
+  | 'operacoes-estruturadas';
 
 export type Data = {
   hero: {
@@ -517,7 +525,7 @@ export const pagesData: PagesData = {
   },
 
   // FGTS – Saque-Aniversário
-  'fgts-saque-aniversario': {
+  fgts: {
     hero: {
       title: 'FGTS – Saque-Aniversário',
       description:
@@ -616,6 +624,424 @@ export const pagesData: PagesData = {
         {
           title: 'Liberação de até 90% do valor do veículo',
           description: 'Permaneça com seu carro enquanto utiliza o crédito.',
+          icon: <PayIcon className="size-8" />,
+        },
+      ],
+    },
+    seeAlso,
+  },
+  'cartao-consignado': {
+    hero: {
+      title: 'Cartão Consignado',
+      description:
+        'O Cartão Consignado é a escolha ideal para quem busca crédito rotativo com benefícios exclusivos.',
+      links: [
+        { title: 'O que é', link: '#oque-e' },
+        { title: 'Vantagens', link: '#vantagens' },
+        { title: 'Parceiros', link: '#parceiros' },
+        { title: 'Seja parceiro', link: '#seja-parceiro' },
+      ],
+    },
+    about: {
+      title: 'Conheça o Cartão Consignado',
+      sections: [
+        {
+          icon: <CircleHelp className="size-12" />,
+          title: 'O que é?',
+          description: `O Cartão Consignado é a escolha ideal para quem busca crédito rotativo com benefícios exclusivos: sem consulta ao SPC/Serasa, facilitando a aprovação; parcelas descontadas diretamente na folha de pagamento ou benefício, evitando atrasos; taxas de juros reduzidas, menores que as dos cartões de crédito convencionais; limite elevado, oferecendo mais poder de compra. Ideal para servidores públicos, aposentados e pensionistas que desejam praticidade e economia.`,
+        },
+      ],
+    },
+    advantages: {
+      title: 'Cartão Consignado: principais vantagens',
+      description: 'Conheça as principais vantagens do Cartão Consignado.',
+      advantages: [
+        {
+          title: 'Sem consulta ao SPC/Serasa',
+          description: 'Facilitando a aprovação.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Parcelas descontadas diretamente',
+          description: 'Na folha de pagamento ou benefício, evitando atrasos.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Taxas de juros reduzidas',
+          description: 'Menores que as dos cartões de crédito convencionais.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Limite elevado',
+          description: 'Oferecendo mais poder de compra.',
+          icon: <PayIcon className="size-8" />,
+        },
+      ],
+    },
+    seeAlso,
+  },
+
+  // Cartão Benefício Consignado
+  'cartao-beneficio-consignado': {
+    hero: {
+      title: 'Cartão Benefício Consignado',
+      description:
+        'O Cartão Benefício Consignado é voltado para aposentados e pensionistas do INSS, com vantagens pensadas para esse público.',
+      links: [
+        { title: 'O que é', link: '#oque-e' },
+        { title: 'Vantagens', link: '#vantagens' },
+        { title: 'Parceiros', link: '#parceiros' },
+        { title: 'Seja parceiro', link: '#seja-parceiro' },
+      ],
+    },
+    about: {
+      title: 'Conheça o Cartão Benefício Consignado',
+      sections: [
+        {
+          icon: <CircleHelp className="size-12" />,
+          title: 'O que é?',
+          description: `O Cartão Benefício Consignado é voltado para aposentados e pensionistas do INSS, com vantagens pensadas para esse público: sem anuidade, garantindo economia; descontos automáticos no benefício mensal; uso amplo, permitindo saques em dinheiro e compras à vista ou parceladas. Uma solução prática para quem quer aproveitar um cartão com vantagens exclusivas e maior controle financeiro.`,
+        },
+      ],
+    },
+    advantages: {
+      title: 'Cartão Benefício Consignado: principais vantagens',
+      description:
+        'Conheça as principais vantagens do Cartão Benefício Consignado.',
+      advantages: [
+        {
+          title: 'Sem anuidade',
+          description: 'Garantindo economia.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Descontos automáticos',
+          description: 'No benefício mensal.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Uso amplo',
+          description:
+            'Permitindo saques em dinheiro e compras à vista ou parceladas.',
+          icon: <PayIcon className="size-8" />,
+        },
+      ],
+    },
+    seeAlso,
+  },
+
+  // Cartão Credcesta
+  'cartao-credcesta': {
+    hero: {
+      title: 'Cartão Credcesta',
+      description:
+        'O Cartão Credcesta oferece benefícios únicos para servidores públicos e pensionistas.',
+      links: [
+        { title: 'O que é', link: '#oque-e' },
+        { title: 'Vantagens', link: '#vantagens' },
+        { title: 'Parceiros', link: '#parceiros' },
+        { title: 'Seja parceiro', link: '#seja-parceiro' },
+      ],
+    },
+    about: {
+      title: 'Conheça o Cartão Credcesta',
+      sections: [
+        {
+          icon: <CircleHelp className="size-12" />,
+          title: 'O que é?',
+          description: `O Cartão Credcesta oferece benefícios únicos para servidores públicos e pensionistas: taxas competitivas, ajustadas às condições do público atendido; aceitação em milhares de estabelecimentos para compras e serviços; opção de saques emergenciais e parcelamento flexível; desconto direto na folha de pagamento, garantindo maior comodidade. Uma alternativa prática e vantajosa para quem busca crédito acessível e com controle simplificado.`,
+        },
+      ],
+    },
+    advantages: {
+      title: 'Cartão Credcesta: principais vantagens',
+      description: 'Conheça as principais vantagens do Cartão Credcesta.',
+      advantages: [
+        {
+          title: 'Taxas competitivas',
+          description: 'Ajustadas às condições do público atendido.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Aceitação em milhares de estabelecimentos',
+          description: 'Para compras e serviços.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Opção de saques emergenciais',
+          description: 'E parcelamento flexível.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Desconto direto na folha de pagamento',
+          description: 'Garantindo maior comodidade.',
+          icon: <PayIcon className="size-8" />,
+        },
+      ],
+    },
+    seeAlso,
+  },
+
+  // Consórcio
+  consorcio: {
+    hero: {
+      title: 'Consórcio',
+      description:
+        'O Consórcio é a forma inteligente e econômica de planejar a realização dos seus sonhos, sem juros e com condições acessíveis.',
+      links: [
+        { title: 'O que é', link: '#oque-e' },
+        { title: 'Vantagens', link: '#vantagens' },
+        { title: 'Parceiros', link: '#parceiros' },
+        { title: 'Seja parceiro', link: '#seja-parceiro' },
+      ],
+    },
+    about: {
+      title: 'Conheça o Consórcio',
+      sections: [
+        {
+          icon: <CircleHelp className="size-12" />,
+          title: 'O que é?',
+          description: `O Consórcio é a forma inteligente e econômica de planejar a realização dos seus sonhos, sem juros e com condições acessíveis. Benefícios: taxas reduzidas: apenas a cobrança de taxa de administração, sem juros; planejamento financeiro: ideal para adquirir imóveis, veículos ou outros bens de forma programada; flexibilidade nas parcelas, com opções que se ajustam ao seu orçamento; participação em sorteios mensais e possibilidade de antecipação por lance. Uma solução prática para quem quer investir de forma organizada e sem pressa.`,
+        },
+      ],
+    },
+    advantages: {
+      title: 'Consórcio: principais vantagens',
+      description: 'Conheça as principais vantagens do Consórcio.',
+      advantages: [
+        {
+          title: 'Taxas reduzidas',
+          description: 'Apenas a cobrança de taxa de administração, sem juros.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Planejamento financeiro',
+          description:
+            'Ideal para adquirir imóveis, veículos ou outros bens de forma programada.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Flexibilidade nas parcelas',
+          description: 'Com opções que se ajustam ao seu orçamento.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Participação em sorteios mensais',
+          description: 'E possibilidade de antecipação por lance.',
+          icon: <PayIcon className="size-8" />,
+        },
+      ],
+    },
+    seeAlso,
+  },
+
+  // Seguros CPCréditos
+  seguros: {
+    hero: {
+      title: 'Seguros CPCréditos',
+      description:
+        'Os Seguros CPCréditos oferecem proteção personalizada para o que realmente importa.',
+      links: [
+        { title: 'O que é', link: '#oque-e' },
+        { title: 'Vantagens', link: '#vantagens' },
+        { title: 'Parceiros', link: '#parceiros' },
+        { title: 'Seja parceiro', link: '#seja-parceiro' },
+      ],
+    },
+    about: {
+      title: 'Conheça os Seguros CPCréditos',
+      sections: [
+        {
+          icon: <CircleHelp className="size-12" />,
+          title: 'O que é?',
+          description: `Os Seguros CPCréditos oferecem proteção personalizada para o que realmente importa. Seja qual for sua necessidade, contamos com as melhores opções de mercado: seguro de vida: segurança financeira para você e sua família em momentos imprevistos; seguro residencial: proteção completa para seu imóvel contra danos, furtos e outros riscos; seguro veicular: cobertura para o seu carro, com assistência 24 horas e vantagens exclusivas; planos adaptáveis e atendimento ágil, garantindo tranquilidade e confiança. Com os Seguros CPCréditos, você protege o que é valioso e mantém a sua tranquilidade em qualquer situação.`,
+        },
+      ],
+    },
+    advantages: {
+      title: 'Seguros CPCréditos: principais vantagens',
+      description: 'Conheça as principais vantagens dos Seguros CPCréditos.',
+      advantages: [
+        {
+          title: 'Seguro de Vida',
+          description:
+            'Segurança financeira para você e sua família em momentos imprevistos.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Seguro Residencial',
+          description:
+            'Proteção completa para seu imóvel contra danos, furtos e outros riscos.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Seguro Veicular',
+          description:
+            'Cobertura para o seu carro, com assistência 24 horas e vantagens exclusivas.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Planos adaptáveis',
+          description:
+            'E atendimento ágil, garantindo tranquilidade e confiança.',
+          icon: <PayIcon className="size-8" />,
+        },
+      ],
+    },
+    seeAlso,
+  },
+
+  // Painel Solar
+  'painel-solar': {
+    hero: {
+      title: 'Painel Solar',
+      description:
+        'Invista em energia sustentável com nosso financiamento para Painéis Solares, uma solução econômica e ecológica para reduzir custos e cuidar do planeta.',
+      links: [
+        { title: 'O que é', link: '#oque-e' },
+        { title: 'Vantagens', link: '#vantagens' },
+        { title: 'Parceiros', link: '#parceiros' },
+        { title: 'Seja parceiro', link: '#seja-parceiro' },
+      ],
+    },
+    about: {
+      title: 'Conheça o Painel Solar',
+      sections: [
+        {
+          icon: <CircleHelp className="size-12" />,
+          title: 'O que é?',
+          description: `Invista em energia sustentável com nosso financiamento para Painéis Solares, uma solução econômica e ecológica para reduzir custos e cuidar do planeta. Benefícios: taxas de juros competitivas, facilitando o acesso à tecnologia; financiamento de sistemas completos para residências, empresas ou propriedades rurais; redução imediata na conta de energia, com retorno do investimento em poucos anos; contribuição para a sustentabilidade, utilizando energia limpa e renovável. Ideal para quem busca economizar e adotar soluções sustentáveis no dia a dia.`,
+        },
+      ],
+    },
+    advantages: {
+      title: 'Painel Solar: principais vantagens',
+      description: 'Conheça as principais vantagens do Painel Solar.',
+      advantages: [
+        {
+          title: 'Taxas de juros competitivas',
+          description: 'Facilitando o acesso à tecnologia.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Financiamento de sistemas completos',
+          description: 'Para residências, empresas ou propriedades rurais.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Redução imediata na conta de energia',
+          description: 'Com retorno do investimento em poucos anos.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Contribuição para a sustentabilidade',
+          description: 'Utilizando energia limpa e renovável.',
+          icon: <PayIcon className="size-8" />,
+        },
+      ],
+    },
+    seeAlso,
+  },
+
+  // Capital de Giro
+  'capital-de-giro': {
+    hero: {
+      title: 'Capital de Giro',
+      description:
+        'Apoie o crescimento do seu negócio com nosso Crédito para Capital de Giro, uma linha de crédito essencial para equilibrar o fluxo de caixa e impulsionar operações.',
+      links: [
+        { title: 'O que é', link: '#oque-e' },
+        { title: 'Vantagens', link: '#vantagens' },
+        { title: 'Parceiros', link: '#parceiros' },
+        { title: 'Seja parceiro', link: '#seja-parceiro' },
+      ],
+    },
+    about: {
+      title: 'Conheça o Capital de Giro',
+      sections: [
+        {
+          icon: <CircleHelp className="size-12" />,
+          title: 'O que é?',
+          description: `Apoie o crescimento do seu negócio com nosso Crédito para Capital de Giro, uma linha de crédito essencial para equilibrar o fluxo de caixa e impulsionar operações. Benefícios: taxas ajustadas ao perfil da sua empresa, com condições flexíveis; liberação rápida, para atender necessidades imediatas, como compra de estoque, pagamento de fornecedores ou folha salarial; parcelamento adaptado à realidade financeira do negócio; disponível para empresas de diferentes portes e setores. Uma solução prática para manter sua empresa saudável e em crescimento.`,
+        },
+      ],
+    },
+    advantages: {
+      title: 'Capital de Giro: principais vantagens',
+      description: 'Conheça as principais vantagens do Capital de Giro.',
+      advantages: [
+        {
+          title: 'Taxas ajustadas ao perfil da sua empresa',
+          description: 'Com condições flexíveis.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Liberação rápida',
+          description: 'Para atender necessidades imediatas.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Parcelamento adaptado',
+          description: 'À realidade financeira do negócio.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Disponível para empresas de diferentes portes e setores',
+          description: '',
+          icon: <PayIcon className="size-8" />,
+        },
+      ],
+    },
+    seeAlso,
+  },
+
+  // Operações Estruturadas
+  'operacoes-estruturadas': {
+    hero: {
+      title: 'Operações Estruturadas',
+      description:
+        'Para projetos de maior complexidade, oferecemos Operações Estruturadas, soluções financeiras personalizadas para atender demandas específicas.',
+      links: [
+        { title: 'O que é', link: '#oque-e' },
+        { title: 'Vantagens', link: '#vantagens' },
+        { title: 'Parceiros', link: '#parceiros' },
+        { title: 'Seja parceiro', link: '#seja-parceiro' },
+      ],
+    },
+    about: {
+      title: 'Conheça as Operações Estruturadas',
+      sections: [
+        {
+          icon: <CircleHelp className="size-12" />,
+          title: 'O que é?',
+          description: `Para projetos de maior complexidade, oferecemos Operações Estruturadas, soluções financeiras personalizadas para atender demandas específicas. Benefícios: planejamento estratégico, com análise detalhada das necessidades do cliente; estruturação de crédito, garantias e prazos customizados; apoio especializado para fusões, aquisições, investimentos em infraestrutura ou expansão de negócios; soluções sob medida para empresas de médio e grande porte. Com as Operações Estruturadas, sua empresa conta com apoio financeiro robusto para projetos estratégicos.`,
+        },
+      ],
+    },
+    advantages: {
+      title: 'Operações Estruturadas: principais vantagens',
+      description:
+        'Conheça as principais vantagens das Operações Estruturadas.',
+      advantages: [
+        {
+          title: 'Planejamento estratégico',
+          description: 'Com análise detalhada das necessidades do cliente.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Estruturação de crédito',
+          description: 'Garantias e prazos customizados.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Apoio especializado',
+          description:
+            'Para fusões, aquisições, investimentos em infraestrutura ou expansão de negócios.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Soluções sob medida',
+          description: 'Para empresas de médio e grande porte.',
           icon: <PayIcon className="size-8" />,
         },
       ],
