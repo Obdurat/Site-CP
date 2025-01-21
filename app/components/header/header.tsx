@@ -52,115 +52,6 @@ type Mock = {
 };
 
 const mock: Mock = {
-  // products: {
-  //   sections: [
-  //     {
-  //       title: 'Consignado',
-  //       icon: <HandCoins />,
-  //       links: [
-  //         {
-  //           title: 'Consignado Público',
-  //           href: '/produto/consignado/consignado-publico',
-  //         },
-  //         {
-  //           title: 'Consignado Federal',
-  //           href: '/produto/consignado/consignado-federal',
-  //         },
-  //         {
-  //           title: 'Consignado Privado',
-  //           href: '/produto/consignado/consignado-privado',
-  //         },
-  //         {
-  //           title: 'Consignado INSS',
-  //           href: '/produto/consignado/consignado-inss',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: 'Imobiliário',
-  //       icon: <HandCoins />,
-  //       links: [
-  //         {
-  //           title: 'Financiamento de Imóvel',
-  //           href: '/produto/imobiliario/financiamento-de-imovel',
-  //         },
-  //         {
-  //           title: 'Home Equity/Crédito com garantia de Imóvel',
-  //           href: '/produto/imobiliario/home-equity',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: 'Crédito',
-  //       icon: <HandCoins />,
-  //       links: [
-  //         {
-  //           title: 'Crédito Pessoal',
-  //           href: '/produto/credito/credito-pessoal',
-  //         },
-  //         {
-  //           title: 'FGTS',
-  //           href: '/produto/credito/fgts',
-  //         },
-  //         {
-  //           title: 'Financiamento/Refinanciamento de Veículos',
-  //           href: '/produto/credito/financiamento-refinanciamento-veiculos',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: 'Cartões',
-  //       icon: <HandCoins />,
-  //       links: [
-  //         {
-  //           title: 'Cartão Consignado',
-  //           href: '/produto/cartoes/cartao-consignado',
-  //         },
-  //         {
-  //           title: 'Cartão Benefício Consignado',
-  //           href: '/produto/cartoes/cartao-beneficio-consignado',
-  //         },
-  //         {
-  //           title: 'Cartão Credcesta',
-  //           href: '/produto/cartoes/cartao-credcesta',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: 'Consórcio/Seguros',
-  //       icon: <HandCoins />,
-  //       links: [
-  //         {
-  //           title: 'Consórcio',
-  //           href: '/produto/consorcio',
-  //         },
-  //         {
-  //           title: 'Seguros CPCréditos',
-  //           href: '/produto/seguros-cpcreditos',
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       title: 'Outros',
-  //       icon: <HandCoins />,
-  //       links: [
-  //         {
-  //           title: 'Painel Solar',
-  //           href: '/produto/outros/painel-solar',
-  //         },
-  //         {
-  //           title: 'Capital de Giro',
-  //           href: '/produto/outros/capital-de-giro',
-  //         },
-  //         {
-  //           title: 'Operações Estruturadas',
-  //           href: '/produto/outros/operacoes-estruturadas',
-  //         },
-  //       ],
-  //     },
-  //   ],
-  // },
-
   products: {
     sections: [
       {
@@ -236,19 +127,13 @@ const mock: Mock = {
         ],
       },
       {
-        title: 'Consórcio',
+        title: 'Consórcio/Seguros',
         icon: <HandCoins />,
         links: [
           {
             title: 'Consórcio',
             href: '/produto/consorcio',
           },
-        ],
-      },
-      {
-        title: 'Seguros',
-        icon: <HandCoins />,
-        links: [
           {
             title: 'Seguros CPCréditos',
             href: '/produto/seguros',
@@ -507,7 +392,14 @@ export function Header() {
     <header className="h-24 fixed inset-0 bg-background w-full z-50 shadow-md">
       <div className="container flex items-center h-full justify-between">
         <div className="flex items-center gap-8">
-          <div>LOGO</div>
+          <a href="/" className="flex items-center">
+            <img
+              src="/assets/images/logo-cp.png"
+              alt="Logo CPCréditos"
+              width="200"
+              height="200"
+            />
+          </a>
           <NavigationMenu className="hidden md:flex">
             <NavigationMenuList>
               <NavigationMenuItem>
