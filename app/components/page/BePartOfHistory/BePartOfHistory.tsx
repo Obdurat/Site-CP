@@ -65,7 +65,7 @@ export function BePartOfHistory() {
             <HistoryCard key={Math.random()} {...card} />
           ))}
           <Button
-            className="text-primary text-md w-fit border-cyan-600 text-cyan-600"
+            className="text-primary text-md w-fit border-cyan-600 text-cptext-cyan"
             variant="outline"
             size="lg"
           >

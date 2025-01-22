@@ -15,7 +15,7 @@ export function FooterMobileLinks({
   return (
     <Accordion type="single" collapsible className="w-full">
       <AccordionItem value="item-1">
-        <AccordionTrigger className="text-bold text-lg text-cyan-400">
+        <AccordionTrigger className="text-bold text-lg text-cptext-cyan">
           {label}
         </AccordionTrigger>
         <AccordionContent>

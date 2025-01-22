@@ -16,7 +16,7 @@ export function About({ data }: { data: Data['about'] }) {
         {data.sections.map((section, index) => (
           <div key={Math.random()}>
             <InfoSection key={Math.random()} {...section} />
-            {index === 0 && <div className="bg-cyan-500 h-1.5 mt-4" />}
+            {index === 0 && <div className="bg-cptext-cyan h-1.5 mt-4" />}
           </div>
         ))}
       </div>

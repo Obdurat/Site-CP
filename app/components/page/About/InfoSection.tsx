@@ -35,7 +35,7 @@ export const InfoSection = ({
     <SectionHeader
       icon={icon}
       title={title}
-      className="bg-accent rounded-lg p-2 w-fit"
+      className="bg-cptext-cyan rounded-lg p-2 w-fit"
     />
     {description && <p className="text-xs text-secondary">{description}</p>}
     <div className="flex flex-col gap-4 md:flex-row md:gap-8">

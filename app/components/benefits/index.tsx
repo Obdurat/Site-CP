@@ -10,7 +10,7 @@ const benefitsContent = {
   description: `Oferecemos soluções em crédito consignado, pessoal, imobiliário, FGTS, consórcio, home equity e
   refinanciamento imobiliário, sempre com a parceria dos melhores bancos do mercado.
   Por aqui, a confiança e o cuidado com você vêm em primeiro lugar.`,
-  cta: 'Seja parceiro e faça parte da nossa história',
+  cta: 'Seja parceiro',
   cards: [
     {
       title: 'Atendimento Personalizado',
@@ -84,11 +84,12 @@ export function Benefits() {
         </div>
       </div>
       <Button
-        className="text-primary text-md w-fit border-cyan-600 text-cyan-600"
+        className="text-primary text-md w-fit border-cyan-600 text-cptext-cyan"
         variant="outline"
         size="lg"
       >
         {benefitsContent.cta}
+        <span className="hidden sm:block">e faça parte da nossa história</span>
         <MoveRight className="size-4" />
       </Button>
     </section>

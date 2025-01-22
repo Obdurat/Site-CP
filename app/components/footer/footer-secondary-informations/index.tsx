@@ -9,7 +9,9 @@ export function FooterSecondaryInformations() {
         {footersInformations.infos.secondary.map((info: any) => {
           return (
             <div className="flex flex-col gap-2" key={Math.random()}>
-              <h3 className="font-bold text-cyan-500 text-lg">{info.label}</h3>
+              <h3 className="font-bold text-cptext-cyan text-lg">
+                {info.label}
+              </h3>
               {info.links.map((link: any) => {
                 return (
                   <Link

@@ -392,12 +392,13 @@ export function Header() {
     <header className="h-24 fixed inset-0 bg-background w-full z-50 shadow-md">
       <div className="container flex items-center h-full justify-between">
         <div className="flex items-center gap-8">
-          <a href="/" className="flex items-center">
+          <a href="/" className="flex items-center size-20">
             <img
               src="/assets/images/logo-cp.png"
               alt="Logo CPCréditos"
               width="200"
               height="200"
+              className="size-64 object-cover"
             />
           </a>
           <NavigationMenu className="hidden md:flex">

@@ -10,6 +10,7 @@ import { SeeAlso } from '@/components/page/SeeAlso/SeeAlso';
 import { Partners } from '@/components/partners';
 import { HomeFooter } from '@/container/footer';
 import { useLocation } from 'react-router';
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -26,14 +27,14 @@ export default function ProductPage() {
   const data = pagesData[path];
 
   return (
-    <div>
+    <>
       <Header />
       <main className="flex flex-col lg:gap-32 gap-20 pt-20">
         <Hero data={data.hero} />
         <About data={data.about} />
         <Advantage data={data.advantages} />
         <Partners
-          title="Consignado Público: parcerias estratégicas"
+          title={`${data.hero.title}: parcerias estratégicas`}
           description="Atenção: somos prestadores de serviços das instituições financeiras:"
         />
         <BePartOfHistory />
@@ -41,6 +42,15 @@ export default function ProductPage() {
       </main>
       <HomeFooter />
       <InfoModal />
-    </div>
+      <FloatingWhatsApp
+        phoneNumber={import.meta.env.VITE_CP_PHONE}
+        accountName="CPCréditos"
+        avatar="/assets/images/whatsApp-avatar.jpeg"
+        chatMessage="Olá! Como podemos te ajudar?"
+        statusMessage="Estamos online!"
+        darkMode={false}
+        placeholder="Digite sua mensagem..."
+      />
+    </>
   );
 }

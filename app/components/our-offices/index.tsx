@@ -117,7 +117,7 @@ export function Addresses() {
   return (
     <div className="w-full container">
       <Tabs defaultValue="santo-andre">
-        <TabsList className="flex w-full">
+        <TabsList className="grid grid-cols-2 h-full sm:grid-cols-4 md:grid-cols-6">
           {addresses.map((address) => (
             <TabsTrigger key={address.key} value={address.key}>
               {address.label}
@@ -186,7 +186,7 @@ export function OurOfficesSection() {
           </p>
           <Link
             to="/blog"
-            className="text-cyan-500 p-0 text-xl w-fit flex items-center gap-2"
+            className="text-cptext-cyan p-0 text-xl w-fit flex items-center gap-2"
           >
             {OurOfficesSectionContent.subContainer.cta.text['pt-br']}
             <MoveRight className="size-4" />

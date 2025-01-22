@@ -45,4 +45,8 @@ export default [
     'produto/outros/operacoes-estruturadas',
     'routes/operacoes-estruturadas.tsx'
   ),
+
+  route('produto/consignado', 'routes/consignado.tsx'),
+
+  route('produto/imobiliario', 'routes/imobiliario.tsx'),
 ] satisfies RouteConfig;
