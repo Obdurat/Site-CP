@@ -13,7 +13,7 @@ const buttonVariants = cva(
           'bg-primary text-primary-foreground shadow hover:bg-primary/90',
         cp: 'bg-cptext-blue text-white shadow hover:bg-cptext-blue/90',
         cpoutline:
-          'border border-cptext-blue bg-transparent shadow text-cptext-primary hover:bg-cptext-primary hover:text-white',
+          'border border-cptext-blue bg-transparent shadow text-cptext-blue hover:bg-cptext-blue hover:text-white',
         cpcyan: 'bg-cptext-cyan text-black shadow hover:bg-cptext-cyan/90',
         cpcyanoutline:
           'border border-cptext-cyan bg-transparent shadow text-cptext-cyan hover:bg-cptext-cyan hover:text-white',

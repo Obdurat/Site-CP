@@ -4,7 +4,7 @@ import type { Route } from './+types/home';
 import { OurOfficesSection } from '@/components/our-offices';
 import { Main } from '@/components/main';
 import { Benefits } from '@/components/benefits';
-import { ProductCards, Products } from '@/components/products';
+import { ProductCards } from '@/components/products';
 import { History } from '@/components/history';
 import { HomeFooter as Footer } from '@/container/footer';
 import { Partners } from '@/components/partners';
@@ -21,13 +21,12 @@ export function meta({}: Route.MetaArgs) {
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Header />
       <main className="flex flex-col lg:gap-44 gap-20 pt-20">
         <Main />
         <Benefits />
         <Partners title="Conheça nossos parceiros" />
-        <Products />
         <ProductCards />
         <OurOfficesSection />
         <SocialMedia />
@@ -36,7 +35,7 @@ export default function Home() {
       <Footer />
       <InfoModal />
       <FloatingWhatsApp
-        phoneNumber="5511940320042"
+        phoneNumber={import.meta.env.VITE_CP_PHONE}
         accountName="CPCréditos"
         avatar="/assets/images/whatsApp-avatar.jpeg"
         chatMessage="Olá! Como podemos te ajudar?"
@@ -44,6 +43,6 @@ export default function Home() {
         darkMode={false}
         placeholder="Digite sua mensagem..."
       />
-    </div>
+    </>
   );
 }

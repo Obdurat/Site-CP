@@ -5,9 +5,11 @@ import { useAnimationToRef } from '../../hooks/use-animation-to-ref';
 import { Link } from 'react-router';
 import { SimulationModal } from '../simulationModal';
 
-type SliderProps = React.ComponentProps<typeof Slider>;
+type SliderProps = React.ComponentProps<typeof Slider> & {
+  section: string;
+};
 
-export function CreditSlider({ className, ...props }: SliderProps) {
+export function CreditSlider({ className, section, ...props }: SliderProps) {
   const [value, setValue] = useState(100);
   const [showButton, setShowButton] = useState(false);
 
@@ -61,7 +63,12 @@ export function CreditSlider({ className, ...props }: SliderProps) {
           </div>
         </div>
         {showButton && (
-          <SimulationModal variant="cpcyan" cta="Simule seu crédito Agora!" />
+          <SimulationModal
+            variant="cpcyan"
+            cta="Simule seu crédito Agora!"
+            section={section}
+            value={formatCurrency(value)}
+          />
         )}
       </div>
     </section>
