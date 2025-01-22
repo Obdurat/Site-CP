@@ -42,7 +42,7 @@ export function CreditSlider({ className, ...props }: SliderProps) {
                 </span>
                 <Slider
                   defaultValue={[value]}
-                  max={50000}
+                  max={500000}
                   step={50}
                   onValueChange={(v) => {
                     if (!showButton) {
@@ -54,7 +54,7 @@ export function CreditSlider({ className, ...props }: SliderProps) {
                   {...props}
                 />
                 <span className="text-xs font-bold text-gray-300">
-                  {formatCurrency(50000)}
+                  {formatCurrency(500000)}
                 </span>
               </div>
             </div>

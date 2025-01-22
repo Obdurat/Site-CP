@@ -6,7 +6,7 @@ import { useAnimationToRef } from '@/hooks/use-animation-to-ref';
 
 const benefitsContent = {
   sub: 'Nossos benefícios',
-  title: 'Quais são os benefícios de ser nosso parceiro?',
+  title: 'Quais são os benefícios de ser nosso cliente?',
   description: `Oferecemos soluções em crédito consignado, pessoal, imobiliário, FGTS, consórcio, home equity e
   refinanciamento imobiliário, sempre com a parceria dos melhores bancos do mercado.
   Por aqui, a confiança e o cuidado com você vêm em primeiro lugar.`,

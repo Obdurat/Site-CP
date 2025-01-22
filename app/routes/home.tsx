@@ -4,7 +4,7 @@ import type { Route } from './+types/home';
 import { OurOfficesSection } from '@/components/our-offices';
 import { Main } from '@/components/main';
 import { Benefits } from '@/components/benefits';
-import { ProductCards } from '@/components/products';
+import { ProductCards, Products } from '@/components/products';
 import { History } from '@/components/history';
 import { HomeFooter as Footer } from '@/container/footer';
 import { Partners } from '@/components/partners';
@@ -27,6 +27,7 @@ export default function Home() {
         <Main />
         <Benefits />
         <Partners title="Conheça nossos parceiros" />
+        <Products />
         <ProductCards />
         <OurOfficesSection />
         <SocialMedia />
