@@ -4,6 +4,7 @@ import { PayIcon } from '@/components/ui/icons';
 import type { Data } from '@/routes/data';
 
 export function About({ data }: { data: Data['about'] }) {
+  if(!data) return null;
   return (
     <div className="container mx-auto flex flex-col gap-4" id="oque-e">
       <div className="flex items-center gap-8">
@@ -12,7 +13,7 @@ export function About({ data }: { data: Data['about'] }) {
         </div>
         <h2 className="text-3xl font-bold text-cpblue-400">{data.title}</h2>
       </div>
-      <div className="flex flex-col gap-6 backdrop-filter backdrop-blur-sm p-16 rounded-3xl bg-cpblue-300">
+      <div className="flex flex-col gap-6 backdrop-filter backdrop-blur-sm p-8 md:p-16 rounded-3xl bg-cptext-blue">
         {data.sections.map((section, index) => (
           <div key={Math.random()}>
             <InfoSection key={Math.random()} {...section} />

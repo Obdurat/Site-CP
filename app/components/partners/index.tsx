@@ -1,5 +1,5 @@
 import { useAnimationToRef } from '@/hooks/use-animation-to-ref';
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { ChevronRight, ExternalLink } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Link } from 'react-router';
@@ -222,8 +222,16 @@ const partners = [
       ouvidoria: [
         {
           label: 'Atendimento ao cliente',
-          description:
-            'https://www.safra.com.br/atendimento/atendimento-ao-cliente.htm',
+          description: (
+            <a
+              className="hover:underline"
+              href="https://www.safra.com.br/atendimento/atendimento-ao-cliente.htm"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://www.safra.com.br/atendimento/atendimento-ao-cliente.htm
+            </a>
+          ),
         },
       ],
     },
@@ -275,7 +283,16 @@ const partners = [
       ouvidoria: [
         {
           label: 'Atendimento',
-          description: 'https://www.cashme.com.br/fale-conosco/#contact-form"',
+          description: (
+            <a
+              className="hover:underline"
+              href="https://www.cashme.com.br/fale-conosco/#contact-form"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://www.cashme.com.br/fale-conosco/#contact-form
+            </a>
+          ),
         },
       ],
     },
@@ -290,7 +307,16 @@ const partners = [
       ouvidoria: [
         {
           label: 'Central de Atendimento',
-          description: 'https://ajuda.creditas.com/portal/pt-br/home',
+          description: (
+            <a
+              className="hover:underline"
+              href="https://ajuda.creditas.com/portal/pt-br/home"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://ajuda.creditas.com/portal/pt-br/home
+            </a>
+          ),
         },
       ],
     },
@@ -326,7 +352,15 @@ const partners = [
       ouvidoria: [
         {
           label: 'Atendimento',
-          description: '"https://www.t-cash.com.br/#modal',
+          description: (
+            <a
+              href="https://www.t-cash.com.br/#modal"
+              target="_blank"
+              className="hover:underline"
+            >
+              https://www.t-cash.com.br/#modal
+            </a>
+          ),
         },
       ],
     },
@@ -411,12 +445,15 @@ const partners = [
       ouvidoria: [
         {
           label: 'Atendimento',
-          description:
-            'https://api.whatsapp.com/send/?phone=556136863627&text&type=phone_number&app_absent=0"',
-        },
-        {
-          label: '',
-          description: '',
+          description: (
+            <a
+              href="https://pontte.com.br/contato/"
+              target="_blank"
+              className="hover:underline"
+            >
+              https://pontte.com.br/contato/
+            </a>
+          ),
         },
       ],
     },
@@ -431,7 +468,8 @@ const partners = [
       ouvidoria: [
         {
           label: 'Atendimento',
-          description: 'comercial@crediblue.com.br',
+          description:
+            'Segunda a sexta, das 8h às 18h. atendimento a clientes e dúvidas gerais.  comercial@crediblue.com.br ',
         },
       ],
     },
@@ -447,7 +485,7 @@ type Partner = {
   info: {
     ouvidoria: {
       label: string;
-      description: string;
+      description: string | React.ReactNode;
     }[];
   };
   link: string;
@@ -458,7 +496,7 @@ function PartnerCard({ partner, index }: { partner: Partner; index: number }) {
   return (
     <div
       className={cn(
-        'p-2 border-2 max-w-fit hover:border-2 flex-1 group cursor-pointer hover:shadow-lg min-w-48 lg:min-w-56 transition-all shadow-sm rounded-xl relative aspect-video duration-300 flex items-center justify-center',
+        'p-2 border-2 max-w-fit hover:border-2 flex-1 group cursor-pointer hover:shadow-lg min-w-44 lg:min-w-56 transition-all shadow-sm rounded-xl relative aspect-video duration-300 flex items-center justify-center',
         showInfo && `border-transparent hover:border-transparent`
       )}
       style={{ zIndex: 50 - index }}
@@ -534,7 +572,7 @@ export function Partners({ title, description }: PartnersProps) {
             )}
           </div>
         </div>
-        <div className="flex flex-wrap gap-6 items-center justify-center">
+        <div className="flex flex-wrap gap-2 sm:gap-6 items-center justify-center">
           {partners.map((partner, index) => (
             <PartnerCard key={Math.random()} partner={partner} index={index} />
           ))}

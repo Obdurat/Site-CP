@@ -5,19 +5,41 @@ type SectionHeaderProps = {
   icon: JSX.Element;
   title: string;
   className?: string;
+  titleClassName?: string;
 };
 
-const SectionHeader = ({ icon, title, className }: SectionHeaderProps) => (
+const SectionHeader = ({
+  icon,
+  title,
+  className,
+  titleClassName,
+}: SectionHeaderProps) => (
   <div className="flex items-center gap-4">
     <div className={cn(className)}>{icon}</div>
-    <h2 className="text-2xl font-bold text-secondary">{title}</h2>
+    <h4 className={cn('text-2xl font-bold text-secondary', titleClassName)}>
+      {title}
+    </h4>
+  </div>
+);
+
+const SubSectionHeader = ({
+  icon,
+  title,
+  className,
+  titleClassName,
+}: SectionHeaderProps) => (
+  <div className="flex gap-2 items-start">
+    <div className={cn(className)}>{icon}</div>
+    <h5 className={cn('text-xl font-bold text-secondary', titleClassName)}>
+      {title}
+    </h5>
   </div>
 );
 
 type InfoSectionProps = {
   icon: JSX.Element;
   title: string;
-  description?: string;
+  description?: string | JSX.Element;
   subSections?: Array<{
     icon: JSX.Element;
     title: string;
@@ -37,13 +59,21 @@ export const InfoSection = ({
       title={title}
       className="bg-cptext-cyan rounded-lg p-2 w-fit"
     />
-    {description && <p className="text-xs text-secondary">{description}</p>}
+    {description && (
+      <p className="text-sm md:text-lg text-secondary">{description}</p>
+    )}
     <div className="flex flex-col gap-4 md:flex-row md:gap-8">
       {subSections &&
         subSections.map((subSection, index) => (
           <div key={Math.random()}>
-            <SectionHeader icon={subSection.icon} title={subSection.title} />
-            <p className="text-xs text-secondary">{subSection.description}</p>
+            <SubSectionHeader
+              icon={subSection.icon}
+              title={subSection.title}
+              titleClassName="text-md md:text-xl font-bold text-secondary"
+            />
+            <article className="text-sm md:text-lg text-secondary mt-2">
+              {subSection.description}
+            </article>
           </div>
         ))}
     </div>

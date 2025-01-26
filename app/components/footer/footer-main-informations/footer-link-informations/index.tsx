@@ -5,7 +5,7 @@ import { footersInformations } from '../../footer-SEO-informations';
 export function FooterLinkInformations() {
   return (
     <>
-      <div className="flex-row gap-20 justify-between items-start hidden lg:flex">
+      <div className="items-start hidden lg:grid grid-cols-3 gap-8 w-full">
         {footersInformations.infos.main.map((info: any) => {
           return (
             <div className="flex flex-col gap-2" key={Math.random()}>

@@ -10,49 +10,44 @@ const productsContent = {
   sub: 'Principais produtos',
   title: 'Nossos Produtos',
   description:
-    'Conheça nossos produtos e serviços financeiros, e escolha o que melhor se encaixa em suas necessidades.',
+    'Conheça nossas soluções financeiras e escolha a que melhor atende às suas necessidades.',
   productCards: [
     {
-      icon: <BriefcaseBusiness className="size-8 text-cptext-cyan" />,
       title: 'Crédito Consignado',
       description:
-        'O crédito consignado é aquele tipo de empréstimo que você solicita e passa a ter o valor das parcelas cobrado direto na folha de pagamento, ou seja, o desconto é feito diretamente no salário ou na aposentadoria.',
+        'Ideal para quem busca praticidade e taxas reduzidas, o crédito consignado é descontado diretamente da folha de pagamento ou aposentadoria. É a opção perfeita para quem deseja organizar as finanças com facilidade e segurança.',
       cta: 'Ver produtos',
       href: '/produto/consignado',
-      image: '/assets/images/credit.png',
+      image: '/assets/images/consignado.png',
     },
     {
-      icon: <BriefcaseBusiness className="size-8 text-cptext-cyan" />,
       title: 'Crédito Imobiliário',
       description:
-        'Em linhas simples, podemos definir crédito imobiliário como um empréstimo fornecido para que uma pessoa compre um imóvel, fazendo um pagamento financiado. O produto é oferecido pelos bancos e as instituições financeiras que quitam o imóvel e recebem o pagamento diretamente do comprador.',
+        'Realize o sonho da casa própria! O crédito imobiliário permite financiar o imóvel que você sempre quis, com condições ajustadas ao seu orçamento. Bancos e instituições financeiras cuidam da transação, e você paga em parcelas que cabem no seu bolso.',
       cta: 'Ver produtos',
       href: '/produto/imobiliario',
       image: '/assets/images/credit.png',
     },
     {
-      icon: <BriefcaseBusiness className="size-8 text-cptext-cyan" />,
       title: 'Crédito Pessoal',
       description:
-        'O crédito pessoal é uma forma de empréstimo destinada para Pessoa Física. Com isso, nesta modalidade de crédito, o consumidor pede o empréstimo sem necessidade de oferecer garantia ou de alienar um bem que está comprando. As taxas de CET variam de acordo com a instituição financeira e a análise de crédito.',
+        'Precisando de um apoio financeiro rápido e sem burocracia? O crédito pessoal é a solução ideal para suas necessidades, sem exigir garantias ou alienação de bens. As condições são ajustadas ao seu perfil e aprovadas com agilidade.',
       cta: 'Ver produtos',
       href: '/produto/credito/credito-pessoal',
       image: '/assets/images/credit.png',
     },
     {
-      icon: <BriefcaseBusiness className="size-8 text-cptext-cyan" />,
       title: 'Operações Estruturadas',
       description:
-        'As Operações Estruturadas são soluções financeiras personalizadas para atender demandas específicas de projetos complexos. Essa modalidade oferece planejamento estratégico detalhado, estruturação de crédito com garantias e prazos sob medida, além de apoio especializado para fusões, aquisições, investimentos em infraestrutura e expansão de negócios. Destinadas a empresas de médio e grande porte, garantem suporte financeiro robusto para projetos estratégicos.',
+        'Projetos grandes pedem soluções financeiras robustas. Nossas Operações Estruturadas oferecem planejamento estratégico e crédito sob medida para demandas específicas, como fusões, aquisições, infraestrutura e expansão empresarial. Feito sob medida para empresas de médio e grande porte.',
       cta: 'Ver produtos',
       href: '/produto/outros/operacoes-estruturadas',
       image: '/assets/images/credit.png',
     },
     {
-      icon: <BriefcaseBusiness className="size-8 text-cptext-cyan" />,
       title: 'Consórcio',
       description:
-        'Um grupo de pessoas ou empresas, que quer adquirir um bem ou serviço, abre uma poupança comum. Todos os participantes têm garantido o direito de usar essa conta para a compra do bem ou serviço, em algum momento, dentro de um prazo determinado.',
+        'Uma alternativa inteligente para adquirir bens ou serviços. Participe de um grupo colaborativo e, dentro de um prazo determinado, alcance seus objetivos financeiros com parcelas planejadas e sem juros abusivos.',
       cta: 'Ver produtos',
       href: '/produto/consorcio',
       image: '/assets/images/credit.png',
@@ -68,20 +63,24 @@ export function Products({ data }: { data: Data['variants'] }) {
       data?.cards.map((card) => (
         <div
           key={Math.random()}
-          className="flex gap-4 bg-background rounded-3xl overflow-hidden"
+          className="flex gap-4 bg-background rounded-3xl overflow-hidden min-h-[460px]"
         >
-          <div className="flex gap-4 flex-col w-full lg:max-w-[60%] p-8 sm:pr-0">
-            <h3 className="text-2xl font-bold">{card.title}</h3>
-            <p className="text-xl">{card.description}</p>
+          <div className="flex gap-4 flex-col w-full lg:max-w-[60%] p-4 md:p-8 sm:pr-0">
+            <h3 className="md:text-2xl text-lg font-bold text-cptext-primary">
+              {card.title}
+            </h3>
+            <div className="text-sm md:text-lg text-cptext-primary">
+              {card.description}
+            </div>
             <Link
               to={card.href}
-              className="text-cptext-cyan p-0 text-xl w-fit flex items-center gap-2"
+              className="text-cptext-blue p-0 text-sm md:text-lg w-fit flex items-center gap-2"
             >
-              Saiba mais
+              {card.cta}
               <MoveRight className="size-4" />
             </Link>
           </div>
-          <div className="max-size-[242px] aspect-square overflow-hidden hidden sm:block">
+          <div className="max-size-[242px] aspect-square overflow-hidden hidden md:block">
             <img
               src={card.image.src}
               alt={card.image.alt}
@@ -109,10 +108,10 @@ export function Products({ data }: { data: Data['variants'] }) {
               <div> {data.icon}</div>
               <p className="text-secondary lg:text-lg text-sm">{data.sub}</p>
             </div>
-            <h1 className="text-secondary lg:text-3xl text-xl font-bold">
+            <h2 className="text-secondary md:text-2xl text-lg font-bold">
               {data.title}
-            </h1>
-            <p className="text-white lg:text-md text-sm">{data.description}</p>
+            </h2>
+            <p className="text-white lg:text-lg text-sm">{data.description}</p>
           </div>
           <div className="max-w-[448px] mr-8 absolute -top-32 -right-16 hidden lg:block">
             <img
@@ -122,11 +121,11 @@ export function Products({ data }: { data: Data['variants'] }) {
             />
           </div>
           <div>
-            <div className="md:grid grid-cols-1 xl:grid-cols-2 gap-8 relative z-10 hidden">
+            <div className="md:grid grid-cols-1  gap-8 relative z-10 hidden">
               {cards}
             </div>
             <div className="md:hidden max-w-[90vw]">
-              <CarouselContainer components={cards} />
+              <CarouselContainer components={cards} className="h-fit" />
             </div>
           </div>
         </div>
@@ -146,15 +145,13 @@ export function ProductCards() {
       <div className="container mx-auto grid lg:gap-24 gap-16 col">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="flex-1 flex flex-col gap-2 w-full">
-            <p className="text-accent-foreground text-sm">
-              {productsContent.sub}
-            </p>
-            <h1 className="text-cptext-primary text-4xl font-bold">
+            <p className="text-gray-500 text-sm">{productsContent.sub}</p>
+            <h1 className="text-cptext-primary text-2xl md:text-3xl font-bold">
               {productsContent.title}
             </h1>
           </div>
 
-          <p className="text-xl px-8 border-cyan-400 border-l-4 flex items-center text-cptext-primary">
+          <p className="md:text-xl px-8 border-cyan-400 border-l-4 flex items-center text-cptext-primary">
             {productsContent.description}
           </p>
         </div>
@@ -173,22 +170,18 @@ export function ProductCards() {
           )}
         >
           <div className="flex gap-4 flex-col w-full lg:max-w-[60%] p-8 sm:pr-0">
-            <h3 className="text-2xl font-bold">{card.title}</h3>
-            <p className="text-xl">{card.description}</p>
+            <h3 className="text-xl md:text-2xl font-bold">{card.title}</h3>
+            <p className="md:text-xl">{card.description}</p>
             <Link
               to={card.href}
-              className="text-cptext-cyan p-0 text-xl w-fit flex items-center gap-2"
+              className="text-cptext-cyan p-0 md:text-xl w-fit flex items-center gap-2"
             >
               Saiba mais
               <MoveRight className="size-4" />
             </Link>
           </div>
-          <div className="max-size-[242px] aspect-square overflow-hidden sm:block">
-            <img
-              src={card.image}
-              alt={card.title}
-              className="w-full h-full object-cover"
-            />
+          <div className="max-w-[300px] overflow-hidden sm:block object-cover">
+            <img src={card.image} alt={card.title} className="w-full h-full" />
           </div>
         </div>
       ))}

@@ -161,7 +161,7 @@ export function OurOfficesSection() {
           <div className="bg-white rounded-lg p-2">
             {OurOfficesSectionContent.icon}
           </div>
-          <h2 className="text-3xl font-bold text-gray-900">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             {OurOfficesSectionContent.title.text['pt-br']}
           </h2>
         </div>

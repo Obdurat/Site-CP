@@ -3,7 +3,6 @@ import { Header } from '@/components/header';
 import { InfoModal } from '@/components/infoModal';
 import { About } from '@/components/page/About/About';
 import { Advantage } from '@/components/page/Advantage/Advantage';
-import { BePartOfHistory } from '@/components/page/BePartOfHistory/BePartOfHistory';
 import { pagesData, type Paths } from '@/routes/data';
 import { Hero } from '@/components/page/Hero/Hero';
 import { SeeAlso } from '@/components/page/SeeAlso/SeeAlso';
@@ -11,6 +10,7 @@ import { Partners } from '@/components/partners';
 import { HomeFooter } from '@/container/footer';
 import { useLocation } from 'react-router';
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
+import { SocialMedia } from '@/components/socialMedia';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -37,7 +37,7 @@ export default function ProductPage() {
           title={`${data.hero.title}: parcerias estratégicas`}
           description="Atenção: somos prestadores de serviços das instituições financeiras:"
         />
-        <BePartOfHistory />
+        <SocialMedia />
         <SeeAlso data={data.seeAlso} />
       </main>
       <HomeFooter />

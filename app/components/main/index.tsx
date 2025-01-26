@@ -4,45 +4,49 @@ import {
   CarouselContent,
   CarouselDots,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from '@/components/ui/carousel';
+import { cn } from '@/lib/utils';
 import Autoplay from 'embla-carousel-autoplay';
 
 const mainContent = [
   {
     sub: 'CPCreditos: Humanizando o crédito',
-    title: 'Crédito consignado sem burocracia',
-    description:
-      'Aqui você encontra as melhores taxas e condições para o seu crédito consignado. Simule agora e descubra o valor que você pode solicitar.',
+    title: 'Crédito consignado descomplicado',
+    description: `Esqueça a burocracia! Aqui você garante as melhores taxas e condições para o seu crédito consignado.
+Simule agora mesmo e descubra o valor ideal para realizar seus planos com facilidade!
+`,
     cta: 'Seja nosso parceiro',
     image: {
       src: '/assets/images/consignado.png',
-      alt: 'Casal com uma criança',
+      alt: 'Homem com um cartão de crédito',
+      class: '',
     },
     section: 'consignado',
   },
   {
     sub: 'CPCreditos: Humanizando o crédito',
-    title: 'Crédito imobiliário para realizar seu sonho',
-    description:
-      'Aqui você encontra as melhores taxas e condições para o seu crédito imobiliário. Simule agora e descubra o valor que você pode solicitar.',
+    title: 'Crédito imobiliário para realizar seus sonhos',
+    description: `Quer conquistar a casa própria ou investir em grandes oportunidades? Aqui você encontra as melhores taxas e condições para o crédito imobiliário ideal para você.
+Simule agora e descubra o valor que pode transformar seus planos em realidade!`,
     cta: 'Seja nosso parceiro',
     image: {
       src: '/assets/images/imobiliario.png',
-      alt: 'Casal com uma maquete de casa',
+      alt: 'Homen com uma casa de brinquedo na mão',
+      class: '',
     },
     section: 'imobiliario',
   },
   {
     sub: 'CPCreditos: Humanizando o crédito',
     title: 'Crédito pessoal para você realizar seus sonhos',
-    description:
-      'Aqui você encontra as melhores taxas e condições para o seu crédito pessoal. Simule agora e descubra o valor que você pode solicitar.',
+    description: `Crédito pessoal para realizar seus sonhos
+Não adie seus planos! Aqui você encontra as melhores taxas e condições para transformar seus sonhos em realidade.
+Simule agora e descubra o valor perfeito para você!`,
     cta: 'Seja nosso parceiro',
     image: {
       src: '/assets/images/credito-pessoal.png',
-      alt: 'Mulher com um cartão de crédito',
+      alt: 'Casal com passaport',
+      class: '',
     },
     section: 'home',
   },
@@ -53,8 +57,8 @@ const Hero = ({ hero }: any) => {
     <section>
       <section className="bg-cpsection-primary h-full flex items-center justify-center pt-16">
         <div>
-          <div className="container mx-auto flex items-center flex-col lg:flex-row justify-between gap-8">
-            <div className="w-[70%] max-w-[600px] mr-8 max-h-[580px]">
+          <div className="container mx-auto flex items-center flex-col-reverse lg:flex-row justify-between gap-8">
+            <div className={cn('w-[70%] max-w-[600px] mr-8', hero.image.class)}>
               <img
                 src={hero.image.src}
                 alt={hero.image.alt}
@@ -80,7 +84,7 @@ const Hero = ({ hero }: any) => {
 
 export function Main() {
   const autoPlay = Autoplay({
-    delay: 5e3,
+    delay: 2e4,
     stopOnMouseEnter: true,
     stopOnFocusIn: true,
   });

@@ -5,7 +5,7 @@ import { footersInformations } from '../footer-SEO-informations';
 export function FooterSecondaryInformations() {
   return (
     <section className="container">
-      <div className="flex-row gap-4 justify-between items-center hidden lg:flex">
+      <div className="gap-4 hidden lg:grid grid-cols-5">
         {footersInformations.infos.secondary.map((info: any) => {
           return (
             <div className="flex flex-col gap-2" key={Math.random()}>
@@ -17,7 +17,7 @@ export function FooterSecondaryInformations() {
                   <Link
                     key={Math.random()}
                     to={link.link}
-                    className="text-white"
+                    className="text-white text-wrap break-all"
                   >
                     {link.label}
                   </Link>

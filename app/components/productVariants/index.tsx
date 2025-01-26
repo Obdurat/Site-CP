@@ -1,9 +1,7 @@
 import { pagesData, type Paths } from '@/routes/data';
 import { useLocation } from 'react-router';
 import { InfoModal } from '../infoModal';
-import { About } from '../page/About/About';
 import { Advantage } from '../page/Advantage/Advantage';
-import { BePartOfHistory } from '../page/BePartOfHistory/BePartOfHistory';
 import { Hero } from '../page/Hero/Hero';
 import { SeeAlso } from '../page/SeeAlso/SeeAlso';
 import { Partners } from '../partners';
@@ -24,14 +22,12 @@ export default function ProductVariants() {
       <main className="flex flex-col pt-20">
         <Hero data={data.hero} />
         <Products data={data.variants} />
-        <div className="flex flex-col lg:gap-32 gap-20">
-          <About data={data.about} />
+        <div className="flex flex-col lg:gap-32 gap-20 mt-20 lg:mt-32">
           <Advantage data={data.advantages} />
           <Partners
             title="Consignado Público: parcerias estratégicas"
             description="Atenção: somos prestadores de serviços das instituições financeiras:"
           />
-          <BePartOfHistory />
           <SeeAlso data={data.seeAlso} />
         </div>
       </main>

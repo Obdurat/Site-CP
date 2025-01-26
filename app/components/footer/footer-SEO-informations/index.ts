@@ -4,55 +4,102 @@ export const footersInformations = {
     copyright: 'Todos os direitos reservados',
     main: [
       {
-        label: 'Institucional',
+        label: 'Consignado',
         links: [
           {
-            label: 'Quem somos',
-            link: '#',
+            label: 'Consignado Público',
+            link: '/produto/consignado/consignado-publico',
           },
           {
-            label: 'Nossos Valores',
-            link: '#',
+            label: 'Consignado Federal',
+            link: '/produto/consignado/consignado-federal',
           },
           {
-            label: 'Nossos Produtos',
-            link: '#',
+            label: 'Consignado Privado',
+            link: '/produto/consignado/consignado-privado',
           },
           {
-            label: 'Nossos Parceiros',
-            link: '#',
+            label: 'Consignado INSS',
+            link: '/produto/consignado/consignado-inss',
           },
         ],
       },
       {
-        label: 'Parceiro',
+        label: 'Imobiliário',
         links: [
           {
-            label: 'Area do Parceiro',
-            link: '#',
+            label: 'Financiamento de Imóvel',
+            link: '/produto/imobiliario/financiamento-imovel',
+          },
+          {
+            label: 'Home Equity/Crédito com garantia de Imóvel',
+            link: '/produto/imobiliario/home-equity',
+          },
+        ],
+      },
+      {
+        label: 'Cartões',
+        links: [
+          {
+            label: 'Cartão Consignado',
+            link: '/produto/cartao/cartao-consignado',
+          },
+          {
+            label: 'Cartão Benefício Consignado',
+            link: '/produto/cartao/cartao-beneficio-consignado',
+          },
+          {
+            label: 'Cartão Credcesta',
+            link: '/produto/cartao/cartao-credcesta',
           },
         ],
       },
     ],
     secondary: [
       {
-        label: 'Institucional',
+        label: 'Crédito',
         links: [
           {
-            label: 'Quem somos',
-            link: '#',
+            label: 'Crédito Pessoal',
+            link: '/produto/credito/credito-pessoal',
           },
           {
-            label: 'Nossos Valores',
-            link: '#',
+            label: 'FGTS',
+            link: '/produto/credito/fgts',
           },
           {
-            label: 'Nossos Produtos',
-            link: '#',
+            label: 'Financiamento/Refinanciamento de Veículos',
+            link: '/produto/credito/financiamento-refinanciamento-veiculos',
+          },
+        ],
+      },
+      {
+        label: 'Consórcio/Seguros',
+        links: [
+          {
+            label: 'Consórcio',
+            link: '/produto/consorcio',
           },
           {
-            label: 'Nossos Parceiros',
-            link: '#',
+            label: 'Seguros CPCréditos',
+            link: '/produto/seguros',
+          },
+        ],
+      },
+      {
+        label: 'Outros',
+        links: [
+          {
+            label: 'Painel Solar',
+            link: '/produto/outros/painel-solar',
+          },
+          {
+            label: 'Capital de Giro',
+            link: '/produto/outros/capital-de-giro',
+          },
+          {
+            label: 'Operações Estruturadas',
+            link: '/produto/outros/operacoes-estruturadas',
           },
         ],
       },
@@ -60,102 +107,39 @@ export const footersInformations = {
         label: 'Institucional',
         links: [
           {
-            label: 'Quem somos',
-            link: '#',
+            label: 'Nossa História',
+            link: '/sobre',
           },
           {
-            label: 'Nossos Valores',
-            link: '#',
+            label: 'Nossa Diretoria',
+            link: '/diretoria',
           },
           {
-            label: 'Nossos Produtos',
-            link: '#',
+            label: 'Trabalhe Conosco',
+            link: import.meta.env.VITE_LINKEDIN,
           },
           {
-            label: 'Nossos Parceiros',
-            link: '#',
+            label: 'Seja Parceiro',
+            link: import.meta.env.VITE_LINKEDIN,
+          },
+          {
+            label: 'Privacidade e Compliance',
+            link: '/privacidade',
           },
         ],
       },
       {
-        label: 'Institucional',
+        label: 'Escritórios',
         links: [
           {
-            label: 'Quem somos',
-            link: '#',
+            label: 'Nossos Escritórios',
+            link: '/escritorios',
           },
           {
-            label: 'Nossos Valores',
-            link: '#',
-          },
-          {
-            label: 'Nossos Produtos',
-            link: '#',
-          },
-          {
-            label: 'Nossos Parceiros',
-            link: '#',
+            label: 'Fale Conosco',
+            link: import.meta.env.VITE_WHATSAPP,
           },
         ],
-      },
-      {
-        label: 'Institucional',
-        links: [
-          {
-            label: 'Quem somos',
-            link: '#',
-          },
-          {
-            label: 'Nossos Valores',
-            link: '#',
-          },
-          {
-            label: 'Nossos Produtos',
-            link: '#',
-          },
-          {
-            label: 'Nossos Parceiros',
-            link: '#',
-          },
-        ],
-      },
-      {
-        label: 'Institucional',
-        links: [
-          {
-            label: 'Quem somos',
-            link: '#',
-          },
-          {
-            label: 'Nossos Valores',
-            link: '#',
-          },
-          {
-            label: 'Nossos Produtos',
-            link: '#',
-          },
-          {
-            label: 'Nossos Parceiros',
-            link: '#',
-          },
-        ],
-      },
-    ],
-  },
-  followUs: {
-    title: 'Siga-nos',
-    links: [
-      {
-        label: 'Instagram',
-        link: 'https://www.instagram.com',
-      },
-      {
-        label: 'Facebook',
-        link: 'https://www.facebook.com',
-      },
-      {
-        label: 'LinkedIn',
-        link: 'https://www.linkedin.com',
       },
     ],
   },

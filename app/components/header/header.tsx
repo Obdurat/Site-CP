@@ -39,7 +39,7 @@ type Section = {
   links: TLink[];
 };
 
-type Mock = {
+type HeaderData = {
   products: {
     sections: Section[];
   };
@@ -51,7 +51,7 @@ type Mock = {
   };
 };
 
-const mock: Mock = {
+const headerData: HeaderData = {
   products: {
     sections: [
       {
@@ -176,13 +176,13 @@ const mock: Mock = {
       },
       {
         title: 'Trabalhe Conosco',
-        href: 'https://www.linkedin.com/company/cpcreditos/',
+        href: import.meta.env.VITE_LINKEDIN,
         description: 'Venha fazer parte do nosso time',
         icon: <Building2 />,
       },
       {
         title: 'Seja Parceiro',
-        href: 'https://www.linkedin.com/company/cpcreditos/',
+        href: import.meta.env.VITE_LINKEDIN,
         description: 'Seja um parceiro da empresa',
         icon: <Building2 />,
       },
@@ -257,7 +257,7 @@ export function HeaderLink({
 export function HeaderProductsLinks() {
   return (
     <div className="grid grid-cols-3 grid-rows-1 gap-2 p-4 md:w-[800px] ">
-      {mock.products.sections.map(({ title, icon, links }) => (
+      {headerData.products.sections.map(({ title, icon, links }) => (
         <ul key={Math.random()}>
           <div>
             <div className="flex items-center gap-2 p-2">
@@ -281,7 +281,7 @@ export function HeaderProductsLinks() {
 export function HeaderInstitutionalLinks() {
   return (
     <div className="grid grid-cols-1 grid-rows-1 gap-3 p-4 md:w-[800px] lg:w-[600px]">
-      {mock.institutional.links.map((link) => (
+      {headerData.institutional.links.map((link) => (
         <HeaderLink key={Math.random()} {...link} />
       ))}
     </div>
@@ -291,7 +291,7 @@ export function HeaderInstitutionalLinks() {
 export function HeaderOfficesLinks() {
   return (
     <div className="grid grid-cols-1 grid-rows-1 gap-3 p-4 md:w-[800px] lg:w-[600px]">
-      {mock.offices.links.map((link) => (
+      {headerData.offices.links.map((link) => (
         <HeaderLink key={Math.random()} {...link} />
       ))}
     </div>
@@ -338,7 +338,7 @@ export function MobileNav() {
     <div className="md:hidden">
       <Sheet>
         <SheetTrigger>
-          <AlignJustify />
+          <AlignJustify className="mt-2" />
         </SheetTrigger>
         <SheetContent side="right">
           <div className="pt-8 space-y-4">
@@ -353,7 +353,7 @@ export function MobileNav() {
                 </div>
               </CollapsibleTrigger>
               <CollapsibleContent className="space-y-2">
-                {mock.products.sections.map(({ title, icon, links }) => (
+                {headerData.products.sections.map(({ title, icon, links }) => (
                   <MobileNavLinks
                     key={Math.random()}
                     className="pl-4"
@@ -364,7 +364,7 @@ export function MobileNav() {
               </CollapsibleContent>
             </Collapsible>
             <MobileNavLinks
-              links={mock.institutional.links}
+              links={headerData.institutional.links}
               label="Institucional"
             />
             <HeaderLink
@@ -425,8 +425,10 @@ export function Header() {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <SimulationModal cta="Simule seu crédito" />
-        <MobileNav />
+        <div className="flex items-center gap-4">
+          <SimulationModal cta="Simule seu crédito" />
+          <MobileNav />
+        </div>
       </div>
     </header>
   );

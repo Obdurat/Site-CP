@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { Slider } from '@/components/ui/slider';
 import { useAnimationToRef } from '../../hooks/use-animation-to-ref';
@@ -24,6 +24,34 @@ export function CreditSlider({ className, section, ...props }: SliderProps) {
     }).format(value);
   };
 
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const sliderElement = sliderRef.current;
+    if (!sliderElement) return;
+
+    const preventTouch = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    };
+
+    if (sliderElement) {
+      sliderElement.addEventListener('touchstart', preventTouch, {
+        passive: false,
+      });
+      sliderElement.addEventListener('touchmove', preventTouch, {
+        passive: false,
+      });
+    }
+
+    return () => {
+      if (sliderElement) {
+        sliderElement.removeEventListener('touchstart', preventTouch);
+        sliderElement.removeEventListener('touchmove', preventTouch);
+      }
+    };
+  }, []);
+
   return (
     <section ref={componentRef} className="flex flex-col gap-12 mt-4">
       <div className="flex flex-col gap-4 pb-8">
@@ -40,12 +68,13 @@ export function CreditSlider({ className, section, ...props }: SliderProps) {
               </div>
               <div className="flex gap-4 items-center">
                 <span className="text-xs font-bold text-gray-300">
-                  {formatCurrency(100)}
+                  {formatCurrency(500)}
                 </span>
                 <Slider
+                  ref={sliderRef}
                   defaultValue={[value]}
                   max={500000}
-                  step={50}
+                  step={500}
                   onValueChange={(v) => {
                     if (!showButton) {
                       setShowButton(true);

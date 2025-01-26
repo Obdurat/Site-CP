@@ -132,7 +132,7 @@ const Carousel = React.forwardRef<
           api.plugins().autoplay.play();
           clearTimeout(timeout);
           timeout = null;
-        }, 2e4);
+        }, 4e4);
       });
 
       return () => {

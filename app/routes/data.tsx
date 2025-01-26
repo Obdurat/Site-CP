@@ -33,23 +33,36 @@ type Image = {
 
 type VariantCard = {
   title: string;
-  description: string;
+  description: string | JSX.Element;
   image: Image;
   href: string;
+  cta: string;
+};
+
+type SeeAlsoCard = {
+  title: string;
+  description: string;
+  link: string;
+};
+
+type SeeAlso = {
+  title: string;
+  cards: SeeAlsoCard[];
 };
 
 export type Data = {
   hero: {
     title: string;
     description: string;
-    links: { title: string; link: string }[];
+    links?: { title: string; link: string }[];
+    image: Image;
   };
-  about: {
+  about?: {
     title: string;
     sections: {
       icon: JSX.Element;
       title: string;
-      description?: string;
+      description?: string | JSX.Element;
       subSections?: {
         icon: JSX.Element;
         title: string;
@@ -62,10 +75,7 @@ export type Data = {
     description: string;
     advantages: { title: string; description: string; icon: JSX.Element }[];
   };
-  seeAlso: {
-    title: string;
-    cards: { title: string; description: string; link: string }[];
-  };
+  seeAlso: SeeAlso;
   variants?: {
     icon: JSX.Element;
     sub: string;
@@ -79,27 +89,6 @@ export type Data = {
 
 export type PagesData = {
   [key in Paths]: Data;
-};
-
-const seeAlso = {
-  title: 'Veja também',
-  cards: [
-    {
-      title: 'Consignado Público',
-      description: 'Conheça o consignado público e suas vantagens.',
-      link: '/produto/consignado/consignado-publico',
-    },
-    {
-      title: 'Consignado Federal',
-      description: 'Conheça o consignado federal e suas vantagens.',
-      link: '/produto/consignado/consignado-federal',
-    },
-    {
-      title: 'Consignado Privado',
-      description: 'Conheça o consignado privado e suas vantagens.',
-      link: '/produto/consignado/consignado-privado',
-    },
-  ],
 };
 
 const seeAlsoConsignado = [
@@ -125,18 +114,150 @@ const seeAlsoConsignado = [
   },
 ];
 
+const seeAlsoImobiliario = [
+  {
+    title: 'Financiamento de Imóvel',
+    description: 'Conheça o financiamento de imóvel e suas vantagens.',
+    link: '/produto/imobiliario/financiamento-imovel',
+  },
+  {
+    title: 'Home Equity',
+    description: 'Conheça o home equity e suas vantagens.',
+    link: '/produto/imobiliario/home-equity',
+  },
+  {
+    title: 'Crédito Consignado',
+    description: 'Conheça o crédito consignado e suas vantagens.',
+    link: '/produto/consignado',
+  },
+  {
+    title: 'Crédito Pessoal',
+    description: 'Conheça o crédito pessoal e suas vantagens.',
+    link: '/produto/credito/credito-pessoal',
+  },
+];
+
+const seeAlsoCredito = [
+  {
+    title: 'Crédito Pessoal',
+    description: 'Conheça o crédito pessoal e suas vantagens.',
+    link: '/produto/credito/credito-pessoal',
+  },
+  {
+    title: 'FGTS',
+    description: 'Conheça o FGTS e suas vantagens.',
+    link: '/produto/credito/fgts',
+  },
+  {
+    title: 'Financiamento e Refinanciamento de Veículos',
+    description:
+      'Conheça o financiamento e refinanciamento de veículos e suas vantagens.',
+    link: '/produto/credito/financiamento-refinanciamento-veiculos',
+  },
+  {
+    title: 'Crédito Consignado',
+    description: 'Conheça o crédito consignado e suas vantagens.',
+    link: '/produto/consignado',
+  },
+];
+
+const seeAlsoCartao = [
+  {
+    title: 'Cartão Consignado',
+    description: 'Conheça o cartão consignado e suas vantagens.',
+    link: '/produto/cartao/cartao-consignado',
+  },
+  {
+    title: 'Cartão Benefício Consignado',
+    description: 'Conheça o cartão benefício consignado e suas vantagens.',
+    link: '/produto/cartao/cartao-beneficio-consignado',
+  },
+  {
+    title: 'Cartão Credcesta',
+    description: 'Conheça o cartão credcesta e suas vantagens.',
+    link: '/produto/cartao/cartao-credcesta',
+  },
+  {
+    title: 'Crédito Consignado',
+    description: 'Conheça o crédito consignado e suas vantagens.',
+    link: '/produto/consignado',
+  },
+];
+
+const seeAlsoConsorcio = [
+  {
+    title: 'Consórcio',
+    description: 'Conheça o consórcio e suas vantagens.',
+    link: '/produto/consorcio',
+  },
+  {
+    title: 'Seguros CPCréditos',
+    description: 'Conheça os seguros CPCréditos e suas vantagens.',
+    link: '/produto/seguros',
+  },
+  {
+    title: 'Crédito Consignado',
+    description: 'Conheça o crédito consignado e suas vantagens.',
+    link: '/produto/consignado',
+  },
+  {
+    title: 'Crédito Pessoal',
+    description: 'Conheça o crédito pessoal e suas vantagens.',
+    link: '/produto/credito/credito-pessoal',
+  },
+];
+
+const seeAlsoOutros = [
+  {
+    title: 'Painel Solar',
+    description: 'Conheça o painel solar e suas vantagens.',
+    link: '/produto/outros/painel-solar',
+  },
+  {
+    title: 'Capital de Giro',
+    description: 'Conheça o capital de giro e suas vantagens.',
+    link: '/produto/outros/capital-de-giro',
+  },
+  {
+    title: 'Operações Estruturadas',
+    description: 'Conheça as operações estruturadas e suas vantagens.',
+    link: '/produto/outros/operacoes-estruturadas',
+  },
+  {
+    title: 'Crédito Pessoal',
+    description: 'Conheça o crédito pessoal e suas vantagens.',
+    link: '/produto/credito/credito-pessoal',
+  },
+];
+
+const heroLinks = [
+  { title: 'O que é', link: '#oque-e' },
+  { title: 'Vantagens', link: '#vantagens' },
+  { title: 'Parceiros', link: '#parceiros' },
+  {
+    title: 'Seja parceiro',
+    link: import.meta.env.VITE_LINKEDIN,
+  },
+];
+
+const getSeeAlso = (list: SeeAlsoCard[], title: string): SeeAlso => {
+  return {
+    title: 'Veja também',
+    cards: list.filter((card) => card.title !== title),
+  };
+};
+
 export const pagesData: PagesData = {
   'consignado-publico': {
     hero: {
       title: 'Consignado Público',
       description:
-        'Linha de crédito exclusiva para servidores públicos municipais, estaduais e federais, ativos e inativos, com condições diferenciadas.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Crédito exclusivo para servidores públicos municipais, estaduais e federais, ativos e inativos, com condições especiais e vantagens diferenciadas.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Consignado Público',
@@ -144,80 +265,91 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `O Consignado Público é uma linha de crédito exclusiva para servidores públicos municipais, estaduais e federais, ativos e inativos. Com condições diferenciadas, oferece taxas de juros reduzidas, prazos de pagamento longos e desconto direto em folha de pagamento.`,
+          description: (
+            <div>
+              O Consignado Público é uma linha de crédito exclusiva para
+              servidores públicos municipais, estaduais e federais, sejam eles
+              ativos ou inativos. Essa modalidade oferece condições
+              diferenciadas, como:
+              <ul className="list-disc pl-6 mt-2">
+                <li>Taxas de juros reduzidas, proporcionando economia;</li>
+                <li>
+                  Prazos de pagamento longos, garantindo flexibilidade no
+                  orçamento;
+                </li>
+                <li>
+                  Desconto direto na folha de pagamento, trazendo mais
+                  praticidade e segurança.
+                </li>
+              </ul>
+            </div>
+          ),
         },
         {
           icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
-          title: 'Para quem?',
+          title: 'Para quem é?',
           subSections: [
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
               title: 'Servidores Municipais',
-              description: `Funcionários públicos municipais que atuam nos órgãos administrados pelas prefeituras das cidades.`,
+              description: `Funcionários públicos que atuam em órgãos administrados pelas prefeituras das cidades.`,
             },
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
               title: 'Servidores Estaduais',
-              description: `Funcionários públicos estaduais que atuam nos órgãos administrados pelos governos dos estados.`,
+              description: `Funcionários públicos que trabalham em órgãos administrados pelos governos dos estados.`,
             },
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
               title: 'Servidores Federais',
-              description: `Funcionários públicos federais que atuam nos órgãos administrados pelo governo federal.`,
+              description: `Funcionários públicos que exercem suas funções em órgãos administrados pelo governo federal.`,
             },
           ],
         },
       ],
     },
     advantages: {
-      title: 'Consignado Público: principais vantagens',
+      title: 'Consignado Público: Principais Vantagens',
       description: 'Conheça as principais vantagens do consignado público.',
       advantages: [
         {
           title: 'Taxas de juros reduzidas',
           description:
-            'Uma das menores do mercado, tornando o crédito mais acessível.',
+            'Aproveite uma das menores taxas do mercado, tornando o crédito mais acessível e econômico.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Prazos de pagamento longos',
           description:
-            'Permite maior flexibilidade no orçamento, com prazos estendidos.',
+            'Tenha mais flexibilidade financeira com prazos estendidos que se ajustam ao seu orçamento.',
           icon: <PayIcon className="size-8" />,
         },
         {
-          title: 'Desconto direto em folha de pagamento',
+          title: 'Desconto direto na folha de pagamento',
           description:
-            'Garante segurança e praticidade no pagamento das parcelas.',
+            'Garanta praticidade e segurança com parcelas descontadas automaticamente no contracheque.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Menos burocracia',
           description:
-            'Ideal para quem busca crédito rápido, com menos burocracia e condições vantajosas.',
+            'Ideal para quem precisa de crédito rápido, com menos burocracia e condições vantajosas.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-
-    seeAlso: {
-      title: 'Veja também',
-      cards: seeAlsoConsignado.filter(
-        (card) => card.title !== 'Consignado Público'
-      ),
-    },
+    seeAlso: getSeeAlso(seeAlsoConsignado, 'Consignado Público'),
   },
   'consignado-federal': {
     hero: {
       title: 'Consignado Federal',
       description:
-        'Voltado para servidores federais ativos, aposentados e pensionistas, o Consignado Federal oferece condições exclusivas para servidores vinculados ao Governo Federal, limite de crédito elevado, dependendo da margem consignável, taxas competitivas, ajustadas para oferecer maior economia ao contratante. Uma solução prática e acessível para realizar projetos pessoais, quitar dívidas ou atender necessidades emergenciais.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Crédito exclusivo para servidores federais ativos, aposentados e pensionistas, com limite elevado, taxas competitivas e condições ajustadas. Ideal para realizar projetos, quitar dívidas ou atender necessidades emergenciais com economia e praticidade.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Consignado Federal',
@@ -225,72 +357,93 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `O Consignado Federal é uma linha de crédito exclusiva para servidores federais ativos, aposentados e pensionistas. Com condições exclusivas, oferece limite de crédito elevado, taxas competitivas e ajustadas para oferecer maior economia ao contratante.`,
+          description: (
+            <div>
+              O Consignado Federal é uma linha de crédito exclusiva para
+              servidores federais ativos, aposentados e pensionistas. Oferece
+              vantagens como limite de crédito elevado, taxas competitivas e
+              condições ajustadas para garantir economia e praticidade.
+              <br />
+              Além disso, o Consignado Federal oferece:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  Limite de crédito elevado, ajustado à margem consignável,
+                  permitindo a contratação de valores maiores;
+                </li>
+                <li>
+                  Taxas de juros competitivas, inferiores às modalidades
+                  tradicionais, devido à segurança da cobrança direta;
+                </li>
+                <li>
+                  Condições exclusivas e flexíveis, ideais para quem busca
+                  crédito para realizar projetos pessoais, quitar dívidas ou
+                  atender necessidades emergenciais.
+                </li>
+              </ul>
+              É uma solução prática e confiável, que combina economia,
+              facilidade e segurança.
+            </div>
+          ),
         },
         {
           icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
-          title: 'Para quem?',
+          title: 'Para quem é?',
           subSections: [
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
               title: 'Servidores Ativos',
-              description: `Funcionários públicos federais que atuam nos órgãos administrados pelo governo federal.`,
+              description: `Funcionários públicos federais que ocupam cargos em órgãos administrados pelo governo federal, com vínculo estável e margem consignável disponível.`,
             },
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
               title: 'Aposentados',
-              description: `Funcionários públicos federais aposentados que atuaram nos órgãos administrados pelo governo federal.`,
+              description: `Funcionários públicos federais aposentados que prestaram serviços em órgãos administrados pelo governo federal e possuem renda garantida pela aposentadoria.`,
             },
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
               title: 'Pensionistas',
-              description: `Pensionistas de funcionários públicos federais que atuaram nos órgãos administrados pelo governo federal.`,
+              description: `Pensionistas que recebem benefícios oriundos de servidores públicos federais falecidos, garantindo margem consignável para acesso ao crédito.`,
             },
           ],
         },
       ],
     },
     advantages: {
-      title: 'Consignado Federal: principais vantagens',
+      title: 'Consignado Federal: Principais Vantagens',
       description: 'Conheça as principais vantagens do consignado federal.',
       advantages: [
         {
           title: 'Condições exclusivas',
           description:
-            'Para servidores vinculados ao Governo Federal, com limite de crédito elevado.',
+            'Vantagens exclusivas para servidores federais, incluindo limite de crédito elevado e flexibilidade de pagamento.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Taxas competitivas',
-          description: 'Ajustadas para oferecer maior economia ao contratante.',
+          description:
+            'Taxas ajustadas para garantir economia e viabilidade financeira ao contratante.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Prático e acessível',
           description:
-            'Uma solução prática e acessível para realizar projetos pessoais, quitar dívidas ou atender necessidades emergenciais.',
+            'Uma solução simples e acessível para financiar projetos pessoais, quitar dívidas ou atender necessidades emergenciais com tranquilidade.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso: {
-      title: 'Veja também',
-      cards: seeAlsoConsignado.filter(
-        (card) => card.title !== 'Consignado Federal'
-      ),
-    },
+    seeAlso: getSeeAlso(seeAlsoConsignado, 'Consignado Federal'),
   },
   'consignado-privado': {
     hero: {
       title: 'Consignado Privado',
       description:
-        'Destinado a colaboradores de empresas privadas conveniadas, o Consignado Privado oferece vantagens pensadas para o trabalhador do setor privado, com taxas reduzidas, parcelas descontadas diretamente na folha de pagamento e acessibilidade para quem busca crédito rápido, mesmo com outras pendências financeiras.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Crédito exclusivo para colaboradores de empresas privadas conveniadas, com taxas reduzidas, desconto em folha e fácil acesso, mesmo para quem possui outras pendências financeiras.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Consignado Privado',
@@ -298,64 +451,74 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `O Consignado Privado é uma linha de crédito destinada a colaboradores de empresas privadas conveniadas. Com vantagens pensadas para o trabalhador do setor privado, oferece taxas reduzidas, parcelas descontadas diretamente na folha de pagamento e acessibilidade para quem busca crédito rápido, mesmo com outras pendências financeiras.`,
+          description: (
+            <div>
+              O Consignado Privado é uma modalidade de crédito exclusiva para
+              colaboradores de empresas privadas conveniadas. Ele oferece
+              benefícios especiais para o trabalhador do setor privado, como:
+              <ul className="list-disc pl-6 mt-2">
+                <li>Taxas de juros reduzidas, garantindo economia;</li>
+                <li>
+                  Parcelas descontadas diretamente na folha de pagamento,
+                  proporcionando praticidade e segurança;
+                </li>
+                <li>
+                  Acessibilidade, mesmo para quem possui outras pendências
+                  financeiras, tornando o crédito rápido e descomplicado.
+                </li>
+              </ul>
+            </div>
+          ),
         },
         {
           icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
-          title: 'Para quem?',
+          title: 'Para quem é?',
           subSections: [
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
               title: 'Colaboradores de Empresas Privadas',
-              description: `Trabalhadores do setor privado que atuam em empresas conveniadas.`,
+              description: `Trabalhadores do setor privado que atuam em empresas com convênio ativo para oferecer essa linha de crédito.`,
             },
           ],
         },
       ],
     },
     advantages: {
-      title: 'Consignado Privado: principais vantagens',
+      title: 'Consignado Privado: Principais Vantagens',
       description: 'Conheça as principais vantagens do consignado privado.',
       advantages: [
         {
           title: 'Taxas reduzidas',
           description:
-            'Adaptadas ao perfil do cliente, oferecendo condições vantajosas.',
+            'Condições adaptadas ao perfil do cliente, com taxas mais baixas e vantajosas para o trabalhador do setor privado.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Parcelas descontadas na folha',
           description:
-            'Evita atrasos e garante segurança no pagamento das parcelas.',
+            'Praticidade e segurança garantidas com o desconto automático das parcelas diretamente na folha de pagamento.',
           icon: <PayIcon className="size-8" />,
         },
-
         {
           title: 'Acessibilidade',
           description:
-            'Para quem busca crédito rápido, mesmo com outras pendências financeiras.',
+            'Uma solução rápida e acessível, mesmo para quem possui outras pendências financeiras, sem complicações.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso: {
-      title: 'Veja também',
-      cards: seeAlsoConsignado.filter(
-        (card) => card.title !== 'Consignado INSS'
-      ),
-    },
+    seeAlso: getSeeAlso(seeAlsoConsignado, 'Consignado Privado'),
   },
   'consignado-inss': {
     hero: {
       title: 'Consignado INSS',
       description:
-        'Atende aposentados e pensionistas do Instituto Nacional do Seguro Social (INSS), com benefícios únicos: descontos automáticos no benefício mensal, taxas de juros controladas pelo governo e opção de renegociação ou refinanciamento de contratos existentes, caso necessário. Uma solução prática e vantajosa para quem busca crédito com segurança e menor custo.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Crédito exclusivo para aposentados e pensionistas do INSS, com taxas reduzidas, desconto automático no benefício e opções de renegociação.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Consignado INSS',
@@ -363,21 +526,41 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `O Consignado INSS atende aposentados e pensionistas do Instituto Nacional do Seguro Social (INSS), com benefícios únicos: descontos automáticos no benefício mensal, taxas de juros controladas pelo governo e opção de renegociação ou refinanciamento de contratos existentes, caso necessário.`,
+          description: (
+            <div className="flex flex-col">
+              O Consignado INSS é uma modalidade de crédito destinada a
+              aposentados e pensionistas do Instituto Nacional do Seguro Social
+              (INSS). Ele oferece benefícios exclusivos, como:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  Descontos automáticos no benefício mensal, garantindo
+                  praticidade e segurança;
+                </li>
+                <li>
+                  Taxas de juros controladas pelo governo, proporcionando
+                  economia;
+                </li>
+                <li>
+                  Opção de renegociação ou refinanciamento de contratos
+                  existentes, se necessário.
+                </li>
+              </ul>
+            </div>
+          ),
         },
         {
           icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
-          title: 'Para quem?',
+          title: 'Para quem é?',
           subSections: [
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
               title: 'Aposentados',
-              description: `Pessoas que já contribuíram para a Previdência Social e se aposentaram.`,
+              description: `Pessoas que contribuíram para a Previdência Social e recebem aposentadoria.`,
             },
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
               title: 'Pensionistas',
-              description: `Pessoas que recebem pensão de um segurado falecido.`,
+              description: `Pessoas que recebem pensão por falecimento de um segurado do INSS.`,
             },
           ],
         },
@@ -390,47 +573,41 @@ export const pagesData: PagesData = {
         {
           title: 'Descontos automáticos',
           description:
-            'Proporciona maior tranquilidade, com descontos automáticos no benefício mensal.',
+            'Garanta tranquilidade com parcelas descontadas automaticamente do benefício mensal, sem preocupações adicionais.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Taxas de juros controladas',
           description:
-            'Pelo governo, garantindo economia e segurança no pagamento das parcelas.',
+            'Aproveite taxas reguladas pelo governo, garantindo economia e segurança em seus pagamentos.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Renegociação ou refinanciamento',
           description:
-            'Opção de renegociação ou refinanciamento de contratos existentes, caso necessário.',
+            'Conte com a flexibilidade de renegociar ou refinanciar contratos existentes, caso necessário.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Segurança e menor custo',
           description:
-            'Uma solução prática e vantajosa para quem busca crédito com segurança e menor custo.',
+            'Uma solução confiável e acessível para quem busca crédito com praticidade e economia.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso: {
-      title: 'Veja também',
-      cards: seeAlsoConsignado.filter(
-        (card) => card.title !== 'Consignado Privado'
-      ),
-    },
+    seeAlso: getSeeAlso(seeAlsoConsignado, 'Consignado INSS'),
   },
   'financiamento-imovel': {
     hero: {
       title: 'Financiamento de Imóvel',
       description:
-        'Realize o sonho da casa própria ou adquira imóveis para investimento com o Financiamento de Imóvel. Esse produto oferece:',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Realize o sonho da casa própria ou invista em imóveis com facilidade. Descubra as vantagens que essa modalidade de financiamento oferece.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Financiamento de Imóvel',
@@ -438,60 +615,78 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `Realize o sonho da casa própria ou adquira imóveis para investimento com o Financiamento de Imóvel. Esse produto oferece condições flexíveis de pagamento, com prazos longos e parcelas acessíveis, taxas de juros competitivas, ajustadas ao seu perfil financeiro e a possibilidade de financiar imóveis residenciais, comerciais ou terrenos.`,
+          description: (
+            <div>
+              O Financiamento de Imóvel é a solução ideal para quem deseja
+              realizar o sonho da casa própria ou investir em imóveis. Ele
+              oferece:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  Condições flexíveis de pagamento, com prazos longos e parcelas
+                  que cabem no orçamento;
+                </li>
+                <li>
+                  Taxas de juros competitivas, ajustadas ao seu perfil
+                  financeiro;
+                </li>
+                <li>
+                  A possibilidade de financiar imóveis residenciais, comerciais
+                  ou terrenos, de acordo com suas necessidades.
+                </li>
+              </ul>
+            </div>
+          ),
         },
         {
           icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
-          title: 'Para quem?',
+          title: 'Para quem é?',
           subSections: [
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
-              title: 'Pessoas físicas',
-              description: `Indicado para quem deseja sair do aluguel ou expandir o patrimônio com segurança e facilidade.`,
+              title: 'Pessoas Físicas',
+              description: `Perfeito para quem busca sair do aluguel ou expandir o patrimônio com segurança e praticidade.`,
             },
           ],
         },
       ],
     },
     advantages: {
-      title: 'Financiamento de Imóvel: principais vantagens',
+      title: 'Financiamento de Imóvel: Principais Vantagens',
       description:
         'Conheça as principais vantagens do financiamento de imóvel.',
       advantages: [
         {
           title: 'Condições flexíveis de pagamento',
           description:
-            'Com prazos longos e parcelas acessíveis, para facilitar a aquisição do imóvel.',
+            'Aproveite prazos longos e parcelas acessíveis que facilitam a aquisição do imóvel desejado.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Taxas de juros competitivas',
           description:
-            'Ajustadas ao seu perfil financeiro, para oferecer economia e segurança.',
+            'Taxas ajustadas ao seu perfil financeiro, garantindo economia e segurança no financiamento.',
           icon: <PayIcon className="size-8" />,
         },
         {
-          title:
-            'Possibilidade de financiar imóveis residenciais, comerciais ou terrenos',
+          title: 'Diversidade de opções de imóveis',
           description:
-            'Para atender diferentes necessidades e perfis de investimento.',
+            'Possibilidade de financiar imóveis residenciais, comerciais ou terrenos, atendendo diferentes necessidades e objetivos de investimento.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoImobiliario, 'Financiamento de Imóvel'),
   },
   'home-equity': {
     hero: {
       title: 'Home Equity / Crédito com Garantia de Imóvel',
       description:
-        'Transforme o valor do seu imóvel em crédito com o Home Equity, uma solução prática para quem busca recursos com vantagens exclusivas.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Converta o valor do seu imóvel em crédito com o Home Equity, a solução ideal para quem busca recursos com condições exclusivas e flexíveis.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Home Equity',
@@ -499,12 +694,47 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `Transforme o valor do seu imóvel em crédito com o Home Equity, uma solução prática para quem busca recursos com vantagens exclusivas: taxas de juros reduzidas, inferiores às de empréstimos pessoais; altos valores de crédito, com liberação de até 60% do valor do imóvel; flexibilidade para utilizar o recurso em diversos objetivos, como quitar dívidas, investir em negócios ou reformar a própria casa. Com o imóvel em garantia, você acessa crédito seguro e com condições diferenciadas, mantendo a propriedade do bem.`,
+          description: (
+            <div>
+              O Home Equity é uma modalidade de crédito que permite transformar
+              o valor do seu imóvel em recursos financeiros. Com essa solução,
+              você acessa vantagens exclusivas, como:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  Taxas de juros reduzidas, mais baixas do que as de empréstimos
+                  pessoais;
+                </li>
+                <li>
+                  Altos valores de crédito, com liberação de até 60% do valor do
+                  imóvel;
+                </li>
+                <li>
+                  Flexibilidade de uso, permitindo aplicar o recurso em
+                  diferentes objetivos, como quitar dívidas, investir em
+                  negócios, reformar sua casa, entre outros.
+                </li>
+              </ul>
+              Ao utilizar o imóvel como garantia, você mantém a propriedade do
+              bem e acessa crédito seguro, com condições diferenciadas e prazos
+              ajustados às suas necessidades.
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Pessoas Físicas',
+              description: `Ideal para quem deseja aproveitar o patrimônio de forma segura e prática, transformando imóveis em oportunidades de investimento e liquidez.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
-      title: 'Home Equity: principais vantagens',
+      title: 'Home Equity: Principais Vantagens',
       description: 'Conheça as principais vantagens do Home Equity.',
       advantages: [
         {
@@ -524,21 +754,19 @@ export const pagesData: PagesData = {
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoImobiliario, 'Home Equity'),
   },
-
   // Crédito Pessoal
   'credito-pessoal': {
     hero: {
       title: 'Crédito Pessoal',
       description:
-        'O Crédito Pessoal é a solução ideal para quem precisa de recursos rápidos e descomplicados.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'A solução ideal para quem busca recursos financeiros rápidos, com praticidade e sem complicações.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Crédito Pessoal',
@@ -546,7 +774,48 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `O Crédito Pessoal é a solução ideal para quem precisa de recursos rápidos e descomplicados. Com ele, você conta com: liberação ágil e sem necessidade de garantias; flexibilidade no uso: utilize o crédito como desejar, seja para emergências, projetos pessoais ou investimentos; parcelamento ajustável, com condições que cabem no seu orçamento. Perfeito para quem busca praticidade e rapidez na obtenção de crédito.`,
+          description: (
+            <div>
+              O Crédito Pessoal é a solução ideal para quem precisa de recursos
+              rápidos e descomplicados. Com ele, você conta com:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  Liberação ágil, sem necessidade de garantias ou burocracia;
+                </li>
+                <li>
+                  Flexibilidade no uso, para emergências, projetos pessoais ou
+                  investimentos;
+                </li>
+                <li>
+                  Parcelamento ajustável, com condições que cabem no seu
+                  orçamento.
+                </li>
+              </ul>
+              Uma escolha prática e rápida para quem busca soluções financeiras
+              com facilidade.
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Pessoas Físicas',
+              description: `Indivíduos que buscam soluções financeiras rápidas e práticas para emergências, projetos pessoais ou investimentos.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Quem precisa de crédito emergencial',
+              description: `Indivídios que precisam de recursos financeiros rápidos para despesas imprevistas.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Indivíduos sem bens para garantia',
+              description: `Pessoas que buscam um processo simples e acessível para obter crédito.`,
+            },
+          ],
         },
       ],
     },
@@ -571,21 +840,19 @@ export const pagesData: PagesData = {
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoCredito, 'Crédito Pessoal'),
   },
-
   // FGTS – Saque-Aniversário
   fgts: {
     hero: {
       title: 'FGTS – Saque-Aniversário',
       description:
-        'Antecipe o valor disponível no seu FGTS – Saque-Aniversário e transforme seu benefício em dinheiro imediato.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Antecipe o saldo do seu FGTS – Saque-Aniversário e tenha dinheiro imediato para realizar seus planos.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o FGTS – Saque-Aniversário',
@@ -593,47 +860,76 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `Antecipe o valor disponível no seu FGTS – Saque-Aniversário e transforme seu benefício em dinheiro imediato. Vantagens: taxas reduzidas, devido à segurança do crédito vinculado ao FGTS; pagamento automático, sem impacto no orçamento mensal; processo 100% digital e sem burocracia. Uma alternativa rápida e econômica para quem precisa de dinheiro sem comprometer o salário.`,
+          description: (
+            <div>
+              Antecipe o valor disponível no seu FGTS – Saque-Aniversário e
+              transforme seu benefício em dinheiro imediato.
+              <br />
+              Vantagens:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  Taxas reduzidas, devido à segurança do crédito vinculado ao
+                  FGTS;
+                </li>
+                <li>Pagamento automático, sem impacto no orçamento mensal;</li>
+                <li>Processo 100% digital, rápido e sem burocracia.</li>
+              </ul>
+              Uma alternativa econômica e prática para quem precisa de dinheiro
+              sem comprometer o salário.
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Trabalhadores com FGTS – Saque-Aniversário',
+              description: `Pessoas que optaram por receber o Saque-Aniversário do FGTS e desejam antecipar o valor disponível.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
-      title: 'FGTS – Saque-Aniversário: principais vantagens',
+      title: 'FGTS – Saque-Aniversário: Principais Vantagens',
       description:
         'Conheça as principais vantagens do FGTS – Saque-Aniversário.',
       advantages: [
         {
           title: 'Taxas reduzidas',
-          description: 'Devido à segurança do crédito vinculado ao FGTS.',
+          description:
+            'Economize com taxas menores, garantidas pela segurança do crédito vinculado ao FGTS.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Pagamento automático',
-          description: 'Sem impacto no orçamento mensal.',
+          description:
+            'Parcelas descontadas diretamente do saldo do FGTS, sem impacto no seu orçamento mensal.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Processo 100% digital',
-          description: 'Sem burocracia.',
+          description: 'Acesso rápido e sem burocracia, com aprovação online.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoCredito, 'FGTS'),
   },
 
-  // Financiamento de Veículos
+  // Financiamento e Refinanciamento de Veículos
   'financiamento-refinanciamento-veiculos': {
     hero: {
       title: 'Financiamento e Refinanciamento de Veículos',
       description:
-        'Com o Financiamento de Veículos, você realiza o sonho do carro próprio com condições sob medida. No Refinanciamento de Veículos, você utiliza seu carro quitado como garantia para obter crédito com vantagens exclusivas.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Com o Financiamento, conquiste o carro próprio com condições personalizadas. No Refinanciamento, use seu carro quitado como garantia e acesse crédito com vantagens exclusivas.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Financiamento e Refinanciamento de Veículos',
@@ -641,56 +937,117 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `Com o Financiamento de Veículos, você realiza o sonho do carro próprio com condições sob medida: taxas atrativas e prazos de pagamento ajustáveis; financiamento para carros novos ou usados, com ampla aprovação de crédito; parcelas que cabem no seu bolso, garantindo planejamento financeiro. A escolha ideal para quem quer adquirir um veículo de forma acessível e segura. No Refinanciamento de Veículos, você utiliza seu carro quitado como garantia para obter crédito com vantagens exclusivas: taxas de juros reduzidas, inferiores a de empréstimos pessoais; liberação de até 90% do valor do veículo; permaneça com seu carro enquanto utiliza o crédito. Uma solução prática e econômica para liberar recursos em momentos de necessidade ou oportunidade.`,
+          description: (
+            <div>
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  <strong>Financiamento de Veículos:</strong> Realize o sonho do
+                  carro próprio com condições personalizadas.
+                  <ul className="list-disc pl-6 mt-2">
+                    <li>Taxas atrativas e prazos de pagamento ajustáveis;</li>
+                    <li>
+                      Financiamento para carros novos ou usados, com ampla
+                      aprovação de crédito;
+                    </li>
+                    <li>
+                      Parcelas acessíveis, garantindo planejamento financeiro.
+                    </li>
+                  </ul>
+                  Uma escolha ideal para adquirir um veículo de forma segura e
+                  acessível.
+                </li>
+                <li>
+                  <strong>Refinanciamento de Veículos:</strong> Utilize seu
+                  carro quitado como garantia para obter crédito com vantagens
+                  exclusivas.
+                  <ul className="list-disc pl-6 mt-2">
+                    <li>
+                      Taxas de juros reduzidas, mais baixas que empréstimos
+                      pessoais;
+                    </li>
+                    <li>Liberação de até 90% do valor do veículo;</li>
+                    <li>Permaneça com seu carro enquanto utiliza o crédito.</li>
+                  </ul>
+                  Uma solução prática e econômica para liberar recursos em
+                  momentos de necessidade ou oportunidade.
+                </li>
+              </ul>
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Financiamento de Veículos',
+              description: `Disponível para pessoas físicas que desejam adquirir carros novos ou usados com aprovação de crédito.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Refinanciamento de Veículos',
+              description: `Exclusivo para proprietários de veículos quitados que buscam crédito utilizando o carro como garantia.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
       title:
-        'Financiamento e Refinanciamento de Veículos: principais vantagens',
+        'Financiamento e Refinanciamento de Veículos: Principais Vantagens',
       description:
         'Conheça as principais vantagens do Financiamento e Refinanciamento de Veículos.',
       advantages: [
         {
-          title: 'Taxas atrativas',
-          description: 'E prazos de pagamento ajustáveis.',
+          title: 'Taxas atrativas e prazos ajustáveis',
+          description:
+            'Condições flexíveis para financiar ou refinanciar com segurança.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Financiamento para carros novos ou usados',
-          description: 'Com ampla aprovação de crédito.',
+          description:
+            'Aproveite ampla aprovação de crédito para adquirir o veículo desejado.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Parcelas que cabem no seu bolso',
-          description: 'Garantindo planejamento financeiro.',
+          description:
+            'Planeje suas finanças com pagamentos acessíveis e ajustados ao seu orçamento.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Taxas de juros reduzidas',
-          description: 'Inferiores a de empréstimos pessoais.',
+          description:
+            'No refinanciamento, economize com taxas inferiores às de empréstimos pessoais.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Liberação de até 90% do valor do veículo',
-          description: 'Permaneça com seu carro enquanto utiliza o crédito.',
+          description:
+            'Obtenha crédito enquanto continua utilizando seu carro quitado.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(
+      seeAlsoCredito,
+      'Financiamento e Refinanciamento de Veículos'
+    ),
   },
+
+  // Cartão Consignado
   'cartao-consignado': {
     hero: {
       title: 'Cartão Consignado',
       description:
-        'O Cartão Consignado é a escolha ideal para quem busca crédito rotativo com benefícios exclusivos.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'A opção perfeita para quem busca crédito rotativo com taxas reduzidas e benefícios exclusivos.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Cartão Consignado',
@@ -698,37 +1055,82 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `O Cartão Consignado é a escolha ideal para quem busca crédito rotativo com benefícios exclusivos: sem consulta ao SPC/Serasa, facilitando a aprovação; parcelas descontadas diretamente na folha de pagamento ou benefício, evitando atrasos; taxas de juros reduzidas, menores que as dos cartões de crédito convencionais; limite elevado, oferecendo mais poder de compra. Ideal para servidores públicos, aposentados e pensionistas que desejam praticidade e economia.`,
+          description: (
+            <article>
+              O Cartão Consignado é a solução ideal para quem busca crédito
+              rotativo com benefícios exclusivos:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  <strong>Sem consulta ao SPC/Serasa</strong>, garantindo maior
+                  facilidade de aprovação;
+                </li>
+                <li>
+                  <strong>Parcelas descontadas automaticamente</strong> na folha
+                  de pagamento ou benefício, evitando atrasos;
+                </li>
+                <li>
+                  <strong>Taxas de juros reduzidas</strong>, inferiores às dos
+                  cartões convencionais;
+                </li>
+                <li>
+                  <strong>Limite elevado</strong>, oferecendo mais poder de
+                  compra e flexibilidade financeira.
+                </li>
+              </ul>
+              Uma escolha prática e econômica para quem deseja aliar crédito
+              acessível com controle financeiro.
+            </article>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Servidores públicos.',
+              description: `Servidores públicos municipais, estaduais e federais.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Aposentados e pensionistas',
+              description: `Aposentados e pensionistas do INSS que possuem margem consignável disponível.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
-      title: 'Cartão Consignado: principais vantagens',
+      title: 'Cartão Consignado: Principais Vantagens',
       description: 'Conheça as principais vantagens do Cartão Consignado.',
       advantages: [
         {
           title: 'Sem consulta ao SPC/Serasa',
-          description: 'Facilitando a aprovação.',
+          description:
+            'Aprovação facilitada, mesmo para quem possui restrições no CPF.',
           icon: <PayIcon className="size-8" />,
         },
         {
-          title: 'Parcelas descontadas diretamente',
-          description: 'Na folha de pagamento ou benefício, evitando atrasos.',
+          title: 'Parcelas descontadas automaticamente',
+          description:
+            'Pagamentos realizados diretamente na folha de pagamento ou benefício, sem risco de atrasos.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Taxas de juros reduzidas',
-          description: 'Menores que as dos cartões de crédito convencionais.',
+          description:
+            'Economize com taxas menores do que as cobradas por cartões de crédito tradicionais.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Limite elevado',
-          description: 'Oferecendo mais poder de compra.',
+          description:
+            'Mais poder de compra e flexibilidade financeira para o seu dia a dia.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoCartao, 'Cartão Consignado'),
   },
 
   // Cartão Benefício Consignado
@@ -736,13 +1138,12 @@ export const pagesData: PagesData = {
     hero: {
       title: 'Cartão Benefício Consignado',
       description:
-        'O Cartão Benefício Consignado é voltado para aposentados e pensionistas do INSS, com vantagens pensadas para esse público.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Exclusivo para aposentados e pensionistas do INSS, com benefícios e condições especiais pensados para atender esse público.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Cartão Benefício Consignado',
@@ -750,34 +1151,66 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `O Cartão Benefício Consignado é voltado para aposentados e pensionistas do INSS, com vantagens pensadas para esse público: sem anuidade, garantindo economia; descontos automáticos no benefício mensal; uso amplo, permitindo saques em dinheiro e compras à vista ou parceladas. Uma solução prática para quem quer aproveitar um cartão com vantagens exclusivas e maior controle financeiro.`,
+          description: (
+            <div>
+              O Cartão Benefício Consignado é exclusivo para aposentados e
+              pensionistas do INSS, oferecendo benefícios únicos:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  <strong>Sem anuidade</strong>, garantindo mais economia;
+                </li>
+                <li>
+                  <strong>Descontos automáticos</strong> no benefício mensal,
+                  facilitando o pagamento;
+                </li>
+                <li>
+                  <strong>Uso amplo</strong>, permitindo saques em dinheiro e
+                  compras à vista ou parceladas.
+                </li>
+              </ul>
+              Uma solução prática e acessível para quem busca um cartão com
+              vantagens exclusivas e maior controle financeiro.
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Aposentados e pensionistas.',
+              description: `Aposentados e pensionistas do INSS com margem consignável disponível para contratação.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
-      title: 'Cartão Benefício Consignado: principais vantagens',
+      title: 'Cartão Benefício Consignado: Principais Vantagens',
       description:
         'Conheça as principais vantagens do Cartão Benefício Consignado.',
       advantages: [
         {
           title: 'Sem anuidade',
-          description: 'Garantindo economia.',
+          description: 'Economize com um cartão isento de taxas anuais.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Descontos automáticos',
-          description: 'No benefício mensal.',
+          description:
+            'Pagamentos realizados diretamente no benefício mensal, com praticidade e segurança.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Uso amplo',
           description:
-            'Permitindo saques em dinheiro e compras à vista ou parceladas.',
+            'Acesse saques em dinheiro e faça compras à vista ou parceladas com facilidade.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoCartao, 'Cartão Benefício Consignado'),
   },
 
   // Cartão Credcesta
@@ -785,13 +1218,12 @@ export const pagesData: PagesData = {
     hero: {
       title: 'Cartão Credcesta',
       description:
-        'O Cartão Credcesta oferece benefícios únicos para servidores públicos e pensionistas.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Benefícios exclusivos para servidores públicos e pensionistas, com condições especiais e praticidade.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Cartão Credcesta',
@@ -799,37 +1231,83 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `O Cartão Credcesta oferece benefícios únicos para servidores públicos e pensionistas: taxas competitivas, ajustadas às condições do público atendido; aceitação em milhares de estabelecimentos para compras e serviços; opção de saques emergenciais e parcelamento flexível; desconto direto na folha de pagamento, garantindo maior comodidade. Uma alternativa prática e vantajosa para quem busca crédito acessível e com controle simplificado.`,
+          description: (
+            <div>
+              O Cartão Credcesta é uma solução prática e acessível, com
+              benefícios exclusivos para servidores públicos e pensionistas. Ele
+              oferece:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  <strong>Taxas competitivas</strong>, ajustadas às condições do
+                  público atendido;
+                </li>
+                <li>
+                  <strong>Ampla aceitação</strong>, em milhares de
+                  estabelecimentos para compras e serviços;
+                </li>
+                <li>
+                  <strong>Saques emergenciais e parcelamento flexível</strong>,
+                  para maior conveniência;
+                </li>
+                <li>
+                  <strong>Desconto direto na folha de pagamento</strong>,
+                  garantindo mais comodidade e segurança.
+                </li>
+              </ul>
+              Uma alternativa vantajosa para quem busca crédito com controle
+              simplificado.
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Servidores públicos.',
+              description: `Servidores públicos municipais, estaduais e federais com margem consignável disponível.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Pensionistas',
+              description: `Pensionistas que recebem benefícios com possibilidade de consignação.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
-      title: 'Cartão Credcesta: principais vantagens',
+      title: 'Cartão Credcesta: Principais Vantagens',
       description: 'Conheça as principais vantagens do Cartão Credcesta.',
       advantages: [
         {
           title: 'Taxas competitivas',
-          description: 'Ajustadas às condições do público atendido.',
+          description:
+            'Condições ajustadas às necessidades de servidores públicos e pensionistas.',
           icon: <PayIcon className="size-8" />,
         },
         {
-          title: 'Aceitação em milhares de estabelecimentos',
-          description: 'Para compras e serviços.',
+          title: 'Aceitação ampla',
+          description:
+            'Utilize o cartão em milhares de estabelecimentos para compras e serviços.',
           icon: <PayIcon className="size-8" />,
         },
         {
-          title: 'Opção de saques emergenciais',
-          description: 'E parcelamento flexível.',
+          title: 'Saques emergenciais e parcelamento flexível',
+          description:
+            'Tenha conveniência e segurança em momentos de necessidade.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Desconto direto na folha de pagamento',
-          description: 'Garantindo maior comodidade.',
+          description:
+            'Pagamentos automáticos que oferecem praticidade e tranquilidade.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoCartao, 'Cartão Credcesta'),
   },
 
   // Consórcio
@@ -837,13 +1315,12 @@ export const pagesData: PagesData = {
     hero: {
       title: 'Consórcio',
       description:
-        'O Consórcio é a forma inteligente e econômica de planejar a realização dos seus sonhos, sem juros e com condições acessíveis.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'A maneira inteligente e econômica de conquistar seus sonhos, com parcelas acessíveis e sem juros.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Consórcio',
@@ -851,12 +1328,61 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `O Consórcio é a forma inteligente e econômica de planejar a realização dos seus sonhos, sem juros e com condições acessíveis. Benefícios: taxas reduzidas: apenas a cobrança de taxa de administração, sem juros; planejamento financeiro: ideal para adquirir imóveis, veículos ou outros bens de forma programada; flexibilidade nas parcelas, com opções que se ajustam ao seu orçamento; participação em sorteios mensais e possibilidade de antecipação por lance. Uma solução prática para quem quer investir de forma organizada e sem pressa.`,
+          description: (
+            <div>
+              O Consórcio é uma alternativa inteligente e econômica para
+              realizar seus sonhos, sem juros e com condições acessíveis.
+              <br />
+              Benefícios:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  <strong>Taxas reduzidas</strong>, apenas com cobrança de taxa
+                  de administração, sem <strong>juros</strong>;
+                </li>
+                <li>
+                  <strong>Planejamento financeiro</strong>, ideal para adquirir
+                  <strong>imóveis, veículos</strong> ou outros bens de forma
+                  programada;
+                </li>
+                <li>
+                  <strong>Flexibilidade nas parcelas</strong>, com opções que se
+                  ajustam ao seu <strong>orçamento</strong>;
+                </li>
+                <li>
+                  Participação em <strong>sorteios mensais</strong> e
+                  possibilidade de antecipação por <strong>lance</strong>.
+                </li>
+              </ul>
+              Uma solução prática e organizada para quem deseja investir no
+              futuro, com tranquilidade e sem pressa.
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Pessoas físicas ou jurídicas',
+              description: `Pessoas físicas ou jurídicas que desejam adquirir bens ou serviços de forma planejada e econômica.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Quem busca uma alternativa sem juros',
+              description: `Quem busca uma alternativa sem juros para comprar imóveis, veículos ou outros bens.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Quem valoriza flexibilidade no orçamento',
+              description: `Quem valoriza flexibilidade no orçamento e a oportunidade de antecipar a contemplação por lances.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
-      title: 'Consórcio: principais vantagens',
+      title: 'Consórcio: Principais Vantagens',
       description: 'Conheça as principais vantagens do Consórcio.',
       advantages: [
         {
@@ -882,7 +1408,7 @@ export const pagesData: PagesData = {
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoConsorcio, 'Consórcio'),
   },
 
   // Seguros CPCréditos
@@ -890,13 +1416,12 @@ export const pagesData: PagesData = {
     hero: {
       title: 'Seguros CPCréditos',
       description:
-        'Os Seguros CPCréditos oferecem proteção personalizada para o que realmente importa.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Proteção personalizada para o que mais importa, com condições feitas sob medida para você.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça os Seguros CPCréditos',
@@ -904,12 +1429,58 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `Os Seguros CPCréditos oferecem proteção personalizada para o que realmente importa. Seja qual for sua necessidade, contamos com as melhores opções de mercado: seguro de vida: segurança financeira para você e sua família em momentos imprevistos; seguro residencial: proteção completa para seu imóvel contra danos, furtos e outros riscos; seguro veicular: cobertura para o seu carro, com assistência 24 horas e vantagens exclusivas; planos adaptáveis e atendimento ágil, garantindo tranquilidade e confiança. Com os Seguros CPCréditos, você protege o que é valioso e mantém a sua tranquilidade em qualquer situação.`,
+          description: (
+            <div>
+              Os Seguros CPCréditos oferecem proteção personalizada para o que
+              realmente importa. Seja qual for sua necessidade, contamos com as
+              melhores opções do mercado:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  <strong>Seguro de Vida:</strong> Segurança financeira para
+                  você e sua família em momentos imprevistos;
+                </li>
+                <li>
+                  <strong>Seguro Residencial:</strong> Proteção completa para
+                  seu imóvel contra{' '}
+                  <strong>danos, furtos e outros riscos;</strong>
+                </li>
+                <li>
+                  <strong>Seguro Veicular:</strong> Cobertura para o seu carro,
+                  com <strong>assistência 24 horas</strong> e vantagens
+                  exclusivas.
+                </li>
+              </ul>
+              Com planos adaptáveis e atendimento ágil, garantimos tranquilidade
+              e confiança. Com os Seguros CPCréditos, você protege o que é
+              valioso e mantém sua tranquilidade em qualquer situação.
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Pessoas que desejam proteger bens',
+              description: `Pessoas que desejam proteger bens como casa, carro ou patrimônio.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Quem busca segurança financeira',
+              description: `Quem busca segurança financeira e cobertura em situações inesperadas.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Indivíduos que valorizam personalização',
+              description: `Indivíduos que valorizam personalização e eficiência em serviços de seguro.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
-      title: 'Seguros CPCréditos: principais vantagens',
+      title: 'Seguros CPCréditos: Principais Vantagens',
       description: 'Conheça as principais vantagens dos Seguros CPCréditos.',
       advantages: [
         {
@@ -921,38 +1492,36 @@ export const pagesData: PagesData = {
         {
           title: 'Seguro Residencial',
           description:
-            'Proteção completa para seu imóvel contra danos, furtos e outros riscos.',
+            'Proteção completa para o seu imóvel contra danos, furtos e outros riscos.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Seguro Veicular',
           description:
-            'Cobertura para o seu carro, com assistência 24 horas e vantagens exclusivas.',
+            'Cobertura completa para o seu carro, com assistência 24 horas e vantagens exclusivas.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Planos adaptáveis',
           description:
-            'E atendimento ágil, garantindo tranquilidade e confiança.',
+            'E atendimento ágil, garantindo tranquilidade e confiança em qualquer situação.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoConsorcio, 'Seguros CPCréditos'),
   },
-
   // Painel Solar
   'painel-solar': {
     hero: {
       title: 'Painel Solar',
       description:
-        'Invista em energia sustentável com nosso financiamento para Painéis Solares, uma solução econômica e ecológica para reduzir custos e cuidar do planeta.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Invista em energia sustentável com nosso financiamento para painéis solares, combinando economia e responsabilidade ambiental para reduzir custos e proteger o planeta.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Painel Solar',
@@ -960,37 +1529,89 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `Invista em energia sustentável com nosso financiamento para Painéis Solares, uma solução econômica e ecológica para reduzir custos e cuidar do planeta. Benefícios: taxas de juros competitivas, facilitando o acesso à tecnologia; financiamento de sistemas completos para residências, empresas ou propriedades rurais; redução imediata na conta de energia, com retorno do investimento em poucos anos; contribuição para a sustentabilidade, utilizando energia limpa e renovável. Ideal para quem busca economizar e adotar soluções sustentáveis no dia a dia.`,
+          description: (
+            <div>
+              Invista em energia sustentável com nosso financiamento para
+              Painéis Solares, uma solução econômica e ecológica para reduzir
+              custos e cuidar do planeta.
+              <br />
+              Benefícios:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  <strong>Taxas de juros competitivas</strong>, facilitando o
+                  acesso à tecnologia;
+                </li>
+                <li>
+                  <strong>Financiamento de sistemas completos</strong> para
+                  residências, empresas ou propriedades rurais;
+                </li>
+                <li>
+                  <strong>Redução imediata na conta de energia</strong>, com
+                  retorno do investimento em poucos anos;
+                </li>
+                <li>
+                  <strong>Contribuição para a sustentabilidade</strong>,
+                  utilizando energia limpa e renovável.
+                </li>
+              </ul>
+              Uma escolha perfeita para quem deseja economizar e adotar soluções
+              sustentáveis no dia a dia.
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Proprietários residenciais',
+              description: `Proprietários residenciais que querem reduzir custos com energia e contribuir para o meio ambiente.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Empresas',
+              description: `Empresas que buscam eficiência energética e economia sustentável.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Propriedades rurais',
+              description: `Propriedades rurais que desejam aproveitar soluções renováveis para atender às suas demandas de energia.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
-      title: 'Painel Solar: principais vantagens',
+      title: 'Painel Solar: Principais Vantagens',
       description: 'Conheça as principais vantagens do Painel Solar.',
       advantages: [
         {
           title: 'Taxas de juros competitivas',
-          description: 'Facilitando o acesso à tecnologia.',
+          description: 'Facilitam o acesso à tecnologia de energia solar.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Financiamento de sistemas completos',
-          description: 'Para residências, empresas ou propriedades rurais.',
+          description:
+            'Disponível para residências, empresas ou propriedades rurais.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Redução imediata na conta de energia',
-          description: 'Com retorno do investimento em poucos anos.',
+          description:
+            'Economize já, com retorno do investimento em poucos anos.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Contribuição para a sustentabilidade',
-          description: 'Utilizando energia limpa e renovável.',
+          description:
+            'Adote energia limpa e renovável para cuidar do planeta.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoOutros, 'Painel Solar'),
   },
 
   // Capital de Giro
@@ -998,13 +1619,12 @@ export const pagesData: PagesData = {
     hero: {
       title: 'Capital de Giro',
       description:
-        'Apoie o crescimento do seu negócio com nosso Crédito para Capital de Giro, uma linha de crédito essencial para equilibrar o fluxo de caixa e impulsionar operações.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Fortaleça seu negócio com nosso Crédito para Capital de Giro, uma solução prática para equilibrar o fluxo de caixa e impulsionar suas operações.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça o Capital de Giro',
@@ -1012,37 +1632,95 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `Apoie o crescimento do seu negócio com nosso Crédito para Capital de Giro, uma linha de crédito essencial para equilibrar o fluxo de caixa e impulsionar operações. Benefícios: taxas ajustadas ao perfil da sua empresa, com condições flexíveis; liberação rápida, para atender necessidades imediatas, como compra de estoque, pagamento de fornecedores ou folha salarial; parcelamento adaptado à realidade financeira do negócio; disponível para empresas de diferentes portes e setores. Uma solução prática para manter sua empresa saudável e em crescimento.`,
+          description: (
+            <div>
+              Apoie o crescimento do seu negócio com nosso Crédito para Capital
+              de Giro, uma linha de crédito essencial para equilibrar o fluxo de
+              caixa e impulsionar operações.
+              <br />
+              Benefícios:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  <strong>Taxas ajustadas</strong> ao perfil da sua empresa, com
+                  condições flexíveis;
+                </li>
+                <li>
+                  <strong>Liberação rápida</strong>, para atender necessidades
+                  imediatas, como{' '}
+                  <strong>
+                    compra de estoque, pagamento de fornecedores ou folha
+                    salarial
+                  </strong>
+                  ;
+                </li>
+                <li>
+                  <strong>Parcelamento adaptado</strong> à realidade financeira
+                  do negócio;
+                </li>
+                <li>
+                  Disponível para{' '}
+                  <strong>empresas de diferentes portes e setores.</strong>
+                </li>
+              </ul>
+              Uma solução prática para manter sua empresa saudável e em
+              crescimento.
+            </div>
+          ),
+        },
+        {
+          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
+          title: 'Para quem é?',
+          subSections: [
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Empresas de pequeno, médio e grande porte',
+              description: `Empresas de pequeno, médio e grande porte que precisam de suporte financeiro para operações diárias.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Empreendedores',
+              description: `Empreendedores que buscam equilibrar o fluxo de caixa em períodos de alta ou baixa demanda.`,
+            },
+            {
+              icon: <ArrowRight className="size-6 text-cptext-cyan" />,
+              title: 'Negócios de diversos setores',
+              description: `Negócios de diversos setores que desejam fortalecer suas operações e garantir a continuidade.`,
+            },
+          ],
         },
       ],
     },
     advantages: {
-      title: 'Capital de Giro: principais vantagens',
+      title: 'Capital de Giro: Principais Vantagens',
       description: 'Conheça as principais vantagens do Capital de Giro.',
       advantages: [
         {
           title: 'Taxas ajustadas ao perfil da sua empresa',
-          description: 'Com condições flexíveis.',
+          description:
+            'Condições flexíveis que atendem às necessidades específicas do seu negócio.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Liberação rápida',
-          description: 'Para atender necessidades imediatas.',
+          description:
+            'Atenda demandas imediatas, como pagamento de fornecedores e compra de estoque.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Parcelamento adaptado',
-          description: 'À realidade financeira do negócio.',
+          description:
+            'Condições alinhadas à realidade financeira do seu negócio.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Disponível para empresas de diferentes portes e setores',
-          description: '',
+          description:
+            'Uma solução acessível para negócios de todos os tamanhos e segmentos.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-    seeAlso,
+    seeAlso: getSeeAlso(seeAlsoOutros, 'Capital de Giro'),
   },
 
   // Operações Estruturadas
@@ -1050,13 +1728,12 @@ export const pagesData: PagesData = {
     hero: {
       title: 'Operações Estruturadas',
       description:
-        'Para projetos de maior complexidade, oferecemos Operações Estruturadas, soluções financeiras personalizadas para atender demandas específicas.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
+        'Soluções financeiras robustas e personalizadas para projetos complexos, atendendo demandas específicas com estratégias sob medida.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
     },
     about: {
       title: 'Conheça as Operações Estruturadas',
@@ -1064,147 +1741,225 @@ export const pagesData: PagesData = {
         {
           icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
           title: 'O que é?',
-          description: `Para projetos de maior complexidade, oferecemos Operações Estruturadas, soluções financeiras personalizadas para atender demandas específicas. Benefícios: planejamento estratégico, com análise detalhada das necessidades do cliente; estruturação de crédito, garantias e prazos customizados; apoio especializado para fusões, aquisições, investimentos em infraestrutura ou expansão de negócios; soluções sob medida para empresas de médio e grande porte. Com as Operações Estruturadas, sua empresa conta com apoio financeiro robusto para projetos estratégicos.`,
-        },
-      ],
-    },
-    advantages: {
-      title: 'Operações Estruturadas: principais vantagens',
-      description:
-        'Conheça as principais vantagens das Operações Estruturadas.',
-      advantages: [
-        {
-          title: 'Planejamento estratégico',
-          description: 'Com análise detalhada das necessidades do cliente.',
-          icon: <PayIcon className="size-8" />,
-        },
-        {
-          title: 'Estruturação de crédito',
-          description: 'Garantias e prazos customizados.',
-          icon: <PayIcon className="size-8" />,
-        },
-        {
-          title: 'Apoio especializado',
-          description:
-            'Para fusões, aquisições, investimentos em infraestrutura ou expansão de negócios.',
-          icon: <PayIcon className="size-8" />,
-        },
-        {
-          title: 'Soluções sob medida',
-          description: 'Para empresas de médio e grande porte.',
-          icon: <PayIcon className="size-8" />,
-        },
-      ],
-    },
-    seeAlso,
-  },
-
-  imobiliario: {
-    hero: {
-      title: 'Consignado Público',
-      description:
-        'Linha de crédito exclusiva para servidores públicos municipais, estaduais e federais, ativos e inativos, com condições diferenciadas.',
-      links: [
-        { title: 'O que é', link: '#oque-e' },
-        { title: 'Vantagens', link: '#vantagens' },
-        { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
-      ],
-    },
-    about: {
-      title: 'Conheça o Consignado Público',
-      sections: [
-        {
-          icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
-          title: 'O que é?',
-          description: `O Consignado Público é uma linha de crédito exclusiva para servidores públicos municipais, estaduais e federais, ativos e inativos. Com condições diferenciadas, oferece taxas de juros reduzidas, prazos de pagamento longos e desconto direto em folha de pagamento.`,
+          description: (
+            <div>
+              Para projetos de maior complexidade, nossas Operações Estruturadas
+              oferecem soluções financeiras personalizadas para atender demandas
+              específicas.
+              <br />
+              Benefícios:
+              <ul className="list-disc pl-6 mt-2">
+                <li>
+                  <strong>Planejamento estratégico</strong>, com análise
+                  detalhada das necessidades do cliente;
+                </li>
+                <li>
+                  <strong>Estruturação de crédito</strong>, garantias e prazos
+                  customizados;
+                </li>
+                <li>
+                  <strong>Apoio especializado</strong> para fusões, aquisições,
+                  investimentos em infraestrutura ou expansão de negócios;
+                </li>
+                <li>
+                  <strong>Soluções sob medida</strong> para empresas de médio e
+                  grande porte.
+                </li>
+              </ul>
+              Com as Operações Estruturadas, sua empresa conta com um apoio
+              financeiro robusto para projetos estratégicos e de alto impacto.
+            </div>
+          ),
         },
         {
           icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
-          title: 'Para quem?',
+          title: 'Para quem é?',
           subSections: [
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
-              title: 'Servidores Municipais',
-              description: `Funcionários públicos municipais que atuam nos órgãos administrados pelas prefeituras das cidades.`,
+              title: 'Empresas de médio e grande porte',
+              description: `Empresas de médio e grande porte que precisam de suporte financeiro para projetos complexos.`,
             },
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
-              title: 'Servidores Estaduais',
-              description: `Funcionários públicos estaduais que atuam nos órgãos administrados pelos governos dos estados.`,
+              title:
+                'Negócios que demandam planejamento financeiro estratégico',
+              description: `Negócios que demandam planejamento financeiro estratégico para expansão ou reestruturação.`,
             },
             {
               icon: <ArrowRight className="size-6 text-cptext-cyan" />,
-              title: 'Servidores Federais',
-              description: `Funcionários públicos federais que atuam nos órgãos administrados pelo governo federal.`,
+              title: 'Empresas em processo de fusão, aquisição ou investimento',
+              description: `Empresas em processo de fusão, aquisição ou investimento em infraestrutura e outros projetos de grande escala.`,
             },
           ],
         },
       ],
     },
     advantages: {
-      title: 'Consignado Público: principais vantagens',
-      description: 'Conheça as principais vantagens do consignado público.',
+      title: 'Operações Estruturadas: Principais Vantagens',
+      description:
+        'Conheça as principais vantagens das Operações Estruturadas.',
       advantages: [
         {
-          title: 'Taxas de juros reduzidas',
+          title: 'Planejamento estratégico',
           description:
-            'Uma das menores do mercado, tornando o crédito mais acessível.',
+            'Análise detalhada e personalizada das necessidades da sua empresa.',
           icon: <PayIcon className="size-8" />,
         },
         {
-          title: 'Prazos de pagamento longos',
+          title: 'Estruturação de crédito',
           description:
-            'Permite maior flexibilidade no orçamento, com prazos estendidos.',
+            'Garantias e prazos ajustados às demandas específicas do projeto.',
           icon: <PayIcon className="size-8" />,
         },
         {
-          title: 'Desconto direto em folha de pagamento',
+          title: 'Apoio especializado',
           description:
-            'Garante segurança e praticidade no pagamento das parcelas.',
+            'Soluções financeiras para fusões, aquisições, investimentos em infraestrutura e expansão de negócios.',
           icon: <PayIcon className="size-8" />,
         },
         {
-          title: 'Menos burocracia',
+          title: 'Soluções sob medida',
           description:
-            'Ideal para quem busca crédito rápido, com menos burocracia e condições vantajosas.',
+            'Desenvolvidas especialmente para empresas de médio e grande porte.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
-
-    seeAlso: {
-      title: 'Veja também',
-      cards: [
-        {
-          title: 'Como pagar',
-          description: 'Veja como pagar a sua fatura de forma rápida e segura.',
-          link: '/como-pagar',
-        },
-        {
-          title: 'Dúvidas frequentes',
-          description: 'Tire suas dúvidas sobre o pagamento da fatura.',
-          link: '/duvidas-frequentes',
-        },
-        {
-          title: 'Onde pagar',
-          description: 'Conheça os locais onde você pode pagar a sua fatura.',
-          link: '/onde-pagar',
-        },
-      ],
-    },
+    seeAlso: getSeeAlso(seeAlsoOutros, 'Operações Estruturadas'),
   },
 
+  imobiliario: {
+    hero: {
+      title: 'Crédito Imobiliário',
+      description:
+        'Descubra as melhores soluções para adquirir imóveis ou transformar o valor do seu patrimônio em crédito com condições exclusivas e flexíveis.',
+      image: {
+        src: '/assets/images/page.png',
+        alt: 'Seguros CPCréditos',
+      },
+      links: heroLinks,
+    },
+    variants: {
+      icon: <BriefcaseBusiness className="size-8 text-cptext-cyan" />,
+      sub: '/produto',
+      title: 'Crédito Imobiliário',
+      description:
+        'Descubra as melhores soluções para adquirir imóveis ou transformar o valor do seu patrimônio em crédito com condições exclusivas e flexíveis.',
+      cta: 'Saiba mais',
+      image: {
+        src: '/assets/images/imobiliario.png',
+        alt: 'Crédito Imobiliário',
+      },
+      cards: [
+        {
+          title: 'Financiamento de Imóvel',
+          description: (
+            <article className="flex flex-col gap-2">
+              Conquiste o imóvel dos seus sonhos com o Financiamento de Imóvel.
+              Essa solução oferece:
+              <ul className="list-disc list-inside">
+                <li>
+                  Condições flexíveis de pagamento, com prazos longos e parcelas
+                  acessíveis;
+                </li>
+                <li>
+                  Taxas de juros competitivas, ajustadas ao seu perfil
+                  financeiro;
+                </li>
+                <li>
+                  Possibilidade de financiar imóveis residenciais, comerciais ou
+                  terrenos.
+                </li>
+              </ul>
+              A escolha perfeita para sair do aluguel ou investir no futuro com
+              segurança.
+              <br />
+            </article>
+          ),
+          image: {
+            src: '/assets/images/imobiliario.png',
+            alt: 'Financiamento de Imóvel',
+          },
+          href: '/produto/imobiliario/financiamento-imovel',
+          cta: 'Saiba mais sobre Financiamento de Imóvel',
+        },
+        {
+          title: 'Home Equity / Crédito com Garantia de Imóvel',
+          description: (
+            <article className="flex flex-col gap-2">
+              Transforme o valor do seu imóvel em crédito com o Home Equity, uma
+              alternativa prática e vantajosa. Ele oferece:
+              <ul className="list-disc list-inside">
+                <li>
+                  Taxas de juros reduzidas, mais baixas do que as de empréstimos
+                  pessoais;
+                </li>
+                <li>Liberação de até 60% do valor do imóvel como crédito;</li>
+                <li>
+                  Flexibilidade para utilizar os recursos em diversos objetivos,
+                  como quitar dívidas, investir em negócios ou realizar
+                  reformas.
+                </li>
+              </ul>
+              Uma solução segura para acessar crédito com condições
+              diferenciadas e manter a propriedade do seu imóvel.
+              <br />
+            </article>
+          ),
+          image: {
+            src: '/assets/images/imobiliario.png',
+            alt: 'Home Equity',
+          },
+          href: '/produto/imobiliario/home-equity',
+          cta: 'Saiba mais sobre Home Equity',
+        },
+      ],
+    },
+    advantages: {
+      title: 'Crédito Imobiliário: Principais Vantagens',
+      description: 'Conheça as principais vantagens do crédito imobiliário.',
+      advantages: [
+        {
+          title: 'Condições flexíveis de pagamento',
+          description:
+            'Parcelas acessíveis e prazos longos que se ajustam ao seu planejamento financeiro.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Taxas de juros competitivas',
+          description:
+            'Economize com taxas ajustadas ao seu perfil e condições exclusivas para crédito imobiliário.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Diversidade de opções',
+          description:
+            'Financie imóveis residenciais, comerciais ou terrenos, ou transforme o valor do seu imóvel em crédito.',
+          icon: <PayIcon className="size-8" />,
+        },
+        {
+          title: 'Segurança e praticidade',
+          description:
+            'Modalidades de crédito seguras, com recursos disponíveis para diferentes objetivos e fácil aprovação.',
+          icon: <PayIcon className="size-8" />,
+        },
+      ],
+    },
+    seeAlso: getSeeAlso(seeAlsoImobiliario, ' '),
+  },
   consignado: {
     hero: {
       title: 'Crédito Consignado',
       description:
-        'Empréstimo com parcelas descontadas diretamente do salário ou aposentadoria, oferecendo mais praticidade e taxas reduzidas.',
+        'Garanta mais praticidade e economia! Com parcelas descontadas diretamente do salário ou aposentadoria, você aproveita taxas reduzidas e um processo descomplicado.',
       links: [
-        { title: 'O que é', link: '#oque-e' },
         { title: 'Vantagens', link: '#vantagens' },
         { title: 'Parceiros', link: '#parceiros' },
-        { title: 'Seja parceiro', link: '#seja-parceiro' },
+        {
+          title: 'Seja parceiro',
+          link: import.meta.env.VITE_LINKEDIN,
+        },
       ],
     },
     variants: {
@@ -1212,7 +1967,7 @@ export const pagesData: PagesData = {
       sub: '/produto',
       title: 'Crédito Consignado',
       description:
-        'O crédito consignado é aquele tipo de empréstimo que você solicita e passa a ter o valor das parcelas cobrado direto na folha de pagamento, ou seja, o desconto é feito diretamente no salário ou na aposentadoria.',
+        'O crédito consignado é uma modalidade de empréstimo em que as parcelas são descontadas diretamente na folha de pagamento ou no benefício de aposentadoria. Essa solução oferece mais praticidade, taxas de juros reduzidas e segurança para quem busca organizar suas finanças.',
       cta: 'Saiba mais',
       image: {
         src: '/assets/images/consigned.png',
@@ -1221,60 +1976,104 @@ export const pagesData: PagesData = {
       cards: [
         {
           title: 'Consignado INSS',
-          description:
-            'Atende aposentados e pensionistas do Instituto Nacional do Seguro Social (INSS), com benefícios únicos: descontos automáticos no benefício mensal, taxas de juros controladas pelo governo e opção de renegociação ou refinanciamento de contratos existentes, caso necessário. Uma solução prática e vantajosa para quem busca crédito com segurança e menor custo.',
+          description: (
+            <article className="flex flex-col gap-2">
+              Exclusivo para aposentados e pensionistas do Instituto Nacional do
+              Seguro Social (INSS), o Consignado INSS oferece:
+              <ul className="list-disc list-inside">
+                <li>Descontos automáticos no benefício mensal;</li>
+                <li>Taxas de juros controladas pelo governo;</li>
+                <li>
+                  Opção de renegociação ou refinanciamento de contratos
+                  existentes.
+                </li>
+              </ul>
+              É uma alternativa prática, segura e econômica para quem deseja
+              crédito com menor custo.
+            </article>
+          ),
           image: {
             src: '/assets/images/consigned.png',
             alt: 'Crédito Consignado',
           },
           href: '/produto/consignado/consignado-inss',
+          cta: 'Saiba mais sobre Consignado INSS',
         },
         {
           title: 'Consignado Público',
-          description:
-            'Linha de crédito exclusiva para servidores públicos municipais, estaduais e federais, ativos e inativos, com condições diferenciadas.',
+          description: (
+            <article className="flex flex-col gap-2">
+              Desenvolvido especialmente para servidores públicos municipais,
+              estaduais e federais, ativos e inativos, o Consignado Público
+              oferece:
+              <ul className="list-disc list-inside">
+                <li>Taxas de juros competitivas;</li>
+                <li>Parcelas descontadas diretamente no contracheque;</li>
+                <li>Condições exclusivas e diferenciadas.</li>
+              </ul>
+              Ideal para servidores que buscam crédito fácil e confiável.
+            </article>
+          ),
           image: {
             src: '/assets/images/consigned.png',
             alt: 'Crédito Consignado',
           },
           href: '/produto/consignado/consignado-publico',
+          cta: 'Saiba mais sobre Consignado Público',
         },
         {
           title: 'Consignado Privado',
-          description:
-            'Destinado a colaboradores de empresas privadas conveniadas, o Consignado Privado oferece vantagens pensadas para o trabalhador do setor privado, com taxas reduzidas, parcelas descontadas diretamente na folha de pagamento e acessibilidade para quem busca crédito rápido, mesmo com outras pendências financeiras.',
+          description: (
+            <article className="flex flex-col gap-2">
+              Voltado para colaboradores de empresas privadas conveniadas, o
+              Consignado Privado é uma solução prática e acessível que oferece:
+              <ul className="list-disc list-inside">
+                <li>Taxas de juros reduzidas;</li>
+                <li>Parcelas descontadas diretamente na folha de pagamento;</li>
+                <li>
+                  Facilidade de acesso, mesmo para quem possui outras pendências
+                  financeiras.
+                </li>
+              </ul>
+              Uma excelente opção para trabalhadores do setor privado que
+              precisam de crédito rápido e descomplicado.
+            </article>
+          ),
 
           image: {
             src: '/assets/images/consigned.png',
             alt: 'Crédito Consignado',
           },
           href: '/produto/consignado/consignado-privado',
+          cta: 'Saiba mais sobre Consignado Privado',
         },
         {
           title: 'Consignado Federal',
-          description:
-            'Voltado para servidores federais ativos, aposentados e pensionistas, o Consignado Federal oferece condições exclusivas para servidores vinculados ao Governo Federal, limite de crédito elevado, dependendo da margem consignável, taxas competitivas, ajustadas para oferecer maior economia ao contratante. Uma solução prática e acessível para realizar projetos pessoais, quitar dívidas ou atender necessidades emergenciais.',
+
+          description: (
+            <article className="flex flex-col gap-2">
+              Exclusivo para servidores federais ativos, aposentados e
+              pensionistas, o Consignado Federal oferece:
+              <ul className="list-disc list-inside">
+                <li>
+                  Limite de crédito elevado, dependendo da margem consignável;
+                </li>
+                <li>Taxas de juros atrativas para garantir economia;</li>
+                <li>
+                  Condições ajustadas para atender projetos pessoais, quitação
+                  de dívidas ou necessidades emergenciais.
+                </li>
+              </ul>
+              Uma solução completa para quem deseja crédito com segurança e
+              flexibilidade.
+            </article>
+          ),
           image: {
             src: '/assets/images/consigned.png',
             alt: 'Crédito Consignado',
           },
           href: '/produto/consignado/consignado-federal',
-        },
-      ],
-    },
-    about: {
-      title: 'Conheça o Consignado Público',
-      sections: [
-        {
-          icon: <MdQuestionMark className="size-8  text-cptext-blue" />,
-          title: 'O que é?',
-          description: `O crédito consignado é aquele tipo de empréstimo que você solicita e passa a ter o valor das parcelas cobrado direto na folha de pagamento, ou seja, o desconto é feito diretamente no salário ou na aposentadoria.`,
-        },
-        {
-          icon: <FaRegLightbulb className="size-8 text-cptext-blue" />,
-          title: 'Para quem?',
-          description:
-            'O crédito consignado é destinado a servidores públicos, aposentados e pensionistas, que possuem uma renda fixa e garantida.',
+          cta: 'Saiba mais sobre Consignado Federal',
         },
       ],
     },
@@ -1285,48 +2084,32 @@ export const pagesData: PagesData = {
         {
           title: 'Taxas de juros reduzidas',
           description:
-            'Uma das menores do mercado, tornando o crédito mais acessível.',
+            'Aproveite uma das menores taxas do mercado, tornando o crédito mais acessível e econômico para você.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Prazos de pagamento longos',
           description:
-            'Permite maior flexibilidade no orçamento, com prazos estendidos.',
+            'Tenha mais flexibilidade no planejamento financeiro com prazos estendidos que se ajustam ao seu orçamento.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Desconto direto em folha de pagamento',
           description:
-            'Garante segurança e praticidade no pagamento das parcelas.',
+            'Garanta segurança e praticidade com o desconto automático das parcelas diretamente no salário ou benefício.',
           icon: <PayIcon className="size-8" />,
         },
         {
           title: 'Menos burocracia',
           description:
-            'Ideal para quem busca crédito rápido, com menos burocracia e condições vantajosas.',
+            'Ideal para quem precisa de crédito rápido e descomplicado, com condições vantajosas e um processo simples.',
           icon: <PayIcon className="size-8" />,
         },
       ],
     },
     seeAlso: {
       title: 'Veja também',
-      cards: [
-        {
-          title: 'Como pagar',
-          description: 'Veja como pagar a sua fatura de forma rápida e segura.',
-          link: '/como-pagar',
-        },
-        {
-          title: 'Dúvidas frequentes',
-          description: 'Tire suas dúvidas sobre o pagamento da fatura.',
-          link: '/duvidas-frequentes',
-        },
-        {
-          title: 'Onde pagar',
-          description: 'Conheça os locais onde você pode pagar a sua fatura.',
-          link: '/onde-pagar',
-        },
-      ],
+      cards: seeAlsoConsignado,
     },
   },
 };

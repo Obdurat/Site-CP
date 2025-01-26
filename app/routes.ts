@@ -49,4 +49,6 @@ export default [
   route('produto/consignado', 'routes/consignado.tsx'),
 
   route('produto/imobiliario', 'routes/imobiliario.tsx'),
+  route('sobre', 'routes/sobre.tsx'),
+  route('diretoria', 'routes/diretoria.tsx'),
 ] satisfies RouteConfig;

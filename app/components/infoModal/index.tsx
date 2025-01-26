@@ -8,6 +8,8 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog';
 import { useEffect, useState } from 'react';
+import { FaPhoneFlip } from 'react-icons/fa6';
+import { MdOutlineMail, MdOutlinePhoneEnabled } from 'react-icons/md';
 
 const getFromLocalStorage = (key: string) => {
   return localStorage.getItem(key);
@@ -46,13 +48,25 @@ export function InfoModal() {
             Esclarecimento aos nossos clientes e colaboradores
           </AlertDialogTitle>
           <AlertDialogDescription className="text-gray-700">
-            A <strong>CPCréditos</strong> e Empresas Assossiadas{' '}
-            <strong>NÃO SOLICITAM DEPÓSITOS</strong>, transferências,
-            adiantamentos ou cobranças de taxas para nenhum de seus clientes.
+            A CP Créditos e Empresas Associadas{' '}
+            <strong>não solicita depósitos</strong>, transferências,
+            adiantamentos ou qualquer tipo de pagamento de taxas a seus
+            clientes.
             <br />
-            Caso alguem tenha entrado em contato solicitando dinheiro em nosso
-            nome, entre em contato conosco o quanto antes em:
-            atendimento@cpassessoriafinanceira.com.br (11) 3705-5709
+            <br />
+            Caso receba contato de alguém solicitando dinheiro em nosso nome,
+            pedimos que nos informe imediatamente por meio dos canais oficiais:
+            <br />
+            <br />
+            <span className="flex gap-2 items-center">
+              <MdOutlineMail /> E-mail:
+              atendimento@cpassessoriafinanceira.com.br
+            </span>
+            <span className="flex gap-2 items-center">
+              <MdOutlinePhoneEnabled /> Telefone: (11) 3705-5709
+            </span>
+            <br />
+            Estamos à disposição para esclarecer qualquer dúvida.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

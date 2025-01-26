@@ -5,7 +5,8 @@ import * as React from 'react';
 
 gsap.registerPlugin(useGSAP);
 export function useAnimationToRef(
-  ref: React.RefObject<HTMLElement | null>
+  ref: React.RefObject<HTMLElement | null>,
+  options?: gsap.TweenVars
 ): void {
   const [isVisible, setIsVisible] = React.useState(false);
 
@@ -32,6 +33,7 @@ export function useAnimationToRef(
         opacity: 0,
         y: 50,
         ease: 'power3.inOut',
+        ...options,
       });
     }
   }, [isVisible, ref]);
