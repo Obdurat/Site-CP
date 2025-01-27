@@ -1,6 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
-import { PayIcon } from '@/components/ui/icons';
+import { PayIcon, VejaTambemIcon } from '@/components/ui/icons';
 import type { Data } from '@/routes/data';
 
 type SeeAlsoCardProps = {
@@ -37,7 +37,7 @@ export const SeeAlso = ({ data }: { data: Data['seeAlso'] }) => {
     <div className="container mx-auto flex flex-col gap-4 pb-8">
       <div className="flex items-center gap-8">
         <div className="bg-accent rounded-lg p-2 w-fit">
-          <PayIcon className="size-12" />
+          <VejaTambemIcon className="size-12 fill-cptext-cyan" />
         </div>
         <h2 className="text-3xl font-bold text-cpblue-400">{data.title}</h2>
       </div>

@@ -1,26 +1,33 @@
 import { ArrowRight, CircleHelp } from 'lucide-react';
 import { InfoSection } from './InfoSection';
-import { PayIcon } from '@/components/ui/icons';
+import { ConhecaIcon } from '@/components/ui/icons';
 import type { Data } from '@/routes/data';
+import { useRef } from 'react';
+import { useAnimationToRef } from '@/hooks/use-animation-to-ref';
 
 export function About({ data }: { data: Data['about'] }) {
-  if(!data) return null;
+  if (!data) return null;
+  const contentRef = useRef(null);
+  useAnimationToRef(contentRef, { y: 0 });
+
   return (
-    <div className="container mx-auto flex flex-col gap-4" id="oque-e">
-      <div className="flex items-center gap-8">
-        <div className="bg-accent rounded-lg p-2 w-fit">
-          <PayIcon className="size-12" />
-        </div>
-        <h2 className="text-3xl font-bold text-cpblue-400">{data.title}</h2>
-      </div>
-      <div className="flex flex-col gap-6 backdrop-filter backdrop-blur-sm p-8 md:p-16 rounded-3xl bg-cptext-blue">
-        {data.sections.map((section, index) => (
-          <div key={Math.random()}>
-            <InfoSection key={Math.random()} {...section} />
-            {index === 0 && <div className="bg-cptext-cyan h-1.5 mt-4" />}
+    <section ref={contentRef} className="bg-cptext-blue py-16" id="oque-e">
+      <div className="container mx-auto flex flex-col gap-4">
+        <div className="flex items-center gap-8">
+          <div className="rounded-lg p-2 w-fit border-4">
+            <ConhecaIcon className="size-12" />
           </div>
-        ))}
+          <h2 className="text-2xl font-bold text-secondary">{data.title}</h2>
+        </div>
+        <div className="flex flex-col gap-6 backdrop-filter backdrop-blur-sm py-8 rounded-3xl">
+          {data.sections.map((section, index) => (
+            <div key={Math.random()}>
+              <InfoSection key={Math.random()} {...section} />
+              {index === 0 && <div className="bg-cptext-cyan h-1.5 mt-4" />}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

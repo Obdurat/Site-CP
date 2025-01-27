@@ -18,7 +18,7 @@ const productsContent = {
         'Ideal para quem busca praticidade e taxas reduzidas, o crédito consignado é descontado diretamente da folha de pagamento ou aposentadoria. É a opção perfeita para quem deseja organizar as finanças com facilidade e segurança.',
       cta: 'Ver produtos',
       href: '/produto/consignado',
-      image: '/assets/images/consignado.png',
+      image: '/assets/images/products/consignado-inss.png',
     },
     {
       title: 'Crédito Imobiliário',
@@ -26,7 +26,7 @@ const productsContent = {
         'Realize o sonho da casa própria! O crédito imobiliário permite financiar o imóvel que você sempre quis, com condições ajustadas ao seu orçamento. Bancos e instituições financeiras cuidam da transação, e você paga em parcelas que cabem no seu bolso.',
       cta: 'Ver produtos',
       href: '/produto/imobiliario',
-      image: '/assets/images/credit.png',
+      image: '/assets/images/products/financiamento-de-imovel.png',
     },
     {
       title: 'Crédito Pessoal',
@@ -34,7 +34,7 @@ const productsContent = {
         'Precisando de um apoio financeiro rápido e sem burocracia? O crédito pessoal é a solução ideal para suas necessidades, sem exigir garantias ou alienação de bens. As condições são ajustadas ao seu perfil e aprovadas com agilidade.',
       cta: 'Ver produtos',
       href: '/produto/credito/credito-pessoal',
-      image: '/assets/images/credit.png',
+      image: '/assets/images/products/credito-pessoal.png',
     },
     {
       title: 'Operações Estruturadas',
@@ -142,7 +142,7 @@ export function ProductCards() {
       ref={componentRef}
       className="container mx-auto grid grid-cols-1 lg:grid-cols-1 gap-8 text-secondary fadeIn"
     >
-      <div className="container mx-auto grid lg:gap-24 gap-16 col">
+      <div className="container mx-auto grid gap-8 col">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="flex-1 flex flex-col gap-2 w-full">
             <p className="text-gray-500 text-sm">{productsContent.sub}</p>
@@ -164,7 +164,6 @@ export function ProductCards() {
           key={Math.random()}
           className={cn(
             'flex gap-4 bg-background rounded-3xl overflow-hidden bg-cptext-blue flex-col sm:flex-row',
-            // i % 3 === 0 &&
             i % 2 === 0 && 'sm:flex-row-reverse',
             'lg:col-span-2'
           )}
@@ -180,7 +179,7 @@ export function ProductCards() {
               <MoveRight className="size-4" />
             </Link>
           </div>
-          <div className="max-w-[300px] overflow-hidden sm:block object-cover">
+          <div className="md:max-w-[400px] overflow-hidden sm:block object-cover -mb-1">
             <img src={card.image} alt={card.title} className="w-full h-full" />
           </div>
         </div>

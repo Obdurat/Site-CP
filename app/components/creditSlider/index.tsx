@@ -30,7 +30,7 @@ export function CreditSlider({ className, section, ...props }: SliderProps) {
     const sliderElement = sliderRef.current;
     if (!sliderElement) return;
 
-    const preventTouch = (e) => {
+    const preventTouch = (e: any) => {
       e.preventDefault();
       e.stopPropagation();
     };
@@ -54,7 +54,7 @@ export function CreditSlider({ className, section, ...props }: SliderProps) {
 
   return (
     <section ref={componentRef} className="flex flex-col gap-12 mt-4">
-      <div className="flex flex-col gap-4 pb-8">
+      <div className="flex flex-col gap-4">
         <div className="gap-8">
           <div className="text-xl px-8 border-cyan-400 border-l-4 flex items-center w-full">
             <div className="flex flex-col gap-4 flex-1">
@@ -91,13 +91,15 @@ export function CreditSlider({ className, section, ...props }: SliderProps) {
             </div>
           </div>
         </div>
-        {showButton && (
+        {showButton ? (
           <SimulationModal
             variant="cpcyan"
             cta="Simule seu crédito Agora!"
             section={section}
             value={formatCurrency(value)}
           />
+        ) : (
+          <div className="h-8"> </div>
         )}
       </div>
     </section>

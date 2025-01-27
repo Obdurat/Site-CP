@@ -18,7 +18,7 @@ Simule agora mesmo e descubra o valor ideal para realizar seus planos com facili
     cta: 'Seja nosso parceiro',
     image: {
       src: '/assets/images/consignado.png',
-      alt: 'Homem com um cartão de crédito',
+      alt: 'Casal de meia idade sorrindo',
       class: '',
     },
     section: 'consignado',
@@ -31,7 +31,7 @@ Simule agora e descubra o valor que pode transformar seus planos em realidade!`,
     cta: 'Seja nosso parceiro',
     image: {
       src: '/assets/images/imobiliario.png',
-      alt: 'Homen com uma casa de brinquedo na mão',
+      alt: 'Familia feliz',
       class: '',
     },
     section: 'imobiliario',
@@ -45,7 +45,7 @@ Simule agora e descubra o valor perfeito para você!`,
     cta: 'Seja nosso parceiro',
     image: {
       src: '/assets/images/credito-pessoal.png',
-      alt: 'Casal com passaport',
+      alt: 'Mulher com passaporte',
       class: '',
     },
     section: 'home',
@@ -54,30 +54,31 @@ Simule agora e descubra o valor perfeito para você!`,
 
 const Hero = ({ hero }: any) => {
   return (
-    <section>
-      <section className="bg-cpsection-primary h-full flex items-center justify-center pt-16">
-        <div>
-          <div className="container mx-auto flex items-center flex-col-reverse lg:flex-row justify-between gap-8">
-            <div className={cn('w-[70%] max-w-[600px] mr-8', hero.image.class)}>
-              <img
-                src={hero.image.src}
-                alt={hero.image.alt}
-                className="w-full h-full"
-              />
-            </div>
-            <div className="mx-w-[448px] flex flex-col gap-4">
-              <p className="text-gray-300 lg:text-xl text-xs">{hero.sub}</p>
-              <h1 className="text-secondary lg:text-5xl text-3xl font-bold">
-                {hero.title}
-              </h1>
-              <p className="text-white lg:text-xl text-xs">
-                {hero.description}
-              </p>
-              <CreditSlider section={hero.section} />
-            </div>
+    <section className="bg-cptext-blue flex justify-center pt-16 h-full">
+      <div>
+        <div className="container mx-auto flex items-center flex-col-reverse md:flex-row justify-between gap-4 h-full">
+          <div
+            className={cn(
+              'w-full h-fit lg:min-w-[483px] md:mr-8 ',
+              hero.image.class
+            )}
+          >
+            <img
+              src={hero.image.src}
+              alt={hero.image.alt}
+              className="w-full h-full"
+            />
+          </div>
+          <div className="mx-w-[448px] flex flex-col gap-4 pb-8">
+            <p className="text-gray-300 lg:text-xl text-xs">{hero.sub}</p>
+            <h1 className="text-secondary lg:text-4xl text-2xl font-bold">
+              {hero.title}
+            </h1>
+            <p className="text-white lg:text-xl text-sm">{hero.description}</p>
+            <CreditSlider section={hero.section} />
           </div>
         </div>
-      </section>
+      </div>
     </section>
   );
 };

@@ -10,9 +10,14 @@ export function FooterFollowUsInformations() {
         >
           Fale conosco
         </a>
-        <p className="text-white whitespace">
+
+        <a
+          href="https://www.cpassessoriafinanceira.com.br/AVISO_DE_PRIVACIDADE_DE_DADOS.pdf"
+          className="text-white whitespace"
+          target="_blank"
+        >
           Politicas de Privacidade e Compliance
-        </p>
+        </a>
       </div>
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-4">

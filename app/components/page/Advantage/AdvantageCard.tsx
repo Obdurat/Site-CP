@@ -4,14 +4,12 @@ import type { ReactNode } from 'react';
 type AdvantageCardProps = {
   title: string;
   description: string;
-  icon: ReactNode;
   className?: string;
 };
 
 export function AdvantageCard({
   title,
   description,
-  icon,
   className,
 }: AdvantageCardProps) {
   return (
@@ -23,7 +21,6 @@ export function AdvantageCard({
     >
       <div className="flex gap-4 flex-col">
         <div className="flex items-center gap-4">
-          <div className="size-fit rounded-md">{icon}</div>
           <h3 className="text-xl md:text-2xl font-bold text-cpblue-300">
             {title}
           </h3>

@@ -40,7 +40,7 @@ export default {
           primary: '#0f224a',
           grey: '#999999',
           cyan: '#23d8e1',
-          blue: '#2a2e6b',
+          blue: '#04195c',
         },
         cpsection: {
           primary: '#2a2e6b',

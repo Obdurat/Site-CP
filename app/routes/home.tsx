@@ -23,14 +23,13 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex flex-col lg:gap-44 gap-20 pt-20">
+      <main className="flex flex-col lg:gap-32 gap-20 pt-20 mb-20">
         <Main />
         <Benefits />
         <Partners title="Conheça nossos parceiros" />
         <ProductCards />
         <OurOfficesSection />
         <SocialMedia />
-        <History />
       </main>
       <Footer />
       <InfoModal />

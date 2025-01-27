@@ -2,7 +2,7 @@ import { ArrowRight, BriefcaseBusiness } from 'lucide-react';
 import { FaRegLightbulb } from 'react-icons/fa6';
 import { MdQuestionMark } from 'react-icons/md';
 
-import { PayIcon } from '../components/ui/icons';
+import { VantagensIcon } from '../components/ui/icons';
 import type { JSX } from 'react';
 
 export type Paths =
@@ -55,7 +55,7 @@ export type Data = {
     title: string;
     description: string;
     links?: { title: string; link: string }[];
-    image: Image;
+    image?: Image;
   };
   about?: {
     title: string;
@@ -254,7 +254,7 @@ export const pagesData: PagesData = {
       description:
         'Crédito exclusivo para servidores públicos municipais, estaduais e federais, ativos e inativos, com condições especiais e vantagens diferenciadas.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/consignado-publico.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -316,25 +316,25 @@ export const pagesData: PagesData = {
           title: 'Taxas de juros reduzidas',
           description:
             'Aproveite uma das menores taxas do mercado, tornando o crédito mais acessível e econômico.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Prazos de pagamento longos',
           description:
             'Tenha mais flexibilidade financeira com prazos estendidos que se ajustam ao seu orçamento.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Desconto direto na folha de pagamento',
           description:
             'Garanta praticidade e segurança com parcelas descontadas automaticamente no contracheque.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Menos burocracia',
           description:
             'Ideal para quem precisa de crédito rápido, com menos burocracia e condições vantajosas.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -346,7 +346,7 @@ export const pagesData: PagesData = {
       description:
         'Crédito exclusivo para servidores federais ativos, aposentados e pensionistas, com limite elevado, taxas competitivas e condições ajustadas. Ideal para realizar projetos, quitar dívidas ou atender necessidades emergenciais com economia e praticidade.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/consignado-federal.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -416,19 +416,19 @@ export const pagesData: PagesData = {
           title: 'Condições exclusivas',
           description:
             'Vantagens exclusivas para servidores federais, incluindo limite de crédito elevado e flexibilidade de pagamento.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Taxas competitivas',
           description:
             'Taxas ajustadas para garantir economia e viabilidade financeira ao contratante.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Prático e acessível',
           description:
             'Uma solução simples e acessível para financiar projetos pessoais, quitar dívidas ou atender necessidades emergenciais com tranquilidade.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -440,7 +440,7 @@ export const pagesData: PagesData = {
       description:
         'Crédito exclusivo para colaboradores de empresas privadas conveniadas, com taxas reduzidas, desconto em folha e fácil acesso, mesmo para quem possui outras pendências financeiras.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/consignado-privado.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -491,19 +491,19 @@ export const pagesData: PagesData = {
           title: 'Taxas reduzidas',
           description:
             'Condições adaptadas ao perfil do cliente, com taxas mais baixas e vantajosas para o trabalhador do setor privado.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Parcelas descontadas na folha',
           description:
             'Praticidade e segurança garantidas com o desconto automático das parcelas diretamente na folha de pagamento.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Acessibilidade',
           description:
             'Uma solução rápida e acessível, mesmo para quem possui outras pendências financeiras, sem complicações.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -515,7 +515,7 @@ export const pagesData: PagesData = {
       description:
         'Crédito exclusivo para aposentados e pensionistas do INSS, com taxas reduzidas, desconto automático no benefício e opções de renegociação.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/consignado-inss.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -574,25 +574,25 @@ export const pagesData: PagesData = {
           title: 'Descontos automáticos',
           description:
             'Garanta tranquilidade com parcelas descontadas automaticamente do benefício mensal, sem preocupações adicionais.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Taxas de juros controladas',
           description:
             'Aproveite taxas reguladas pelo governo, garantindo economia e segurança em seus pagamentos.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Renegociação ou refinanciamento',
           description:
             'Conte com a flexibilidade de renegociar ou refinanciar contratos existentes, caso necessário.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Segurança e menor custo',
           description:
             'Uma solução confiável e acessível para quem busca crédito com praticidade e economia.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -604,7 +604,7 @@ export const pagesData: PagesData = {
       description:
         'Realize o sonho da casa própria ou invista em imóveis com facilidade. Descubra as vantagens que essa modalidade de financiamento oferece.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/financiamento-de-imovel.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -659,19 +659,19 @@ export const pagesData: PagesData = {
           title: 'Condições flexíveis de pagamento',
           description:
             'Aproveite prazos longos e parcelas acessíveis que facilitam a aquisição do imóvel desejado.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Taxas de juros competitivas',
           description:
             'Taxas ajustadas ao seu perfil financeiro, garantindo economia e segurança no financiamento.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Diversidade de opções de imóveis',
           description:
             'Possibilidade de financiar imóveis residenciais, comerciais ou terrenos, atendendo diferentes necessidades e objetivos de investimento.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -683,7 +683,7 @@ export const pagesData: PagesData = {
       description:
         'Converta o valor do seu imóvel em crédito com o Home Equity, a solução ideal para quem busca recursos com condições exclusivas e flexíveis.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/home-equity.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -740,17 +740,17 @@ export const pagesData: PagesData = {
         {
           title: 'Taxas de juros reduzidas',
           description: 'Inferiores às de empréstimos pessoais.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Altos valores de crédito',
           description: 'Liberação de até 60% do valor do imóvel.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Flexibilidade de uso',
           description: 'Utilize o recurso em diversos objetivos.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -763,7 +763,7 @@ export const pagesData: PagesData = {
       description:
         'A solução ideal para quem busca recursos financeiros rápidos, com praticidade e sem complicações.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/credito-pessoal.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -826,17 +826,17 @@ export const pagesData: PagesData = {
         {
           title: 'Liberação ágil',
           description: 'Sem necessidade de garantias.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Flexibilidade no uso',
           description: 'Utilize o crédito como desejar.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Parcelamento ajustável',
           description: 'Condições que cabem no seu orçamento.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -849,7 +849,7 @@ export const pagesData: PagesData = {
       description:
         'Antecipe o saldo do seu FGTS – Saque-Aniversário e tenha dinheiro imediato para realizar seus planos.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/fgts.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -901,18 +901,18 @@ export const pagesData: PagesData = {
           title: 'Taxas reduzidas',
           description:
             'Economize com taxas menores, garantidas pela segurança do crédito vinculado ao FGTS.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Pagamento automático',
           description:
             'Parcelas descontadas diretamente do saldo do FGTS, sem impacto no seu orçamento mensal.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Processo 100% digital',
           description: 'Acesso rápido e sem burocracia, com aprovação online.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -926,7 +926,7 @@ export const pagesData: PagesData = {
       description:
         'Com o Financiamento, conquiste o carro próprio com condições personalizadas. No Refinanciamento, use seu carro quitado como garantia e acesse crédito com vantagens exclusivas.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/financionamento.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1003,31 +1003,31 @@ export const pagesData: PagesData = {
           title: 'Taxas atrativas e prazos ajustáveis',
           description:
             'Condições flexíveis para financiar ou refinanciar com segurança.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Financiamento para carros novos ou usados',
           description:
             'Aproveite ampla aprovação de crédito para adquirir o veículo desejado.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Parcelas que cabem no seu bolso',
           description:
             'Planeje suas finanças com pagamentos acessíveis e ajustados ao seu orçamento.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Taxas de juros reduzidas',
           description:
             'No refinanciamento, economize com taxas inferiores às de empréstimos pessoais.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Liberação de até 90% do valor do veículo',
           description:
             'Obtenha crédito enquanto continua utilizando seu carro quitado.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1044,7 +1044,7 @@ export const pagesData: PagesData = {
       description:
         'A opção perfeita para quem busca crédito rotativo com taxas reduzidas e benefícios exclusivos.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/cartao-consignado.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1108,25 +1108,25 @@ export const pagesData: PagesData = {
           title: 'Sem consulta ao SPC/Serasa',
           description:
             'Aprovação facilitada, mesmo para quem possui restrições no CPF.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Parcelas descontadas automaticamente',
           description:
             'Pagamentos realizados diretamente na folha de pagamento ou benefício, sem risco de atrasos.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Taxas de juros reduzidas',
           description:
             'Economize com taxas menores do que as cobradas por cartões de crédito tradicionais.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Limite elevado',
           description:
             'Mais poder de compra e flexibilidade financeira para o seu dia a dia.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1140,7 +1140,7 @@ export const pagesData: PagesData = {
       description:
         'Exclusivo para aposentados e pensionistas do INSS, com benefícios e condições especiais pensados para atender esse público.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/cartao-beneficio-consignado.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1194,19 +1194,19 @@ export const pagesData: PagesData = {
         {
           title: 'Sem anuidade',
           description: 'Economize com um cartão isento de taxas anuais.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Descontos automáticos',
           description:
             'Pagamentos realizados diretamente no benefício mensal, com praticidade e segurança.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Uso amplo',
           description:
             'Acesse saques em dinheiro e faça compras à vista ou parceladas com facilidade.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1220,7 +1220,7 @@ export const pagesData: PagesData = {
       description:
         'Benefícios exclusivos para servidores públicos e pensionistas, com condições especiais e praticidade.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/cartao-credcesta.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1285,25 +1285,25 @@ export const pagesData: PagesData = {
           title: 'Taxas competitivas',
           description:
             'Condições ajustadas às necessidades de servidores públicos e pensionistas.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Aceitação ampla',
           description:
             'Utilize o cartão em milhares de estabelecimentos para compras e serviços.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Saques emergenciais e parcelamento flexível',
           description:
             'Tenha conveniência e segurança em momentos de necessidade.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Desconto direto na folha de pagamento',
           description:
             'Pagamentos automáticos que oferecem praticidade e tranquilidade.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1317,7 +1317,7 @@ export const pagesData: PagesData = {
       description:
         'A maneira inteligente e econômica de conquistar seus sonhos, com parcelas acessíveis e sem juros.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/consorcio.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1388,23 +1388,23 @@ export const pagesData: PagesData = {
         {
           title: 'Taxas reduzidas',
           description: 'Apenas a cobrança de taxa de administração, sem juros.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Planejamento financeiro',
           description:
             'Ideal para adquirir imóveis, veículos ou outros bens de forma programada.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Flexibilidade nas parcelas',
           description: 'Com opções que se ajustam ao seu orçamento.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Participação em sorteios mensais',
           description: 'E possibilidade de antecipação por lance.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1418,7 +1418,7 @@ export const pagesData: PagesData = {
       description:
         'Proteção personalizada para o que mais importa, com condições feitas sob medida para você.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/seguros.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1487,25 +1487,25 @@ export const pagesData: PagesData = {
           title: 'Seguro de Vida',
           description:
             'Segurança financeira para você e sua família em momentos imprevistos.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Seguro Residencial',
           description:
             'Proteção completa para o seu imóvel contra danos, furtos e outros riscos.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Seguro Veicular',
           description:
             'Cobertura completa para o seu carro, com assistência 24 horas e vantagens exclusivas.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Planos adaptáveis',
           description:
             'E atendimento ágil, garantindo tranquilidade e confiança em qualquer situação.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1518,7 +1518,7 @@ export const pagesData: PagesData = {
       description:
         'Invista em energia sustentável com nosso financiamento para painéis solares, combinando economia e responsabilidade ambiental para reduzir custos e proteger o planeta.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/painel-solar.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1589,25 +1589,25 @@ export const pagesData: PagesData = {
         {
           title: 'Taxas de juros competitivas',
           description: 'Facilitam o acesso à tecnologia de energia solar.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Financiamento de sistemas completos',
           description:
             'Disponível para residências, empresas ou propriedades rurais.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Redução imediata na conta de energia',
           description:
             'Economize já, com retorno do investimento em poucos anos.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Contribuição para a sustentabilidade',
           description:
             'Adote energia limpa e renovável para cuidar do planeta.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1621,7 +1621,7 @@ export const pagesData: PagesData = {
       description:
         'Fortaleça seu negócio com nosso Crédito para Capital de Giro, uma solução prática para equilibrar o fluxo de caixa e impulsionar suas operações.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/capital-de-giro.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1698,25 +1698,25 @@ export const pagesData: PagesData = {
           title: 'Taxas ajustadas ao perfil da sua empresa',
           description:
             'Condições flexíveis que atendem às necessidades específicas do seu negócio.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Liberação rápida',
           description:
             'Atenda demandas imediatas, como pagamento de fornecedores e compra de estoque.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Parcelamento adaptado',
           description:
             'Condições alinhadas à realidade financeira do seu negócio.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Disponível para empresas de diferentes portes e setores',
           description:
             'Uma solução acessível para negócios de todos os tamanhos e segmentos.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1730,7 +1730,7 @@ export const pagesData: PagesData = {
       description:
         'Soluções financeiras robustas e personalizadas para projetos complexos, atendendo demandas específicas com estratégias sob medida.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/operacoes-estruturadas.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1804,25 +1804,25 @@ export const pagesData: PagesData = {
           title: 'Planejamento estratégico',
           description:
             'Análise detalhada e personalizada das necessidades da sua empresa.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Estruturação de crédito',
           description:
             'Garantias e prazos ajustados às demandas específicas do projeto.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Apoio especializado',
           description:
             'Soluções financeiras para fusões, aquisições, investimentos em infraestrutura e expansão de negócios.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Soluções sob medida',
           description:
             'Desenvolvidas especialmente para empresas de médio e grande porte.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1835,7 +1835,7 @@ export const pagesData: PagesData = {
       description:
         'Descubra as melhores soluções para adquirir imóveis ou transformar o valor do seu patrimônio em crédito com condições exclusivas e flexíveis.',
       image: {
-        src: '/assets/images/page.png',
+        src: '/assets/images/products/.png',
         alt: 'Seguros CPCréditos',
       },
       links: heroLinks,
@@ -1924,25 +1924,25 @@ export const pagesData: PagesData = {
           title: 'Condições flexíveis de pagamento',
           description:
             'Parcelas acessíveis e prazos longos que se ajustam ao seu planejamento financeiro.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Taxas de juros competitivas',
           description:
             'Economize com taxas ajustadas ao seu perfil e condições exclusivas para crédito imobiliário.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Diversidade de opções',
           description:
             'Financie imóveis residenciais, comerciais ou terrenos, ou transforme o valor do seu imóvel em crédito.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Segurança e praticidade',
           description:
             'Modalidades de crédito seguras, com recursos disponíveis para diferentes objetivos e fácil aprovação.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },
@@ -1953,6 +1953,10 @@ export const pagesData: PagesData = {
       title: 'Crédito Consignado',
       description:
         'Garanta mais praticidade e economia! Com parcelas descontadas diretamente do salário ou aposentadoria, você aproveita taxas reduzidas e um processo descomplicado.',
+      image: {
+        src: '/assets/images/products/consignado-inss.png',
+        alt: 'Crédito Consignado',
+      },
       links: [
         { title: 'Vantagens', link: '#vantagens' },
         { title: 'Parceiros', link: '#parceiros' },
@@ -2085,25 +2089,25 @@ export const pagesData: PagesData = {
           title: 'Taxas de juros reduzidas',
           description:
             'Aproveite uma das menores taxas do mercado, tornando o crédito mais acessível e econômico para você.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Prazos de pagamento longos',
           description:
             'Tenha mais flexibilidade no planejamento financeiro com prazos estendidos que se ajustam ao seu orçamento.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Desconto direto em folha de pagamento',
           description:
             'Garanta segurança e praticidade com o desconto automático das parcelas diretamente no salário ou benefício.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
         {
           title: 'Menos burocracia',
           description:
             'Ideal para quem precisa de crédito rápido e descomplicado, com condições vantajosas e um processo simples.',
-          icon: <PayIcon className="size-8" />,
+          icon: <VantagensIcon className="size-10 fill-cpblue-300" />,
         },
       ],
     },

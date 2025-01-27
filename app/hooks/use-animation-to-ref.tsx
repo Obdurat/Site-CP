@@ -32,7 +32,7 @@ export function useAnimationToRef(
         duration: 1,
         opacity: 0,
         y: 50,
-        ease: 'power3.inOut',
+        ease: 'elastic.inOut',
         ...options,
       });
     }

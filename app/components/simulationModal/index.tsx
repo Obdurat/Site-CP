@@ -96,7 +96,7 @@ export function LeadForm({
       imobiliario: 'crédito imobiliário',
     };
 
-    const isCpf = data.cpfCnpj.length <= 11;
+    const isCpf = data.cpfCnpj.replace(/\D/g, '').length <= 11;
 
     const sectionText = sectionMap[section] || 'crédito pessoal';
     const valorText = data.valor ? ` no valor de ${data.valor}` : '';

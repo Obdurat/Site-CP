@@ -57,7 +57,7 @@ export const InfoSection = ({
     <SectionHeader
       icon={icon}
       title={title}
-      className="bg-cptext-cyan rounded-lg p-2 w-fit"
+      className="bg-gray-100 rounded-lg p-2 w-fit"
     />
     {description && (
       <p className="text-sm md:text-lg text-secondary">{description}</p>

@@ -5,7 +5,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
-import { ArrowRight, Building2, ChevronsUpDown, HandCoins } from 'lucide-react';
+import {
+  ArrowRight,
+  Book,
+  Building2,
+  ChevronsUpDown,
+  HandCoins,
+} from 'lucide-react';
 import { Link } from 'react-router';
 import { Button } from '@/components/ui/button';
 
@@ -23,6 +29,18 @@ import { cn } from '@/lib/utils';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import { gsap } from 'gsap';
 import { SimulationModal } from '../simulationModal';
+import {
+  AirplaneIcon,
+  BuildingIcon,
+  CardIcon,
+  ConhecaIcon,
+  CreditIcon,
+  DiretoriaIcon,
+  HomeIcon,
+  ParceiroIcon,
+  PrivacidadeIcon,
+  TrabalheConoscoIcon,
+} from '../ui/icons';
 
 gsap.registerPlugin(ScrollToPlugin);
 
@@ -46,9 +64,6 @@ type HeaderData = {
   institutional: {
     links: TLink[];
   };
-  offices: {
-    links: TLink[];
-  };
 };
 
 const headerData: HeaderData = {
@@ -56,7 +71,7 @@ const headerData: HeaderData = {
     sections: [
       {
         title: 'Consignado',
-        icon: <HandCoins />,
+        icon: <HandCoins className="size-5 " />,
         links: [
           {
             title: 'Consignado Público',
@@ -78,7 +93,7 @@ const headerData: HeaderData = {
       },
       {
         title: 'Imobiliário',
-        icon: <HandCoins />,
+        icon: <HomeIcon className="size-5 " />,
         links: [
           {
             title: 'Financiamento de Imóvel',
@@ -92,7 +107,7 @@ const headerData: HeaderData = {
       },
       {
         title: 'Crédito',
-        icon: <HandCoins />,
+        icon: <CreditIcon className="size-5 " />,
         links: [
           {
             title: 'Crédito Pessoal',
@@ -110,7 +125,7 @@ const headerData: HeaderData = {
       },
       {
         title: 'Cartões',
-        icon: <HandCoins />,
+        icon: <CardIcon className="size-5 " />,
         links: [
           {
             title: 'Cartão Consignado',
@@ -128,7 +143,7 @@ const headerData: HeaderData = {
       },
       {
         title: 'Consórcio/Seguros',
-        icon: <HandCoins />,
+        icon: <AirplaneIcon className="size-6" />,
         links: [
           {
             title: 'Consórcio',
@@ -142,7 +157,7 @@ const headerData: HeaderData = {
       },
       {
         title: 'Outros',
-        icon: <HandCoins />,
+        icon: <BuildingIcon className="size-5 " />,
         links: [
           {
             title: 'Painel Solar',
@@ -166,47 +181,31 @@ const headerData: HeaderData = {
         title: 'Nossa História',
         href: '/sobre',
         description: 'Conheça a história da empresa',
-        icon: <Building2 />,
+        icon: <ConhecaIcon className="size-8" fill="#393e91" />,
       },
       {
         title: 'Nossa Diretoria',
         href: '/diretoria',
         description: 'Conheça nossa diretoria',
-        icon: <Building2 />,
+        icon: <DiretoriaIcon className="size-8" fill="#393e91" />,
       },
       {
         title: 'Trabalhe Conosco',
         href: import.meta.env.VITE_LINKEDIN,
         description: 'Venha fazer parte do nosso time',
-        icon: <Building2 />,
+        icon: <TrabalheConoscoIcon className="size-8" fill="#393e91" />,
       },
       {
         title: 'Seja Parceiro',
         href: import.meta.env.VITE_LINKEDIN,
         description: 'Seja um parceiro da empresa',
-        icon: <Building2 />,
+        icon: <ParceiroIcon className="size-8" fill="#393e91" />,
       },
       {
         title: 'Privacidade e Compliance',
-        href: '/privacidade',
+        href: 'https://www.cpassessoriafinanceira.com.br/AVISO_DE_PRIVACIDADE_DE_DADOS.pdf',
         description: 'Política de privacidade e compliance',
-        icon: <Building2 />,
-      },
-    ],
-  },
-  offices: {
-    links: [
-      {
-        title: 'Nossos Escritórios',
-        href: '/escritorios',
-        description: 'Endereços com Maps e GMN',
-        icon: <Building2 />,
-      },
-      {
-        title: 'Fale Conosco',
-        href: '/fale-conosco',
-        description: 'Contato via WhatsApp e redes sociais',
-        icon: <Building2 />,
+        icon: <PrivacidadeIcon className="size-8" fill="#393e91" />,
       },
     ],
   },
@@ -288,16 +287,6 @@ export function HeaderInstitutionalLinks() {
   );
 }
 
-export function HeaderOfficesLinks() {
-  return (
-    <div className="grid grid-cols-1 grid-rows-1 gap-3 p-4 md:w-[800px] lg:w-[600px]">
-      {headerData.offices.links.map((link) => (
-        <HeaderLink key={Math.random()} {...link} />
-      ))}
-    </div>
-  );
-}
-
 export function MobileNavLinks({
   links,
   label,
@@ -326,7 +315,11 @@ export function MobileNavLinks({
       </CollapsibleTrigger>
       <CollapsibleContent className="space-y-2">
         {links.map((link) => (
-          <HeaderLink key={Math.random()} {...link} className="ml-4" />
+          <HeaderLink
+            key={Math.random()}
+            {...link}
+            className="ml-4 break-all max-w-[80%]"
+          />
         ))}
       </CollapsibleContent>
     </Collapsible>
@@ -340,8 +333,8 @@ export function MobileNav() {
         <SheetTrigger>
           <AlignJustify className="mt-2" />
         </SheetTrigger>
-        <SheetContent side="right">
-          <div className="pt-8 space-y-4">
+        <SheetContent side="right" className="px-1 w-[90vw]">
+          <div className="pt-8 space-y-4 overflow-auto  max-h-[90vh]">
             <Collapsible className="w-[350px] space-y-2">
               <CollapsibleTrigger asChild>
                 <div className="flex items-center justify-between space-x-4 px-4">

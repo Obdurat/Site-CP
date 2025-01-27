@@ -3,7 +3,7 @@ import { CarouselContainer } from '@/components/carousel';
 import { useMemo, useRef } from 'react';
 import { useAnimationToRef } from '@/hooks/use-animation-to-ref';
 import { RiCustomerServiceFill, RiDiscountPercentFill } from 'react-icons/ri';
-import { AtendimentoIcon } from '../ui/icons';
+import { AtendimentoIcon, SecurityIcon, SpeedIcon } from '../ui/icons';
 
 const benefitsContent = {
   sub: 'Nossos benefícios',
@@ -27,13 +27,13 @@ const benefitsContent = {
       title: 'Segurança e Transparência',
       description:
         'Trabalhamos com ética e clareza em todas as etapas do processo, porque você merece confiar em quem cuida do seu futuro.',
-      icon: <BriefcaseBusiness className="size-5 md:size-8" />,
+      icon: <SecurityIcon className="size-5 md:size-8" />,
     },
     {
       title: 'Facilidade e Agilidade',
       description:
         'Esqueça a burocracia! Aqui, seu crédito é aprovado com rapidez e sem complicações.',
-      icon: <BriefcaseBusiness className="size-5 md:size-8" />,
+      icon: <SpeedIcon className="size-5 md:size-8" />,
     },
   ],
 };

@@ -29,16 +29,18 @@ export default function ProductPage() {
   return (
     <>
       <Header />
-      <main className="flex flex-col lg:gap-32 gap-20 pt-20">
+      <main className="flex flex-col pt-20">
         <Hero data={data.hero} />
         <About data={data.about} />
-        <Advantage data={data.advantages} />
-        <Partners
-          title={`${data.hero.title}: parcerias estratégicas`}
-          description="Atenção: somos prestadores de serviços das instituições financeiras:"
-        />
-        <SocialMedia />
-        <SeeAlso data={data.seeAlso} />
+        <div className="flex flex-col lg:gap-32 gap-20 lg:pt-32  pt-20">
+          <Advantage data={data.advantages} />
+          <Partners
+            title={`${data.hero.title}: parcerias estratégicas`}
+            description="Atenção: somos prestadores de serviços das instituições financeiras:"
+          />
+          <SocialMedia />
+          <SeeAlso data={data.seeAlso} />
+        </div>
       </main>
       <HomeFooter />
       <InfoModal />
