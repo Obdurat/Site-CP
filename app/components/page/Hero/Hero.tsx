@@ -1,16 +1,32 @@
-import { PayIcon } from '@/components/ui/icons';
-import type { Data, PagesData } from '@/routes/data';
+import type { Data } from '@/routes/data';
+import { gsap } from 'gsap';
 import { Link } from 'react-router';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
-const SectionLink = ({ title, link }: { title: string; link: string }) => (
-  <Link
-    to={link}
-    target={link.startsWith('http') ? '_blank' : '_self'}
-    className="flex items-center gap-2 hover:underline w-fit text-cpblue-300"
-  >
-    {title}
-  </Link>
-);
+gsap.registerPlugin(ScrollToPlugin);
+
+const SectionLink = ({ title, link }: { title: string; link: string }) => {
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+
+    const offset = 110;
+
+    gsap.to(window, { duration: 1, scrollTo: { y: link, offsetY: offset } });
+  };
+
+  return (
+    <Link
+      to={link}
+      target={link.startsWith('http') ? '_blank' : '_self'}
+      className="flex items-center gap-2 hover:underline w-fit text-cpblue-300"
+      onClick={link.startsWith('http') ? undefined : scrollToSection}
+    >
+      {title}
+    </Link>
+  );
+};
 
 export function Hero({ data }: { data: Data['hero'] }) {
   return (

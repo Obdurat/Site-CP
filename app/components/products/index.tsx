@@ -50,7 +50,7 @@ const productsContent = {
         'Uma alternativa inteligente para adquirir bens ou serviços. Participe de um grupo colaborativo e, dentro de um prazo determinado, alcance seus objetivos financeiros com parcelas planejadas e sem juros abusivos.',
       cta: 'Ver produtos',
       href: '/produto/consorcio',
-      image: '/assets/images/credit.png',
+      image: '/assets/images/products/consorcio.png',
     },
   ],
 };
