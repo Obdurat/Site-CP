@@ -8,7 +8,17 @@ import { AtendimentoIcon, SecurityIcon, SpeedIcon } from '../ui/icons';
 const benefitsContent = {
   sub: 'Nossos benefícios',
   title: 'Por que escolher a CP Créditos?',
-  description: `Aqui, você conta com soluções completas em crédito consignado, crédito pessoal, financiamento imobiliário, antecipação de FGTS, consórcio, home equity e refinanciamento imobiliário. Tudo isso com a parceria dos melhores bancos do mercado, garantindo confiança e cuidado em cada etapa.`,
+  description: (
+    <p>
+      Aqui, você conta com soluções completas em{' '}
+      <strong>Crédito Consignado</strong>, <strong>Crédito Pessoal</strong>,{' '}
+      <strong>Financiamento Imobiliário</strong>,{' '}
+      <strong>Antecipação de FGTS</strong>, <strong>Consórcio</strong>,{' '}
+      <strong>Home Equity</strong> e{' '}
+      <strong>Refinanciamento Imobiliário</strong>. Tudo isso com a parceria dos
+      melhores bancos do mercado, garantindo confiança e cuidado em cada etapa.
+    </p>
+  ),
   cta: 'Seja parceiro',
   cards: [
     {
@@ -73,9 +83,9 @@ export function Benefits() {
             </h1>
           </div>
 
-          <p className="md:text-xl px-8 border-cyan-400 border-l-4">
+          <article className="md:text-xl px-8 border-cyan-400 border-l-4">
             {benefitsContent.description}
-          </p>
+          </article>
         </div>
         <div className="grid-cols-1 lg:grid-cols-2 gap-8 hidden md:grid">
           {cards}

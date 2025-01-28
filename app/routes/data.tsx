@@ -1,8 +1,28 @@
 import { ArrowRight, BriefcaseBusiness } from 'lucide-react';
-import { FaRegLightbulb } from 'react-icons/fa6';
+import { FaCar, FaRegLightbulb } from 'react-icons/fa6';
 import { MdQuestionMark } from 'react-icons/md';
+import { GiReceiveMoney } from 'react-icons/gi';
 
-import { VantagensIcon } from '../components/ui/icons';
+import {
+  VantagensIcon,
+  AirplaneIcon,
+  AppStoreIcon,
+  AtendimentoIcon,
+  BuildingIcon,
+  CardIcon,
+  ConhecaIcon,
+  CreditIcon,
+  DiretoriaIcon,
+  EscritoriosIcon,
+  HomeIcon,
+  ParceiroIcon,
+  PayIcon,
+  PrivacidadeIcon,
+  SecurityIcon,
+  SpeedIcon,
+  TrabalheConoscoIcon,
+  VejaTambemIcon,
+} from '../components/ui/icons';
 import type { JSX } from 'react';
 
 export type Paths =
@@ -51,6 +71,7 @@ type SeeAlso = {
 };
 
 export type Data = {
+  section: string;
   hero: {
     title: string;
     description: string;
@@ -59,6 +80,7 @@ export type Data = {
   };
   about?: {
     title: string;
+    icon: JSX.Element;
     sections: {
       icon: JSX.Element;
       title: string;
@@ -249,6 +271,7 @@ const getSeeAlso = (list: SeeAlsoCard[], title: string): SeeAlso => {
 
 export const pagesData: PagesData = {
   'consignado-publico': {
+    section: 'consignado-publico',
     hero: {
       title: 'Consignado Público',
       description:
@@ -260,6 +283,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <GiReceiveMoney className="size-8 text-white" />,
       title: 'Conheça o Consignado Público',
       sections: [
         {
@@ -341,6 +365,7 @@ export const pagesData: PagesData = {
     seeAlso: getSeeAlso(seeAlsoConsignado, 'Consignado Público'),
   },
   'consignado-federal': {
+    section: 'consignado-federal',
     hero: {
       title: 'Consignado Federal',
       description:
@@ -352,6 +377,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <GiReceiveMoney className="size-8 text-white" />,
       title: 'Conheça o Consignado Federal',
       sections: [
         {
@@ -435,6 +461,7 @@ export const pagesData: PagesData = {
     seeAlso: getSeeAlso(seeAlsoConsignado, 'Consignado Federal'),
   },
   'consignado-privado': {
+    section: 'consignado-privado',
     hero: {
       title: 'Consignado Privado',
       description:
@@ -446,6 +473,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <GiReceiveMoney className="size-8 text-white" />,
       title: 'Conheça o Consignado Privado',
       sections: [
         {
@@ -510,6 +538,7 @@ export const pagesData: PagesData = {
     seeAlso: getSeeAlso(seeAlsoConsignado, 'Consignado Privado'),
   },
   'consignado-inss': {
+    section: 'consignado-inss',
     hero: {
       title: 'Consignado INSS',
       description:
@@ -521,6 +550,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <GiReceiveMoney className="size-8 text-white" />,
       title: 'Conheça o Consignado INSS',
       sections: [
         {
@@ -599,6 +629,7 @@ export const pagesData: PagesData = {
     seeAlso: getSeeAlso(seeAlsoConsignado, 'Consignado INSS'),
   },
   'financiamento-imovel': {
+    section: 'financiamento-imovel',
     hero: {
       title: 'Financiamento de Imóvel',
       description:
@@ -610,6 +641,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <HomeIcon className="size-8" fill="white" />,
       title: 'Conheça o Financiamento de Imóvel',
       sections: [
         {
@@ -678,6 +710,7 @@ export const pagesData: PagesData = {
     seeAlso: getSeeAlso(seeAlsoImobiliario, 'Financiamento de Imóvel'),
   },
   'home-equity': {
+    section: 'home-equity',
     hero: {
       title: 'Home Equity / Crédito com Garantia de Imóvel',
       description:
@@ -689,6 +722,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <HomeIcon className="size-8" fill="white" />,
       title: 'Conheça o Home Equity',
       sections: [
         {
@@ -758,6 +792,7 @@ export const pagesData: PagesData = {
   },
   // Crédito Pessoal
   'credito-pessoal': {
+    section: 'credito-pessoal',
     hero: {
       title: 'Crédito Pessoal',
       description:
@@ -769,6 +804,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <CreditIcon className="size-8" fill="white" />,
       title: 'Conheça o Crédito Pessoal',
       sections: [
         {
@@ -844,6 +880,7 @@ export const pagesData: PagesData = {
   },
   // FGTS – Saque-Aniversário
   fgts: {
+    section: 'fgts',
     hero: {
       title: 'FGTS – Saque-Aniversário',
       description:
@@ -855,6 +892,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <CreditIcon className="size-8" fill="white" />,
       title: 'Conheça o FGTS – Saque-Aniversário',
       sections: [
         {
@@ -921,6 +959,7 @@ export const pagesData: PagesData = {
 
   // Financiamento e Refinanciamento de Veículos
   'financiamento-refinanciamento-veiculos': {
+    section: 'financiamento-refinanciamento-veiculos',
     hero: {
       title: 'Financiamento e Refinanciamento de Veículos',
       description:
@@ -932,6 +971,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <FaCar className="size-8 text-white" />,
       title: 'Conheça o Financiamento e Refinanciamento de Veículos',
       sections: [
         {
@@ -1039,6 +1079,7 @@ export const pagesData: PagesData = {
 
   // Cartão Consignado
   'cartao-consignado': {
+    section: 'cartao-consignado',
     hero: {
       title: 'Cartão Consignado',
       description:
@@ -1050,6 +1091,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <CardIcon className="size-8" fill="white" />,
       title: 'Conheça o Cartão Consignado',
       sections: [
         {
@@ -1135,6 +1177,7 @@ export const pagesData: PagesData = {
 
   // Cartão Benefício Consignado
   'cartao-beneficio-consignado': {
+    section: 'cartao-beneficio-consignado',
     hero: {
       title: 'Cartão Benefício Consignado',
       description:
@@ -1146,6 +1189,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <CardIcon className="size-8" fill="white" />,
       title: 'Conheça o Cartão Benefício Consignado',
       sections: [
         {
@@ -1215,6 +1259,7 @@ export const pagesData: PagesData = {
 
   // Cartão Credcesta
   'cartao-credcesta': {
+    section: 'cartao-credcesta',
     hero: {
       title: 'Cartão Credcesta',
       description:
@@ -1226,6 +1271,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <CardIcon className="size-8" fill="white" />,
       title: 'Conheça o Cartão Credcesta',
       sections: [
         {
@@ -1312,6 +1358,7 @@ export const pagesData: PagesData = {
 
   // Consórcio
   consorcio: {
+    section: 'consorcio',
     hero: {
       title: 'Consórcio',
       description:
@@ -1323,6 +1370,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <AirplaneIcon className="size-8" fill="white" />,
       title: 'Conheça o Consórcio',
       sections: [
         {
@@ -1341,7 +1389,7 @@ export const pagesData: PagesData = {
                 </li>
                 <li>
                   <strong>Planejamento financeiro</strong>, ideal para adquirir
-                  <strong>imóveis, veículos</strong> ou outros bens de forma
+                  <strong> imóveis, veículos</strong> ou outros bens de forma
                   programada;
                 </li>
                 <li>
@@ -1413,6 +1461,7 @@ export const pagesData: PagesData = {
 
   // Seguros CPCréditos
   seguros: {
+    section: 'seguros',
     hero: {
       title: 'Seguros CPCréditos',
       description:
@@ -1424,6 +1473,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <SecurityIcon className="size-8" />,
       title: 'Conheça os Seguros CPCréditos',
       sections: [
         {
@@ -1513,6 +1563,7 @@ export const pagesData: PagesData = {
   },
   // Painel Solar
   'painel-solar': {
+    section: 'painel-solar',
     hero: {
       title: 'Painel Solar',
       description:
@@ -1524,6 +1575,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <BuildingIcon className="size-8" fill="white" />,
       title: 'Conheça o Painel Solar',
       sections: [
         {
@@ -1616,6 +1668,7 @@ export const pagesData: PagesData = {
 
   // Capital de Giro
   'capital-de-giro': {
+    section: 'capital-de-giro',
     hero: {
       title: 'Capital de Giro',
       description:
@@ -1627,6 +1680,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <BuildingIcon className="size-8" fill="white" />,
       title: 'Conheça o Capital de Giro',
       sections: [
         {
@@ -1725,6 +1779,7 @@ export const pagesData: PagesData = {
 
   // Operações Estruturadas
   'operacoes-estruturadas': {
+    section: 'operacoes-estruturadas',
     hero: {
       title: 'Operações Estruturadas',
       description:
@@ -1736,6 +1791,7 @@ export const pagesData: PagesData = {
       links: heroLinks,
     },
     about: {
+      icon: <BuildingIcon className="size-8" fill="white" />,
       title: 'Conheça as Operações Estruturadas',
       sections: [
         {
@@ -1830,13 +1886,14 @@ export const pagesData: PagesData = {
   },
 
   imobiliario: {
+    section: 'imobiliario',
     hero: {
       title: 'Crédito Imobiliário',
       description:
         'Descubra as melhores soluções para adquirir imóveis ou transformar o valor do seu patrimônio em crédito com condições exclusivas e flexíveis.',
       image: {
-        src: '/assets/images/products/.png',
-        alt: 'Seguros CPCréditos',
+        src: '/assets/images/products/financiamento-de-imovel.png',
+        alt: 'Crédito Imobiliário',
       },
       links: heroLinks,
     },
@@ -1848,7 +1905,7 @@ export const pagesData: PagesData = {
         'Descubra as melhores soluções para adquirir imóveis ou transformar o valor do seu patrimônio em crédito com condições exclusivas e flexíveis.',
       cta: 'Saiba mais',
       image: {
-        src: '/assets/images/imobiliario.png',
+        src: '/assets/images/products/imobiliario.png',
         alt: 'Crédito Imobiliário',
       },
       cards: [
@@ -1908,7 +1965,7 @@ export const pagesData: PagesData = {
             </article>
           ),
           image: {
-            src: '/assets/images/imobiliario.png',
+            src: '/assets/images/products/home-equity.png',
             alt: 'Home Equity',
           },
           href: '/produto/imobiliario/home-equity',
@@ -1949,6 +2006,7 @@ export const pagesData: PagesData = {
     seeAlso: getSeeAlso(seeAlsoImobiliario, ' '),
   },
   consignado: {
+    section: 'consignado',
     hero: {
       title: 'Crédito Consignado',
       description:
@@ -1974,7 +2032,7 @@ export const pagesData: PagesData = {
         'O crédito consignado é uma modalidade de empréstimo em que as parcelas são descontadas diretamente na folha de pagamento ou no benefício de aposentadoria. Essa solução oferece mais praticidade, taxas de juros reduzidas e segurança para quem busca organizar suas finanças.',
       cta: 'Saiba mais',
       image: {
-        src: '/assets/images/consigned.png',
+        src: '/assets/images/products/credito-consignado.png',
         alt: 'Crédito Consignado',
       },
       cards: [
@@ -1997,7 +2055,7 @@ export const pagesData: PagesData = {
             </article>
           ),
           image: {
-            src: '/assets/images/consigned.png',
+            src: '/assets/images/products/consignado-inss.png',
             alt: 'Crédito Consignado',
           },
           href: '/produto/consignado/consignado-inss',
@@ -2019,7 +2077,7 @@ export const pagesData: PagesData = {
             </article>
           ),
           image: {
-            src: '/assets/images/consigned.png',
+            src: '/assets/images/products/consignado-publico.png',
             alt: 'Crédito Consignado',
           },
           href: '/produto/consignado/consignado-publico',
@@ -2045,7 +2103,7 @@ export const pagesData: PagesData = {
           ),
 
           image: {
-            src: '/assets/images/consigned.png',
+            src: '/assets/images/products/consignado-privado.png',
             alt: 'Crédito Consignado',
           },
           href: '/produto/consignado/consignado-privado',
@@ -2073,7 +2131,7 @@ export const pagesData: PagesData = {
             </article>
           ),
           image: {
-            src: '/assets/images/consigned.png',
+            src: '/assets/images/products/consignado-federal.png',
             alt: 'Crédito Consignado',
           },
           href: '/produto/consignado/consignado-federal',

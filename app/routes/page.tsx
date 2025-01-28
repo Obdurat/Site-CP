@@ -11,6 +11,7 @@ import { HomeFooter } from '@/container/footer';
 import { useLocation } from 'react-router';
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
 import { SocialMedia } from '@/components/socialMedia';
+import { SimulationModal } from '@/components/simulationModal';
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -31,8 +32,8 @@ export default function ProductPage() {
       <Header />
       <main className="flex flex-col pt-20">
         <Hero data={data.hero} />
-        <About data={data.about} />
-        <div className="flex flex-col lg:gap-32 gap-20 lg:pt-32  pt-20">
+        <About data={data.about} section={data.section} />
+        <div className="flex flex-col lg:gap-32 gap-20 lg:pt-20 pt-16">
           <Advantage data={data.advantages} />
           <Partners
             title={`${data.hero.title}: parcerias estratégicas`}

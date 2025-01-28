@@ -42,7 +42,7 @@ const productsContent = {
         'Projetos grandes pedem soluções financeiras robustas. Nossas Operações Estruturadas oferecem planejamento estratégico e crédito sob medida para demandas específicas, como fusões, aquisições, infraestrutura e expansão empresarial. Feito sob medida para empresas de médio e grande porte.',
       cta: 'Ver produtos',
       href: '/produto/outros/operacoes-estruturadas',
-      image: '/assets/images/credit.png',
+      image: '/assets/images/products/operacoes-estruturadas.png',
     },
     {
       title: 'Consórcio',
@@ -113,13 +113,6 @@ export function Products({ data }: { data: Data['variants'] }) {
             </h2>
             <p className="text-white lg:text-lg text-sm">{data.description}</p>
           </div>
-          <div className="max-w-[448px] mr-8 absolute -top-32 -right-16 hidden lg:block">
-            <img
-              src={data.image.src}
-              alt={data.image.alt}
-              className="w-full h-full"
-            />
-          </div>
           <div>
             <div className="md:grid grid-cols-1  gap-8 relative z-10 hidden">
               {cards}
@@ -163,8 +156,8 @@ export function ProductCards() {
         <div
           key={Math.random()}
           className={cn(
-            'flex gap-4 bg-background rounded-3xl overflow-hidden bg-cptext-blue flex-col sm:flex-row',
-            i % 2 === 0 && 'sm:flex-row-reverse',
+            'flex gap-4 bg-background rounded-3xl overflow-hidden bg-cptext-blue flex-col md:flex-row justify-between',
+            i % 2 === 0 && 'md:flex-row-reverse ',
             'lg:col-span-2'
           )}
         >
@@ -179,7 +172,7 @@ export function ProductCards() {
               <MoveRight className="size-4" />
             </Link>
           </div>
-          <div className="md:max-w-[400px] overflow-hidden sm:block object-cover -mb-1">
+          <div className="md:max-w-[400px] overflow-hidden sm:block object-cover sm:min-w-[400px]">
             <img src={card.image} alt={card.title} className="w-full h-full" />
           </div>
         </div>

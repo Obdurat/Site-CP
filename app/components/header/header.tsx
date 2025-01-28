@@ -12,7 +12,7 @@ import {
   ChevronsUpDown,
   HandCoins,
 } from 'lucide-react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { Button } from '@/components/ui/button';
 
 import {
@@ -373,12 +373,20 @@ export function MobileNav() {
 }
 
 export function Header() {
+  // pathname
+  const pathname = useLocation();
+
   const scrollToSection = (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
+    const hasElement = document.querySelector('#nossos-escritorios');
+    if (!hasElement) return;
     e.preventDefault();
 
-    gsap.to(window, { duration: 1, scrollTo: '#nossos-escritorios' });
+    gsap.to(window, {
+      duration: 1,
+      scrollTo: { y: '#nossos-escritorios', offsetY: 80 },
+    });
   };
 
   return (

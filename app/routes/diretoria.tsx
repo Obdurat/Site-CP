@@ -36,7 +36,7 @@ const aboutContent = [
     ],
     image: {
       alt: 'Paulo Cattaneo',
-      src: '/assets/images/directors/.png',
+      src: '/assets/images/directors/Paulo.jpg',
     },
   },
   {

@@ -94,6 +94,24 @@ export function LeadForm({
       home: 'crédito pessoal',
       consignado: 'crédito consignado',
       imobiliario: 'crédito imobiliário',
+      'consignado-publico': 'crédito consignado público',
+      'consignado-federal': 'crédito consignado federal',
+      'consignado-privado': 'crédito consignado privado',
+      'consignado-inss': 'crédito consignado INSS',
+      'financiamento-imovel': 'financiamento imobiliário',
+      'home-equity': 'home equity',
+      'credito-pessoal': 'crédito pessoal',
+      fgts: 'FGTS saque aniversário',
+      'financiamento-refinanciamento-veiculos':
+        'financiamento ou refinanciamento de veículos',
+      'cartao-consignado': 'cartão consignado',
+      'cartao-beneficio-consignado': 'cartão benefício consignado',
+      'cartao-credcesta': 'cartão Credcesta',
+      consorcio: 'consórcio',
+      seguros: 'seguro CPCréditos',
+      'painel-solar': 'painel solar',
+      'capital-de-giro': 'capital de giro',
+      'operacoes-estruturadas': 'operações estruturadas',
     };
 
     const isCpf = data.cpfCnpj.replace(/\D/g, '').length <= 11;

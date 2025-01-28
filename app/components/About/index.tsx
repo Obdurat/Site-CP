@@ -97,6 +97,8 @@ export function AboutCard({
 
   useAnimationToRef(componentRef, { y: 0, x: index % 2 === 0 ? -50 : 50 });
 
+  const isSvg = content.image.src.endsWith('.svg');
+
   return (
     <section className={cn('py-4')}>
       <div
@@ -105,7 +107,9 @@ export function AboutCard({
       >
         <div
           className={cn(
-            `w-full aspect-square overflow-hidden rounded-lg col-span-3  mb-8 bg-gray-200 shadow-md p-8 text-white fill-white hidden lg:flex`,
+            isSvg
+              ? `w-full aspect-square overflow-hidden rounded-lg col-span-3  mb-8 bg-gray-200 shadow-md p-8 text-white fill-white hidden lg:flex`
+              : `w-full aspect-square overflow-hidden rounded-3xl col-span-4 mb-8 shadow-md lg:flex`,
             index % 2 === 0 ? 'md:order-1' : 'md:order-2'
           )}
         >
@@ -116,17 +120,20 @@ export function AboutCard({
           />
         </div>
         <div
-          className={
-            'flex-1 flex flex-col gap-4 col-span-7' +
-            (index % 2 === 0 ? ' order-2' : ' order-1')
-          }
+          className={cn(
+            'flex-1 flex flex-col gap-4',
+            isSvg ? 'col-span-7' : 'col-span-6',
+            index % 2 === 0 ? ' order-2' : ' order-1'
+          )}
         >
           <div className="flex gap-2 items-center justify-center flex-col">
-            <img
-              src={content.image.src}
-              alt={content.image.alt}
-              className="w-12 h-12 object-cover lg:hidden"
-            />
+            {isSvg && (
+              <img
+                src={content.image.src}
+                alt={content.image.alt}
+                className="w-12 h-12 object-cover lg:hidden"
+              />
+            )}
             <div>
               <h2 className="text-lg md:text-xl text-center text-cptext-blue font-bold flex-1 min-w-fit break-words w-fit">
                 {content.title}

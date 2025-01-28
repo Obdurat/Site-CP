@@ -11,34 +11,34 @@ import { useEffect, useState } from 'react';
 import { FaPhoneFlip } from 'react-icons/fa6';
 import { MdOutlineMail, MdOutlinePhoneEnabled } from 'react-icons/md';
 
-const getFromLocalStorage = (key: string) => {
-  return localStorage.getItem(key);
+const getFromSessionStorage = (key: string) => {
+  return sessionStorage.getItem(key);
 };
 
-const setToLocalStorage = (key: string, value: string) => {
-  localStorage.setItem(key, value);
+const setToSessionStorage = (key: string, value: string) => {
+  sessionStorage.setItem(key, value);
 };
 
 export function InfoModal() {
   const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
-    const isAlertOpen = getFromLocalStorage('alert-dialog');
+    const isAlertOpen = getFromSessionStorage('alert-dialog');
 
     if (isAlertOpen === null) {
-      setToLocalStorage('alert-dialog', 'true');
+      setToSessionStorage('alert-dialog', 'true');
       setIsOpen(true);
       return;
     }
 
-    setIsOpen(getFromLocalStorage('alert-dialog') === 'true');
+    setIsOpen(getFromSessionStorage('alert-dialog') === 'true');
   }, []);
 
   return (
     <AlertDialog
       open={isOpen}
       onOpenChange={() => {
-        setToLocalStorage('alert-dialog', 'false');
+        setToSessionStorage('alert-dialog', 'false');
         setIsOpen(false);
       }}
     >
@@ -72,7 +72,7 @@ export function InfoModal() {
         <AlertDialogFooter>
           <AlertDialogAction
             onClick={() => {
-              setToLocalStorage('alert-dialog', 'false');
+              setToSessionStorage('alert-dialog', 'false');
               setIsOpen(false);
             }}
             className="bg-cpblue-400"

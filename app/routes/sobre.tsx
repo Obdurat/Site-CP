@@ -37,7 +37,7 @@ const aboutContent = [
     ],
     image: {
       alt: 'Imagem sobre a empresa',
-      src: '/assets/images/livro.svg',
+      src: '/assets/images/equipe-cp.jpg',
     },
   },
   {
@@ -151,10 +151,6 @@ const heroData = {
   title: 'Sobre a CPCréditos',
   description:
     'Transformamos o acesso ao crédito em uma experiência mais humana, transparente e acessível. Conheça nossa história, valores e compromisso com você.',
-  image: {
-    alt: 'Imagem sobre a empresa',
-    src: '/assets/images/history.jpeg',
-  },
 };
 export default function About() {
   return (
@@ -162,10 +158,19 @@ export default function About() {
       <Header />
       <main className="flex flex-col pt-20 pb-20">
         <Hero data={heroData} />
-        <div className="flex gap-4 md:flex-row flex-col items-center container my-16">
-          <h2 className="text-3xl text-center md:text-3xl text-cptext-blue w-full font-bold flex-1 min-w-fit">
+        <div className="flex gap-4 flex-col items-center container my-16">
+          <h2 className="text-3xl text-center md:text-3xl text-cptext-blue w-full font-bold flex-1 min-w-fit ">
             HUMANIZANDO O CRÉDITO
           </h2>
+          {/* <div
+            className={`w-full md:w-1/2 aspect-square overflow-hidden  col-span-3  mb-8 shadow-md text-white fill-white hidden lg:flex rounded-lg`}
+          >
+            <img
+              src="/assets/images/equipe-cp.jpg"
+              alt="Imagem sobre a empresa"
+              className="w-full h-full object-cover"
+            />
+          </div> */}
         </div>
         <div className="flex flex-col lg:gap-32 gap-20">
           <AboutList aboutContent={aboutContent} />
