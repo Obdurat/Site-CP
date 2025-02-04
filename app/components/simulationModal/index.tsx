@@ -120,7 +120,7 @@ export function LeadForm({
     const valorText = data.valor ? ` no valor de ${data.valor}` : '';
     const docType = isCpf ? 'CPF' : 'CNPJ';
 
-    const message = `Olá, meu nome é ${data.nome} e gostaria de fazer uma simulação de ${sectionText}${valorText}. Meu ${docType} é ${data.cpfCnpj}, meu telefone é ${data.telefone} e meu email é ${data.email}.`;
+    const message = `Olá, meu nome é ${data.nome} e gostaria de fazer uma simulação de ${sectionText}${valorText}.`;
 
     const phone = import.meta.env.VITE_CP_PHONE;
     const whatsappUrl = new URL('https://api.whatsapp.com/send');
@@ -300,7 +300,8 @@ export function SimulationModal({
             Simule seu crédito
           </DialogTitle>
           <DialogDescription>
-            Faça uma simulação de crédito agora mesmo!
+            Preencha o formulário abaixo para ser direcionado a um de nossos
+            consultores especializados.
           </DialogDescription>
           <LeadForm
             section={section}

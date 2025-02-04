@@ -161,7 +161,12 @@ export function ProductCards() {
             'lg:col-span-2'
           )}
         >
-          <div className="flex gap-4 flex-col w-full lg:max-w-[60%] p-8 sm:pr-0">
+          <div
+            className={cn(
+              'flex gap-4 flex-col w-full lg:max-w-[60%] p-8',
+              i % 2 === 0 ? 'sm:pl-0' : 'sm:pr-0'
+            )}
+          >
             <h3 className="text-xl md:text-2xl font-bold">{card.title}</h3>
             <p className="md:text-xl">{card.description}</p>
             <Link

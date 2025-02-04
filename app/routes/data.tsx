@@ -6,22 +6,11 @@ import { GiReceiveMoney } from 'react-icons/gi';
 import {
   VantagensIcon,
   AirplaneIcon,
-  AppStoreIcon,
-  AtendimentoIcon,
   BuildingIcon,
   CardIcon,
-  ConhecaIcon,
   CreditIcon,
-  DiretoriaIcon,
-  EscritoriosIcon,
   HomeIcon,
-  ParceiroIcon,
-  PayIcon,
-  PrivacidadeIcon,
   SecurityIcon,
-  SpeedIcon,
-  TrabalheConoscoIcon,
-  VejaTambemIcon,
 } from '../components/ui/icons';
 import type { JSX } from 'react';
 

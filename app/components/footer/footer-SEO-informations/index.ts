@@ -68,7 +68,7 @@ export const footersInformations = {
             link: '/produto/credito/fgts',
           },
           {
-            label: 'Financiamento/Refinanciamento de Veículos',
+            label: 'Financiamento / Refinanciamento de Veículos',
             link: '/produto/credito/financiamento-refinanciamento-veiculos',
           },
         ],
@@ -111,8 +111,8 @@ export const footersInformations = {
             link: '/sobre',
           },
           {
-            label: 'Nossa Diretoria',
-            link: '/diretoria',
+            label: 'Nossa Equipe',
+            link: '/equipe',
           },
           {
             label: 'Trabalhe Conosco',

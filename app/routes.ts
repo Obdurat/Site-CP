@@ -50,5 +50,5 @@ export default [
 
   route('produto/imobiliario', 'routes/imobiliario.tsx'),
   route('sobre', 'routes/sobre.tsx'),
-  route('diretoria', 'routes/diretoria.tsx'),
+  route('equipe', 'routes/diretoria.tsx'),
 ] satisfies RouteConfig;

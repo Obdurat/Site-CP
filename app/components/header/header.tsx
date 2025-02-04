@@ -118,7 +118,7 @@ const headerData: HeaderData = {
             href: '/produto/credito/fgts',
           },
           {
-            title: 'Financiamento/Refinanciamento de Veículos',
+            title: 'Financiamentonciamento de Veículos',
             href: '/produto/credito/financiamento-refinanciamento-veiculos',
           },
         ],
@@ -184,9 +184,9 @@ const headerData: HeaderData = {
         icon: <ConhecaIcon className="size-8" fill="#393e91" />,
       },
       {
-        title: 'Nossa Diretoria',
-        href: '/diretoria',
-        description: 'Conheça nossa diretoria',
+        title: 'Nossa Equipe',
+        href: '/equipe',
+        description: 'Conheça nossa equipe',
         icon: <DiretoriaIcon className="size-8" fill="#393e91" />,
       },
       {

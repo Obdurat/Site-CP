@@ -28,7 +28,10 @@ export function DirectorCard({
           <img
             src={content.image.src}
             alt={content.image.alt}
-            className="w-full h-full object-cover"
+            className={cn(
+              'w-full h-full object-cover',
+              content.image.className
+            )}
           />
         </div>
         <div
@@ -83,6 +86,7 @@ type AboutContent = {
   image: {
     src: string;
     alt: string;
+    className?: string;
   };
 };
 

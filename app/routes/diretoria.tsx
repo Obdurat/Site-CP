@@ -64,13 +64,38 @@ const aboutContent = [
   },
   {
     sub: 'Diretoria',
-    title: 'Alessandro Bueno - Head Operacional da CP Créditos',
+    title: 'Fatima Ciriaco - Diretora Financeira da CP Créditos',
+    descriptions: [
+      <p>
+        Com uma trajetória marcada por expertise e liderança, ela é responsável
+        por gerenciar as operações financeiras da empresa, garantindo
+        eficiência, transparência e sustentabilidade econômica. Com vasta
+        experiência no setor financeiro, Fátima se destaca por sua habilidade em
+        estratégias de gestão de recursos, análise de riscos e planejamento
+        fiscal, contribuindo significativamente para o crescimento e a
+        estabilidade da CP Créditos.
+      </p>,
+      <p>
+        Seu perfil profissional combina competência técnica com uma visão
+        estratégica, tornando-a uma peça fundamental na liderança da
+        organização.
+      </p>,
+    ],
+    image: {
+      alt: 'Maria de Fatima Ciriaco Cattaneo',
+      src: '/assets/images/directors/Fatima.jpeg',
+      className: 'bg-gray-200 object-contain',
+    },
+  },
+  {
+    sub: 'Diretoria',
+    title: 'Alessandro Bueno - Head Comercial da CP Créditos',
     descriptions: [
       <p>
         Com uma carreira sólida em operações financeiras, Alessandro Bueno é o
-        Head Operacional da CP Créditos. Com vasta experiência em gestão de
+        Head Comercial da CP Créditos. Com vasta experiência em gestão de
         processos e otimização de equipes, ele desempenha um papel crucial na
-        eficiência e excelência operacional da empresa.
+        eficiência e excelência Comercial da empresa.
       </p>,
       <p>
         Sua abordagem estratégica visa melhorar a experiência do cliente,
@@ -109,7 +134,7 @@ const aboutContent = [
 ];
 
 const heroData = {
-  title: 'Conheça nossa diretoria',
+  title: 'Conheça nossa Equipe',
   description: `Conheça a equipe de especialistas que lidera a CP Créditos, com vasta experiência no mercado financeiro e um compromisso com a inovação e a transparência.`,
 };
 

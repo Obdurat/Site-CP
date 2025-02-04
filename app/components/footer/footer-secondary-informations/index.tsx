@@ -17,7 +17,7 @@ export function FooterSecondaryInformations() {
                   <Link
                     key={Math.random()}
                     to={link.link}
-                    className="text-white text-wrap break-all"
+                    className="text-white text-wrap"
                   >
                     {link.label}
                   </Link>

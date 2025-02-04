@@ -51,15 +51,14 @@ Simule agora e descubra o valor perfeito para você!`,
     section: 'home',
   },
 ];
-
 const Hero = ({ hero }: any) => {
   return (
-    <section className="bg-cptext-blue flex justify-center pt-16 h-full">
-      <div>
-        <div className="container mx-auto flex items-center flex-col-reverse md:flex-row justify-between gap-4 h-full">
+    <div className="bg-[url('/assets/images/bg/bg-mobile.png')]  md:bg-[url('/assets/images/bg/bg-pattern.png')] h-full flex items-center justify-center bg-cover bg-top">
+      <section className="bg-gradient-to-l from-cptext-blue/95 to-cptext-blue/90  md:to-cptext-blue/80 via-cptext-blue/95  flex justify-center pt-16 h-full w-full">
+        <div className="container mx-auto flex items-center flex-col-reverse lg:flex-row justify-between gap-2 h-full">
           <div
             className={cn(
-              'w-full h-fit lg:min-w-[483px] md:mr-8 ',
+              'w-full h-fit lg:min-w-[490px] md:mr-8 md:max-w-[490px]',
               hero.image.class
             )}
           >
@@ -69,7 +68,7 @@ const Hero = ({ hero }: any) => {
               className="w-full h-full"
             />
           </div>
-          <div className="mx-w-[448px] flex flex-col gap-4 pb-8">
+          <div className="flex flex-col gap-2 pb-4">
             <p className="text-gray-300 lg:text-xl text-xs">{hero.sub}</p>
             <h1 className="text-secondary lg:text-4xl text-2xl font-bold">
               {hero.title}
@@ -78,8 +77,8 @@ const Hero = ({ hero }: any) => {
             <CreditSlider section={hero.section} />
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
@@ -93,7 +92,7 @@ export function Main() {
   return (
     <section>
       <Carousel
-        className="w-full bg-cptext-blue"
+        className="w-full bg-cptext-blue "
         opts={{ loop: true }}
         plugins={[autoPlay]}
       >
