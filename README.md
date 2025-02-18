@@ -136,3 +136,10 @@ npm run build
 ```
 
 Os arquivos de build serão gerados na pasta `build`.
+
+## Deploy do Projeto
+
+Deploying Projects from Vercel CLI
+Learn how to deploy your Vercel Projects from Vercel CLI using the vercel or vercel deploy commands.
+
+https://vercel.com/docs/cli/deploying-from-cli
